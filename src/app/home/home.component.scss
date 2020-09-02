@@ -1,0 +1,159 @@
+.split {
+  align-self: flex-end;
+  height: 100%;
+  width: 55%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: var(--white);
+  padding-left: 75px;
+
+  h1 {
+    padding-top: 150px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  h2 {
+    padding-top: 40px;
+    font-size: 18px;
+    color: var(--tertiary);
+  }
+  .logo {
+    width: 50px;
+  }
+
+  .logo__container a {
+    display: inline-block;
+  }
+  nav {
+    display: flex;
+    width: 250px;
+    position: relative;
+    float: right;
+    padding-right: 210px;
+  }
+
+  .navList {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+
+    li a {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--highlight);
+      padding-right: 50px;
+    }
+  }
+
+  .searchBox {
+    padding-left: 75px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 12px 12px;
+    margin: 25px 0;
+    width: 300px;
+    background-color: var(--off-white);
+    &-container {
+      position: relative;
+    }
+
+    input {
+      border: none;
+      width: 100%;
+      height: 100%;
+      background-color: var(--off-white);
+    }
+
+    a {
+      width: 18%;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    button {
+      width: 3%;
+      display: flex;
+      background: none;
+      border: none;
+    }
+
+    img {
+      width: 130%;
+      height: 130%;
+    }
+  }
+}
+
+/* Control the right side */
+.right {
+  height: 100%;
+  right: 0;
+  background-color: var(--off-white);
+  h1 {
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 60px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+  p {
+    font-size: 14px;
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: var(--tertiary);
+    align-self: flex-end;
+  }
+  ul {
+    margin-left: 10px;
+  }
+  .bullet {
+    padding-right: 10px;
+  }
+  li {
+    color: var(--tertiary);
+    font-size: 14px;
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .searchBox {
+    width: 75%;
+  }
+  //   .left {
+  //     nav {
+  //       padding-right: 210px;
+  //     }
+  //   }
+}
+@media only screen and (min-width: 1920px) {
+  .searchBox {
+    width: 75%;
+  }
+  .left {
+    nav {
+      padding-right: 310px;
+    }
+  }
+}
+/* If you want the content centered horizontally and vertically */
+// .centered {
+//   position: absolute;
+// }
