@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { DataModelsComponent } from './data-models/data-models.component';
+import { DataModelDomainsComponent} from './data-model-domains/data-model-domains.component'
 
 const routes: Routes = [
   {
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'datamodels/:domainName',
-    component: DataModelsComponent,
+    path: 'datamodels',
+    component: DataModelDomainsComponent,
   },
 ];
 

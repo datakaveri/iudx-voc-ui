@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataModelsComponent } from './data-models.component';
+import { DataModelDomainsComponent } from './data-model-domains.component';
 
-describe('DataModelsComponent', () => {
-  let component: DataModelsComponent;
-  let fixture: ComponentFixture<DataModelsComponent>;
+describe('DataModelDomainsComponent', () => {
+  let component: DataModelDomainsComponent;
+  let fixture: ComponentFixture<DataModelDomainsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataModelsComponent ]
+      declarations: [ DataModelDomainsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataModelsComponent);
+    fixture = TestBed.createComponent(DataModelDomainsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
