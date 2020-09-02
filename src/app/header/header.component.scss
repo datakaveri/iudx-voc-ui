@@ -34,23 +34,11 @@ nav {
     padding-right: 50px;
   }
 }
-
-// .search-container {
-//   display: flex;
-//   align-items: center;
-//   border: 1px solid var(--border);
-//   padding: 8px 12px;
-//   margin: 25px 0;
-//   img {
-//     width: 100%;
-//   }
-// }
-
 .searchBox {
   display: flex;
   align-items: center;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 8px 12px;
   margin: 25px 0;
   width: 600px;
@@ -107,21 +95,3 @@ nav {
   padding-left: 10px;
 }
 
-// HOVER FUNCTIONALITY
-
-// .developers__container {
-//   border: 1px solid var(--border);
-//   padding: 5px 15px;
-//   border-radius: 8px;
-
-//   div {
-//     font-size: 18px;
-//     padding: 15px 0;
-//   }
-// }
-
-// .developers__container p,
-// .documentation__container p,
-// // .arrow {
-// //   color: var(--tertiary);
-// // }

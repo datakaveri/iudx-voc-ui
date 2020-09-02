@@ -1,5 +1,8 @@
 .data-models-container{
     margin : 35px; 
+    // height:calc(100vh - 71.99px); 
+    padding-top:60px;
+
     .title-div{
        
         h1{
@@ -35,7 +38,7 @@
                 border-bottom: 2px dashed var(--border);
                 padding-bottom:20px;
                 font-size:16px;
-                color:var(--tertiary)
+                color:var(--tertiary);
             }
                        
             a{
@@ -50,6 +53,18 @@
      
         
     }
-    .para-div{}
+    .para-div{
+        margin-top:25px;
+      
+        p{
+            font-size:16px;  
+            color:var(--tertiary);
+            a{
+                font-size:16px;
+                color:var(--highlight);
+                
+            }
+        }
+    }
 
 }
