@@ -8,6 +8,7 @@ import { DataModelsComponent } from './data-models/data-models.component';
 import { TypesComponent } from './types/types.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { EntitiesComponent } from './entities/entities.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     DataModelsComponent,
     TypesComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    EntitiesComponent
   ],
   imports: [
     BrowserModule,
