@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DataModelDomainsComponent} from './data-model-domains/data-model-domains.component'
+import { EntitiesComponent } from './entities/entities.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'datamodels',
     component: DataModelDomainsComponent,
+  },
+  {
+    path: 'entities',
+    component: EntitiesComponent,
   },
 ];
 
