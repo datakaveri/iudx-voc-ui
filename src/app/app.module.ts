@@ -14,7 +14,6 @@ import { EntitiesComponent } from './entities/entities.component';
     AppComponent,
     HomeComponent,
     DataModelsComponent,
-    TypesComponent,
     HeaderComponent,
     FooterComponent,
     EntitiesComponent
