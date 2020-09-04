@@ -1,19 +1,14 @@
 .data-models-container{
     margin : 35px; 
-    // height:calc(100vh - 71.99px); 
     padding-top:60px;
-
     .title-div{
-       
         h1{
-            
             border-bottom: 1px solid var(--border); 
             font-size: 18px;
             padding-bottom:20px;
             color: var(--secondary);
             font-weight:500;
         }
-       
     }
     .content-div{
        width:100%;
@@ -31,7 +26,6 @@
                 margin-left: 5%;
                 margin-right: 5%;
             }
-
             h1{
                 font-size:18px;
                 font-weight:500;
@@ -43,14 +37,12 @@
                 font-size:16px;
                 color:var(--tertiary);
             }
-                       
             a{
                display:block;
                 text-align: center;
                 color:var(--highlight);
                 font-weight: 500;
                 font-size:16px;
-                
             }
         }
      

@@ -8,6 +8,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EntitiesComponent } from './entities/entities.component';
 import { DataModelDomainsComponent } from './data-model-domains/data-model-domains.component';
+import { SchemaDetailsTypesComponent } from './schema-details-types/schema-details-types.component';
+import { ClassesComponent } from './classes/classes.component';
+import { PropertiesComponent } from './properties/properties.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DataModelDomainsComponent } from './data-model-domains/data-model-domai
     HeaderComponent,
     FooterComponent,
     EntitiesComponent,
-    DataModelDomainsComponent
+    DataModelDomainsComponent,
+    SchemaDetailsTypesComponent,
+    ClassesComponent,
+    PropertiesComponent
   ],
   imports: [
     BrowserModule,

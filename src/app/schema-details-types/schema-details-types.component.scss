@@ -1,0 +1,28 @@
+.main-container{
+    padding-top:60px;
+    margin : 35px; 
+    .title-div{
+        
+        h1{
+            font-size: 18px;
+            padding-bottom:10px;
+            color: var(--secondary);
+            font-weight:500;
+        }
+        p{
+            font-size:16px;
+            color:var(--tertiary);
+            padding-bottom:20px;
+        }
+    }
+    #table-div{
+         width: 100%;
+         table{
+            border:1px solid var(--border);
+         }
+       
+    }
+}
+.sub-header-style{
+    background-color:var(--off-white);
+}
