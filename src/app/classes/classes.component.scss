@@ -11,7 +11,7 @@
     p {
       font-size: 16px;
       color: var(--tertiary);
-      padding-bottom: 20px;
+      padding-bottom: 30px;
     }
   }
  
@@ -25,13 +25,13 @@
         border-bottom: 1px solid var(--border);
         background-color: var(--off-white);
         padding: 20px;
+        font-size:16px;
       }
       td {
         border-right: 1px solid var(--border);
-
         padding: 20px;
       }
-      .classes {
+      .title {
         color: var(--highlight);
         font-weight:500;
         border-bottom: 1px solid var(--highlight)
