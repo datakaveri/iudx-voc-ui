@@ -14,36 +14,32 @@
       padding-bottom: 20px;
     }
   }
-  #table-div {
-    width: 100%;
+ 
     table {
-      width: calc(100% - 100px);
-      border: 1px solid #cccccc;
-      border-spacing: 0;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
       th {
         text-align: left;
-        border-right: 1px solid #cccccc;
-        border-bottom: 1px solid #cccccc;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
         background-color: var(--off-white);
         padding: 20px;
       }
       td {
-        border-right: 1px solid #cccccc;
+        border-right: 1px solid var(--border);
 
         padding: 20px;
-        // color: var(--highlight);
       }
       .classes {
-        // padding: 20px;
         color: var(--highlight);
-        text-decoration: underline;
+        font-weight:500;
+        border-bottom: 1px solid var(--highlight)
       }
       .description {
         border-right: none;
       }
     }
   }
-}
-.sub-header-style {
-  background-color: var(--off-white);
-}
+
+
