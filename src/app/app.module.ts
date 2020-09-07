@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -12,6 +13,7 @@ import { SchemaDetailsTypesComponent } from './schema-details-types/schema-detai
 import { ClassesComponent } from './classes/classes.component';
 import { PropertiesComponent } from './properties/properties.component';
 import { SchemaDetailsPropertiesComponent } from './schema-details-properties/schema-details-properties.component';
+import { DomainsComponent } from './domains/domains.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { SchemaDetailsPropertiesComponent } from './schema-details-properties/sc
     SchemaDetailsTypesComponent,
     ClassesComponent,
     PropertiesComponent,
-    SchemaDetailsPropertiesComponent
+    SchemaDetailsPropertiesComponent,
+    DomainsComponent
   ],
   imports: [
     BrowserModule,

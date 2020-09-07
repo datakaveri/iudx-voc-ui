@@ -7,6 +7,7 @@ import { EntitiesComponent } from './entities/entities.component';
 import { ClassesComponent } from './classes/classes.component';
 import { PropertiesComponent } from './properties/properties.component';
 import { SchemaDetailsTypesComponent } from './schema-details-types/schema-details-types.component';
+import { DomainsComponent } from './domains/domains.component';
 
 const routes: Routes = [
   {
@@ -14,29 +15,45 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'datamodels',
+    path: 'data-models',
     component: DataModelDomainsComponent,
+    children: [
+      {
+        path: ':domain_name',
+        component: DomainsComponent,
+        children: [
+          {
+            path: 'class/:class_name',
+            component: SchemaDetailsTypesComponent
+          }
+        ]
+      }
+    ]
   },
   {
     path: 'entities',
-    component: EntitiesComponent,
+    component: EntitiesComponent
   },
   {
-    path: 'classes',
+    path: 'types',
     component: ClassesComponent,
+    children: [
+      {
+        path: ':class_name',
+        component: SchemaDetailsTypesComponent
+      }
+    ]
   },
   {
     path: 'properties',
     component: PropertiesComponent,
-  },
-  {
-    path: 'schema-details-types',
-    component: SchemaDetailsTypesComponent,
-  },
-  {
-    path: 'schema-details-properties',
-    component: SchemaDetailsPropertiesComponent,
-  },
+    children: [
+      {
+        path: ':property_name',
+        component: SchemaDetailsPropertiesComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({
