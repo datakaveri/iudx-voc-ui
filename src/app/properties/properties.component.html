@@ -9,53 +9,13 @@
           <th>Property</th>
           <th class="description">Description</th>
         </tr>
-        <tr>
+        <tr *ngFor="let property of properties">
           <td>
-            <a class="title">airTemperature</a>
+            <a class="title">{{property.label}}</a>
           </td>
           <td class="description">
-            Observed value of air temperature. Value is an object containing attributes representing statistical aggregates derived from past data.
+            {{property.comment}}
           </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="title">airTemperature</a>
-              </td>
-              <td class="description">
-                Observed value of air temperature. Value is an object containing attributes representing statistical aggregates derived from past data.
-              </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="title">airTemperature</a>
-              </td>
-              <td class="description">
-                Observed value of air temperature. Value is an object containing attributes representing statistical aggregates derived from past data.
-              </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="title">airTemperature</a>
-              </td>
-              <td class="description">
-                Observed value of air temperature. Value is an object containing attributes representing statistical aggregates derived from past data.
-              </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="title">airTemperature</a>
-              </td>
-              <td class="description">
-                Observed value of air temperature. Value is an object containing attributes representing statistical aggregates derived from past data.
-              </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="title">airTemperature</a>
-              </td>
-              <td class="description">
-                Observed value of air temperature. Value is an object containing attributes representing statistical aggregates derived from past data.
-              </td>
         </tr>
       </table>
     </div>

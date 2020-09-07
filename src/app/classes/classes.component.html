@@ -9,52 +9,12 @@
         <th>Classes</th>
         <th class="description">Description</th>
       </tr>
-      <tr>
+      <tr *ngFor = "let class of classes">
         <td>
-          <a class="title">StructuredProperty</a>
+          <a class="title">{{class.label}}</a>
         </td>
         <td class="description">
-          Describes the class of all properties in IUDX that have a complex JSON structures and cannot be described using simple strings and native data types.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="title">StructuredProperty</a>
-        </td>
-        <td class="description">
-          Describes the class of all properties in IUDX that have a complex JSON structures and cannot be described using simple strings and native data types.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="title">StructuredProperty</a>
-        </td>
-        <td class="description">
-          Describes the class of all properties in IUDX that have a complex JSON structures and cannot be described using simple strings and native data types.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="title">StructuredProperty</a>
-        </td>
-        <td class="description">
-          Describes the class of all properties in IUDX that have a complex JSON structures and cannot be described using simple strings and native data types.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="title">StructuredProperty</a>
-        </td>
-        <td class="description">
-          Describes the class of all properties in IUDX that have a complex JSON structures and cannot be described using simple strings and native data types.
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="title">StructuredProperty</a>
-        </td>
-        <td class="description">
-          Describes the class of all properties in IUDX that have a complex JSON structures and cannot be described using simple strings and native data types.
+          {{class.comment}}
         </td>
       </tr>
     </table>

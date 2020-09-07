@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InterceptorService } from '../interceptor.service';
 
 @Component({
   selector: 'app-classes',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classes.component.scss']
 })
 export class ClassesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  classes : any;
+  constructor(private service: InterceptorService) { 
+    this.getClassesList();
   }
 
+  ngOnInit(): void {
+   
+  }
+  getClassesList(){
+    this.service.get_api_headers('classes').then((data)=>{
+      console.log(data);
+      this.classes = data;
+    })
+    
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InterceptorService } from '../interceptor.service';
 
 @Component({
   selector: 'app-properties',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./properties.component.scss']
 })
 export class PropertiesComponent implements OnInit {
+  properties: any;
 
-  constructor() { }
+  constructor(private service: InterceptorService) { 
+    this.getPropertyList();
+  }
 
   ngOnInit(): void {
   }
-
+  getPropertyList(){
+    this.service.get_api_headers('properties').then((data)=>{
+      console.log(data);
+      this.properties = data;
+    })
+  }
 }
