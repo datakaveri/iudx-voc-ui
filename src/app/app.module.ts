@@ -11,6 +11,7 @@ import { DataModelDomainsComponent } from './data-model-domains/data-model-domai
 import { SchemaDetailsTypesComponent } from './schema-details-types/schema-details-types.component';
 import { ClassesComponent } from './classes/classes.component';
 import { PropertiesComponent } from './properties/properties.component';
+import { SchemaDetailsPropertiesComponent } from './schema-details-properties/schema-details-properties.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PropertiesComponent } from './properties/properties.component';
     DataModelDomainsComponent,
     SchemaDetailsTypesComponent,
     ClassesComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    SchemaDetailsPropertiesComponent
   ],
   imports: [
     BrowserModule,
