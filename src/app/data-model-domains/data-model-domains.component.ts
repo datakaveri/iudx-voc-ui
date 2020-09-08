@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DataModelDomainsComponent implements OnInit {
   dataModels:any;
+  descriptors: any;
   constructor(private service:InterceptorService,private router: Router) {}
 
   ngOnInit(): void {
@@ -21,6 +22,9 @@ export class DataModelDomainsComponent implements OnInit {
   }
   getDataModelsList(domain_name){
     this.router.navigate(['/domain',domain_name]);
+  }
+  showDescriptorList(){
+    this.router.navigate(['/data-descriptors']);
   }
 
 }

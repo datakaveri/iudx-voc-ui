@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InterceptorService } from '../interceptor.service';
 
 @Component({
   selector: 'app-data-descriptors',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-descriptors.component.scss']
 })
 export class DataDescriptorsComponent implements OnInit {
+  descriptors: any;
 
-  constructor() { }
+  constructor(private service:InterceptorService) { }
 
   ngOnInit(): void {
   }
-
+  
+  showAllDataDescriptors(){
+  this.service.get_api_headers('list/descriptors').then((data)=>{
+    this.descriptors = data;
+  })
+}
 }
