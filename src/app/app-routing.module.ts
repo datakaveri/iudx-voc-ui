@@ -8,6 +8,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { PropertiesComponent } from './properties/properties.component';
 import { SchemaDetailsTypesComponent } from './schema-details-types/schema-details-types.component';
 import { DomainsComponent } from './domains/domains.component';
+import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.component';
 
 const routes: Routes = [
   {
@@ -16,15 +17,15 @@ const routes: Routes = [
   },
   {
     path: 'data-models',
-    component: DataModelDomainsComponent
+    component: DataModelDomainsComponent,
   },
   {
     path: 'domain/:domain_name',
-    component: DomainsComponent
+    component: DomainsComponent,
   },
   {
     path: 'class/:class_name',
-    component: SchemaDetailsTypesComponent
+    component: SchemaDetailsTypesComponent,
   },
   {
     path: 'entities',
@@ -32,20 +33,24 @@ const routes: Routes = [
   },
   {
     path: 'types',
-    component: ClassesComponent
+    component: ClassesComponent,
   },
   {
     path: 'type/:class_name',
-    component: SchemaDetailsTypesComponent
+    component: SchemaDetailsTypesComponent,
   },
   {
     path: 'properties',
-    component: PropertiesComponent
+    component: PropertiesComponent,
   },
   {
     path: 'properties/:property_name',
     component: SchemaDetailsPropertiesComponent,
-  }
+  },
+  {
+    path: 'data-descriptors',
+    component: DataDescriptorsComponent,
+  },
 ];
 
 @NgModule({
