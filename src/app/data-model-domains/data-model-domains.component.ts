@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-model-domains',
@@ -8,16 +9,18 @@ import { InterceptorService } from '../interceptor.service';
 })
 export class DataModelDomainsComponent implements OnInit {
   dataModels:any;
-  constructor(private service:InterceptorService) {}
+  constructor(private service:InterceptorService,private router: Router) {}
 
   ngOnInit(): void {
-    this.getAllDataModelsDomain();
+    this.getAllDomains();
   }
-  getAllDataModelsDomain(){
+  getAllDomains(){
     this.service.get_api_headers('relationship?rel=subClassOf&val=DataModel').then((data)=>{
-      console.log(data);
-      this.dataModels =data;
+      this.dataModels = data;
     })
+  }
+  getDataModelsList(domain_name){
+    this.router.navigate(['/domain',domain_name])
   }
 
 }
