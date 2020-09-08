@@ -12,6 +12,7 @@ export class DataDescriptorsComponent implements OnInit {
   constructor(private service:InterceptorService) { }
 
   ngOnInit(): void {
+    this.showAllDataDescriptors();
   }
   
   showAllDataDescriptors(){
