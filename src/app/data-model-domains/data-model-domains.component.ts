@@ -20,7 +20,7 @@ export class DataModelDomainsComponent implements OnInit {
     })
   }
   getDataModelsList(domain_name){
-    this.router.navigate(['/domain',domain_name])
+    this.router.navigate(['/domain',domain_name]);
   }
 
 }

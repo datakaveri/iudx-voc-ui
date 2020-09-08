@@ -15,12 +15,8 @@
   </div>
   <div class="content-div">
     <div class="list-div">
-      <ul>
-        <li><a>Resource Group</a></li>
-        <li><a>Resource Server</a></li>
-        <li><a>Resource</a></li>
-        <li><a>Provider</a></li>
-        <li><a>DataDescriptor</a></li>
+      <ul  *ngFor="let entity of entities">
+        <li><a (click)= "goToEntity(entity.label)">{{entity.label}}</a></li>
       </ul>
     </div>
   </div>

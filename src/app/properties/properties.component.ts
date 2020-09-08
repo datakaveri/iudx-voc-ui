@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-properties',
@@ -9,7 +10,7 @@ import { InterceptorService } from '../interceptor.service';
 export class PropertiesComponent implements OnInit {
   properties: any;
 
-  constructor(private service: InterceptorService) { 
+  constructor(private service: InterceptorService,private router:Router) { 
     this.getPropertyList();
   }
 
@@ -20,5 +21,8 @@ export class PropertiesComponent implements OnInit {
       console.log(data);
       this.properties = data;
     })
+  }
+  showPropertyDetail(property_name :string){
+    this.router.navigate(['/property', property_name]);
   }
 }

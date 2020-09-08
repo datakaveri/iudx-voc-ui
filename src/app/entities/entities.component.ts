@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InterceptorService } from '../interceptor.service';
 
 @Component({
   selector: 'app-entities',
@@ -7,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./entities.component.scss']
 })
 export class EntitiesComponent implements OnInit {
+  entities: any;
 
-  constructor(private router:Router) { }
+  constructor(private backendService: InterceptorService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +19,14 @@ export class EntitiesComponent implements OnInit {
   }
   displayPropertyList(){
     this.router.navigate(['properties']);
+  }
+  getEntities(): void {
+    this.backendService.get_api_headers('relationship?rel=subClassOf&val=IUDXEntity').then((data)=>{
+      console.log(data);
+      this.entities = data
+    });
+  }
+  goToEntity(entity_name:string){
+    this.router.navigate(['/type',entity_name]);
   }
 }
