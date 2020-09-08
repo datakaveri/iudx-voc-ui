@@ -11,7 +11,7 @@
         </tr>
         <tr *ngFor="let property of properties">
           <td>
-            <a class="title">{{property.label}}</a>
+            <a (click)="showPropertyDetail(property.label)" class="title">{{property.label}}</a>
           </td>
           <td class="description">
             {{property.comment}}
