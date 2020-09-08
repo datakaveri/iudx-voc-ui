@@ -9,10 +9,8 @@ import { Router } from '@angular/router';
 })
 export class ClassesComponent implements OnInit {
   classes : any;
-  displayClassDetail: boolean;
-  constructor(private service: InterceptorService,private route:Router) { 
+  constructor(private service: InterceptorService,private router: Router) { 
     this.getClassesList();
-    this.displayClassDetail = false;
   }
 
   ngOnInit(): void {
@@ -20,15 +18,10 @@ export class ClassesComponent implements OnInit {
   }
   getClassesList(){
     this.service.get_api_headers('classes').then((data)=>{
-      // console.log(data);
       this.classes = data;
-    })
+    });
   }
   showClassDetail(clsName :string){
-    console.log(clsName)
-    this.displayClassDetail = true;
-    
-    document.getElementById('class-section').style.display = 'none';
-    // this.route.navigate(['/',clsName]);
+    this.router.navigate(['/type/' + clsName]);
   }
 }

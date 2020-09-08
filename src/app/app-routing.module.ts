@@ -16,19 +16,15 @@ const routes: Routes = [
   },
   {
     path: 'data-models',
-    component: DataModelDomainsComponent,
-    children: [
-      {
-        path: ':domain_name',
-        component: DomainsComponent,
-        children: [
-          {
-            path: 'class/:class_name',
-            component: SchemaDetailsTypesComponent,
-          },
-        ],
-      },
-    ],
+    component: DataModelDomainsComponent
+  },
+  {
+    path: 'domain/:domain_name',
+    component: DomainsComponent
+  },
+  {
+    path: 'class/:class_name',
+    component: SchemaDetailsTypesComponent
   },
   {
     path: 'domaintest',
@@ -40,24 +36,20 @@ const routes: Routes = [
   },
   {
     path: 'types',
-    component: ClassesComponent,
-    children: [
-      {
-        path: ':class_name',
-        component: SchemaDetailsTypesComponent,
-      },
-    ],
+    component: ClassesComponent
+  },
+  {
+    path: 'type/:class_name',
+    component: SchemaDetailsTypesComponent
   },
   {
     path: 'properties',
-    component: PropertiesComponent,
-    children: [
-      {
-        path: ':property_name',
-        component: SchemaDetailsPropertiesComponent,
-      },
-    ],
+    component: PropertiesComponent
   },
+  {
+    path: 'properties/:property_name',
+    component: SchemaDetailsPropertiesComponent,
+  }
 ];
 
 @NgModule({
