@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-data-descriptors',
@@ -8,6 +9,7 @@ import { InterceptorService } from '../interceptor.service';
 })
 export class DataDescriptorsComponent implements OnInit {
   descriptors: any;
+  // parsed_response: { };
 
   constructor(private service:InterceptorService) { }
 
@@ -16,8 +18,16 @@ export class DataDescriptorsComponent implements OnInit {
   }
   
   showAllDataDescriptors(){
-  this.service.get_api_headers('list/descriptors').then((data)=>{
-    this.descriptors = data;
-  })
-}
+  this.service.get_api_headers('list/descriptors').then((data:any)=>{
+    this.descriptors =[];
+      data.forEach((a)=>{
+        if(a.type != "iudx:DataDescriptor"){
+         this.descriptors.push({
+          type: a.type.split('iudx:')[1],
+          documents: a.documents,
+          })
+        }
+      });
+    });
+  }
 }
