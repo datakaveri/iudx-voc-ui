@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InterceptorService } from '../interceptor.service';
 
 @Component({
   selector: 'app-data-model-domains',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-model-domains.component.scss']
 })
 export class DataModelDomainsComponent implements OnInit {
-
-  constructor() { }
+  dataModels:any;
+  constructor(private service:InterceptorService) {}
 
   ngOnInit(): void {
+    this.getAllDataModelsDomain();
+  }
+  getAllDataModelsDomain(){
+    this.service.get_api_headers('relationship?rel=subClassOf&val=DataModel').then((data)=>{
+      console.log(data);
+      this.dataModels =data;
+    })
   }
 
 }
