@@ -1,4 +1,4 @@
-<div class="main-container">
+<div id="class-section"class="main-container">
   <div class="title-div">
     <h1>List of Types</h1>
     <p>The table here shows the list of classes available with description</p>
@@ -11,7 +11,7 @@
       </tr>
       <tr *ngFor = "let class of classes">
         <td>
-          <a class="title">{{class.label}}</a>
+          <a (click)="showClassDetail(class.label)" class="title">{{class.label}}</a>
         </td>
         <td class="description">
           {{class.comment}}
@@ -20,3 +20,4 @@
     </table>
   </div>
 </div>
+<app-schema-details-types *ngIf="displayClassDetail"></app-schema-details-types>

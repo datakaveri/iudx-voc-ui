@@ -32,11 +32,9 @@ export class InterceptorService {
     }
 
     get_api_headers(route){
-      console.log(route);
       return new Promise((resolve , reject)=>{
         this.http.get(this.api_url + route , { headers: this.headers }).subscribe(
           (data:any) => {
-            console.log(data);
             resolve(data);
           },
           (err) => {
@@ -50,7 +48,6 @@ export class InterceptorService {
       return new Promise((resolve , reject)=>{
         this.http.get(this.api_url + route , { headers: this.headersLD }).subscribe(
           (data:any) => {
-            console.log(data);
             resolve(data);
           },
           (err) => {
