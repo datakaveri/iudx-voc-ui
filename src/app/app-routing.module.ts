@@ -24,15 +24,19 @@ const routes: Routes = [
         children: [
           {
             path: 'class/:class_name',
-            component: SchemaDetailsTypesComponent
-          }
-        ]
-      }
-    ]
+            component: SchemaDetailsTypesComponent,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: 'domaintest',
+    component: DomainsComponent,
   },
   {
     path: 'entities',
-    component: EntitiesComponent
+    component: EntitiesComponent,
   },
   {
     path: 'types',
@@ -40,9 +44,9 @@ const routes: Routes = [
     children: [
       {
         path: ':class_name',
-        component: SchemaDetailsTypesComponent
-      }
-    ]
+        component: SchemaDetailsTypesComponent,
+      },
+    ],
   },
   {
     path: 'properties',
@@ -50,10 +54,10 @@ const routes: Routes = [
     children: [
       {
         path: ':property_name',
-        component: SchemaDetailsPropertiesComponent
-      }
-    ]
-  }
+        component: SchemaDetailsPropertiesComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

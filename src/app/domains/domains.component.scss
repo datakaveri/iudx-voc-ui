@@ -1,0 +1,43 @@
+.main-container {
+  padding-top: 60px;
+  margin: 35px;
+  .title-div {
+    h1 {
+      font-size: 18px;
+      padding-bottom: 10px;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    p {
+      font-size: 16px;
+      color: var(--tertiary);
+      padding-bottom: 30px;
+    }
+  }
+
+  table {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-collapse: collapse;
+    th {
+      text-align: left;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background-color: var(--off-white);
+      padding: 15px;
+      font-size: 16px;
+    }
+    td {
+      border-right: 1px solid var(--border);
+      padding: 15px;
+    }
+    .title {
+      color: var(--highlight);
+      font-weight: 500;
+      border-bottom: 1px solid var(--highlight);
+    }
+    .description {
+      border-right: none;
+    }
+  }
+}
