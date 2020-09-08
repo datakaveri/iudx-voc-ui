@@ -27,10 +27,6 @@ const routes: Routes = [
     component: SchemaDetailsTypesComponent
   },
   {
-    path: 'domaintest',
-    component: DomainsComponent,
-  },
-  {
     path: 'entities',
     component: EntitiesComponent,
   },
