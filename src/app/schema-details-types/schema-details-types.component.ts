@@ -11,9 +11,11 @@ export class SchemaDetailsTypesComponent implements OnInit {
   className: any;
   parsed_response: any;
   breadcrumbs: Array<string>;
+  res: any;
   constructor( private route: ActivatedRoute,
   private service :InterceptorService) {
     this.parsed_response={};
+    this.res = {};
     this.className = this.route.snapshot.params.class_name;
     this.breadcrumbs = [];
   }
@@ -23,15 +25,26 @@ export class SchemaDetailsTypesComponent implements OnInit {
   }
   showClassDetail(){
     this.service.get_api_headersLD(this.className).then((data)=>{
-      let response = data['@graph'];
-      this.parsed_response = {
-        description: response[0]['rdfs:comment'],
-        breadcrumbs: [response[0]['@id'].split('iudx:')[1], response[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]],
-        tables: {}
-      }
-      this.get_sub_class(response,response[0]['rdfs:subClassOf']['@id']);
-      this.get_sub_tables(response);
-      this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
+        let response = data['@graph'];
+        console.log(data)
+        this.res =data['@graph'];
+        console.log(this.res)
+        console.log(response.length)
+        if(response.length == 1){
+          this.parsed_response = {
+          description: response[0]['rdfs:comment']
+          }
+        }
+        else{
+          this.parsed_response = {
+          description: response[0]['rdfs:comment'],
+          breadcrumbs: [response[0]['@id'].split('iudx:')[1],response[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]],
+          tables: {}
+          }
+          this.get_sub_class(response,response[0]['rdfs:subClassOf']['@id']);
+          this.get_sub_tables(response);
+          this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
+        }
     });
   }
   get_sub_class(arr, str) {

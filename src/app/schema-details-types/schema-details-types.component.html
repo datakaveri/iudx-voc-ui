@@ -1,9 +1,9 @@
-<div class="main-container" *ngIf="parsed_response">
+<div class="main-container">
     <div class="title-div">
         <h1>{{className}}</h1>
         <p>{{parsed_response.description}}</p>
     </div>
-    <div id="table-div">
+    <div id="table-div" *ngIf="res.length > 1">
         <table>
            <thead>
                <tr>
@@ -13,7 +13,7 @@
                </tr>
            </thead>
        </table>
-       <div *ngFor="let source of parsed_response.breadcrumbs">
+       <div *ngFor="let source of parsed_response.breadcrumbs.reverse()">
             <p class="separator">Property inherited from {{source}}</p>
             <table>
                 <tbody>
