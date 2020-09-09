@@ -19,17 +19,12 @@
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">
             <td width="25%">
-              <a>{{ property.property }}</a>
+              <a [routerLink]="['/properties', property.property]">{{ property.property }}</a>
             </td>
             <td width="25%">
-              <a
-                class="type_link"
-                *ngFor="let type of property.expected_types; let i = index"
-              >
+              <a class="type_link" *ngFor="let type of property.expected_types;let i = index">
                 {{ type }}
-                <span *ngIf="i < property.expected_types.length - 1"
-                  ><br
-                /></span>
+                <span *ngIf="i < property.expected_types.length - 1"><br/></span>
               </a>
             </td>
             <td width="50%">{{ property.description }}</td>

@@ -11,13 +11,13 @@
         <th>Expected Values</th>
       </tr>
       <tr *ngFor="let type of property_details.types">
-        <td><a>{{type}}</a></td>
+        <td><a [routerLink]="['/type',type]" class="type_link">{{type}}</a></td>
       </tr>
-      <tr class="sub-header-style">
+      <tr>
         <th>Used on these Types</th>
       </tr>
       <tr *ngFor="let domain of property_details.domains"class="classes">
-        <td><a>{{domain}}</a></td>
+        <td><a [routerLink]="['/type',domain]">{{domain}}</a></td>
       </tr>
     </table>
   </div>

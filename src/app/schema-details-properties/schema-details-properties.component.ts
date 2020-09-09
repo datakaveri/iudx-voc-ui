@@ -9,17 +9,17 @@ import { InterceptorService } from '../interceptor.service';
 })
 export class SchemaDetailsPropertiesComponent implements OnInit {
   property_details :any;
-  prName: '';
+  pr_name: '';
   constructor(private route:ActivatedRoute,private service:InterceptorService) {
     this.property_details = {};
-    this.prName = this.route.snapshot.params.property_name;
+    this.pr_name = this.route.snapshot.params.property_name;
    }
 
   ngOnInit(): void {
     this.showPropertyDetail();
   }
   showPropertyDetail(){
-    this.service.get_api_headersLD(this.prName).then((data)=>{
+    this.service.get_api_headersLD(this.pr_name).then((data)=>{
       console.log(data['@graph']);
       let response = data['@graph'][0];
       this.property_details = {
