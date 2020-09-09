@@ -20,7 +20,7 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
   }
   showPropertyDetail(){
     this.service.get_api_headersLD(this.pr_name).then((data)=>{
-      console.log(data['@graph']);
+      // console.log(data['@graph']);
       let response = data['@graph'][0];
       this.property_details = {
         label: response['rdfs:label'],

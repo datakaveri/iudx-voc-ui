@@ -9,6 +9,7 @@ import { PropertiesComponent } from './properties/properties.component';
 import { SchemaDetailsTypesComponent } from './schema-details-types/schema-details-types.component';
 import { DomainsComponent } from './domains/domains.component';
 import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.component';
+import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
 
 const routes: Routes = [
   {
@@ -22,10 +23,6 @@ const routes: Routes = [
   {
     path: 'domain/:domain_name',
     component: DomainsComponent,
-  },
-  {
-    path: 'class/:class_name',
-    component: SchemaDetailsTypesComponent,
   },
   {
     path: 'entities',
@@ -50,6 +47,10 @@ const routes: Routes = [
   {
     path: 'data-descriptors',
     component: DataDescriptorsComponent,
+  },
+   {
+    path: 'descriptor-detail',
+    component: DescriptorDetailsComponent,
   },
 ];
 

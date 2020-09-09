@@ -13,8 +13,9 @@
         </tr>
       </thead>
     </table>
-    <div *ngFor="let source of parsed_response.breadcrumbs.reverse()">
-      <p class="separator">Property inherited from {{ source }}</p>
+      <div *ngFor="let source of parsed_response.breadcrumbs.reverse(); let num = index;">
+        <p class="separator" *ngIf="parsed_response.tables[source].length > 0 && num == 0">Property of {{source}}</p>
+        <p class="separator" *ngIf="parsed_response.tables[source].length > 0 && num > 0">Property inherited from {{source}}</p>
       <table>
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">
@@ -22,7 +23,7 @@
               <a [routerLink]="['/properties', property.property]">{{ property.property }}</a>
             </td>
             <td width="25%">
-              <a class="type_link" *ngFor="let type of property.expected_types;let i = index">
+              <a [routerLink]="['/type',type]" class="type_link" *ngFor="let type of property.expected_types;let i = index">
                 {{ type }}
                 <span *ngIf="i < property.expected_types.length - 1"><br/></span>
               </a>
