@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
 import { ThrowStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-descriptors',
@@ -9,9 +10,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class DataDescriptorsComponent implements OnInit {
   descriptors: any;
-  // parsed_response: { };
-
-  constructor(private service:InterceptorService) { }
+  constructor(private service:InterceptorService,private router:Router) { }
 
   ngOnInit(): void {
     this.showAllDataDescriptors();
@@ -29,5 +28,8 @@ export class DataDescriptorsComponent implements OnInit {
         }
       });
     });
+  }
+  goToDescriptor(value:string){
+    this.router.navigate(['/data-descriptors/',value[0]])
   }
 }

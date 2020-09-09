@@ -13,15 +13,9 @@
       <tr *ngFor="let descriptor of descriptors">
         <td>{{descriptor.type}}</td>
         <td class="description">
-          <a class="title">{{descriptor.documents}}</a>
+          <a (click)="goToDescriptor(descriptor.documents)" class="title">{{descriptor.documents}}</a>
         </td>
       </tr>
-      <!-- <tr>
-        <td>iudx:EnvWeather</td>
-        <td class="description">
-          <a class="title">env_weather_iiith</a>
-        </td>
-      </tr> -->
     </table>
   </div>
 </div>

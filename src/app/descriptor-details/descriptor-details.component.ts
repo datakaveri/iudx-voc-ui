@@ -10,9 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 export class DescriptorDetailsComponent implements OnInit {
   resource: any;
   data_descriptor: any;
+  descriptor_name:string;
   flags: Array<Boolean>;
   constructor(private service:InterceptorService,private route:ActivatedRoute) { 
     this.flags = [];
+    this.descriptor_name = this.route.snapshot.params.descriptor_name;
     
   }
 
@@ -20,7 +22,7 @@ export class DescriptorDetailsComponent implements OnInit {
     this.getDescriptors();
   }
   getDescriptors(){
-    this.service.get_api_headersLD('descriptor/env_aqm_iiith').then((res)=>{
+    this.service.get_api_headersLD('descriptor/'+this.descriptor_name).then((res)=>{
       console.log(res);
       this.manipulate_data_descriptor(res);
     })
@@ -29,11 +31,12 @@ export class DescriptorDetailsComponent implements OnInit {
 
   manipulate_data_descriptor(obj) {
     let arr = [];
-    let keys = Object.keys(obj).slice(5);
+    let keys = Object.keys(obj);
     keys.forEach((a,i)=>{
-      console.log(a)
+      if(a != '@context' && a != 'type'&& a != 'id' &&a != 'name'&& a != 'description'){
       let o = { key: a, ...obj[a] };
       arr.push(o);
+      }
     });
     this.data_descriptor = arr;
     this.flags.length = this.data_descriptor.length;
@@ -41,6 +44,7 @@ export class DescriptorDetailsComponent implements OnInit {
       this.data_descriptor[i] = this.convert_obj_array_of_objs(a);
       this.flags[i] = false;
     });
+  
   }
 
   convert_obj_array_of_objs(obj) {
