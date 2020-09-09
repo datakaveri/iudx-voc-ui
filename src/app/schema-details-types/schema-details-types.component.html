@@ -1,37 +1,41 @@
 <div class="main-container">
-    <div class="title-div">
-        <h1>{{className}}</h1>
-        <p>{{parsed_response.description}}</p>
-    </div>
-    <div id="table-div" *ngIf="res.length > 1">
-        <table>
-           <thead>
-               <tr>
-                   <th width="25%">Property</th>
-                   <th width="25%">Expected Types</th>
-                   <th width="50%">Description</th>
-               </tr>
-           </thead>
-       </table>
-       <div *ngFor="let source of parsed_response.breadcrumbs.reverse()">
-            <p class="separator">Property inherited from {{source}}</p>
-            <table>
-                <tbody>
-                    <tr *ngFor="let property of parsed_response.tables[source]">
-                        <td width="25%">
-                            <a>{{property.property}}</a>
-                        </td>
-                        <td width="25%">
-                            <a class="type_link" *ngFor="let type of property.expected_types; let i=index;">
-                                {{type}}
-                                <span *ngIf="i < (property.expected_types.length - 1)"><br></span>
-                            </a>
-                        </td>
-                        <td width="50%">{{property.description}}</td>
-                    </tr>
-                </tbody>
-            </table>
-       </div>
+  <div class="title-div">
+    <h1>{{ className }}</h1>
+    <p>{{ parsed_response.description }}</p>
+  </div>
+  <div id="table-div" *ngIf="res.length > 1">
+    <table>
+      <thead>
+        <tr>
+          <th width="25%">Property</th>
+          <th width="25%">Expected Types</th>
+          <th width="50%">Description</th>
+        </tr>
+      </thead>
+    </table>
+    <div *ngFor="let source of parsed_response.breadcrumbs.reverse()">
+      <p class="separator">Property inherited from {{ source }}</p>
+      <table>
+        <tbody>
+          <tr *ngFor="let property of parsed_response.tables[source]">
+            <td width="25%">
+              <a>{{ property.property }}</a>
+            </td>
+            <td width="25%">
+              <a
+                class="type_link"
+                *ngFor="let type of property.expected_types; let i = index"
+              >
+                {{ type }}
+                <span *ngIf="i < property.expected_types.length - 1"
+                  ><br
+                /></span>
+              </a>
+            </td>
+            <td width="50%">{{ property.description }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
