@@ -18,11 +18,10 @@ export class PropertiesComponent implements OnInit {
   }
   getPropertyList(){
     this.service.get_api_headers('properties').then((data)=>{
-      console.log(data);
       this.properties = data;
     })
   }
   showPropertyDetail(property_name :string){
-    this.router.navigate(['/property', property_name]);
+    this.router.navigate(['/properties', property_name]);
   }
 }

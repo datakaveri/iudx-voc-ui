@@ -26,10 +26,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
   showClassDetail(){
     this.service.get_api_headersLD(this.className).then((data)=>{
         let response = data['@graph'];
-        console.log(data)
         this.res =data['@graph'];
-        console.log(this.res)
-        console.log(response.length)
         if(response.length == 1){
           this.parsed_response = {
           description: response[0]['rdfs:comment']
