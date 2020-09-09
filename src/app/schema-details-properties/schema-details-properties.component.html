@@ -10,21 +10,14 @@
       <tr>
         <th>Expected Values</th>
       </tr>
-
-      <tr *ngFor="let type of property_details.expected_values">
+      <tr *ngFor="let type of property_details.types">
         <td><a>{{type}}</a></td>
       </tr>
-      <!-- <tr>
-        <td><a>Number</a></td>
-      </tr>
-      <tr>
-        <td><a>ValueDescriptor</a></td>
-      </tr> -->
       <tr class="sub-header-style">
         <th>Used on these Types</th>
       </tr>
-      <tr class="classes">
-        <td><a>Transit Management</a></td>
+      <tr *ngFor="let domain of property_details.domains"class="classes">
+        <td><a>{{domain}}</a></td>
       </tr>
     </table>
   </div>

@@ -25,8 +25,15 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
       this.property_details = {
         label: response['rdfs:label'],
         comment:response['rdfs:comment'],
-        expected_values:response['iudx:rangeIncludes'],
+        types:[],
+        domains:[],
       }; 
+      for(let range of response['iudx:rangeIncludes']){
+        this.property_details.types.push(range['@id'].split(':')[1]);
+      }
+      for (let domain of response['iudx:domainIncludes']) {
+        this.property_details.domains.push(domain['@id'].split(':')[1]);
+      }
     })
   }
 }
