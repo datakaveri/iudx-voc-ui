@@ -23,7 +23,7 @@ export class DescriptorDetailsComponent implements OnInit {
   }
   getDescriptors(){
     this.service.get_api_headersLD('descriptor/'+this.descriptor_name).then((res)=>{
-      console.log(res);
+      // console.log(res);
       this.manipulate_data_descriptor(res);
     })
   }
@@ -59,6 +59,13 @@ export class DescriptorDetailsComponent implements OnInit {
             value: obj[a].includes(':') ? obj[a].split(':')[1] : obj[a],
             level: 1
           }
+        }
+          else if(typeof obj[a] == 'number') {
+            data = {
+              key: a,
+              value: obj[a],
+              level: 1
+            }
         } else {
           data = {
             key: a,

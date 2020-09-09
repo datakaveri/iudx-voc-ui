@@ -6,7 +6,7 @@
     <div class="box-style" *ngFor="let resource of data_descriptor; let i = index;">
         <h4 (click)="toggle(i)">
             <span>
-                Key: 
+                <!-- Key:  -->
             </span>
             {{ resource[0].value }}
             <img src="assets/uncollapsed.png" *ngIf="flags[i]">
