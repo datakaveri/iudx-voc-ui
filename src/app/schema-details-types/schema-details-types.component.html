@@ -1,19 +1,20 @@
 <div class="main-container">
     <div class="title-div">
-        <h1>ResourceServer</h1>
-        <p>Describes the Resource Server entry in the IUDX catalogue.</p>
+        <h1>{{className}}</h1>
+        <p>{{parsed_response.description}}</p>
     </div>
     <div id="table-div">
         <table>
             <tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>
-            <tr class="sub-header-style"><th>Properties of <a>ResourceGroup</a></th><th></th><th></th></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr>
+            <tr class="sub-header-style"><th>Properties of <a>{{className}}</a></th><th></th><th></th></tr>
+            <tr *ngFor="let list of parsed_response.tables.ResourceServer.properties"
+            ><td><a>{{list.property}}</a></td><td><span><a>{{list.expected_types}}</a></span></td><td>{{list.description}}</td></tr>
+            <!-- <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr>
+            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr> -->
             <tr class="sub-header-style"><th>Properties inherited from <a>IUDXEntity</a></th><th></th><th></th></tr>
             <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr>
+            <!-- <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr>
+            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr> -->
         </table>
     </div>
 </div>

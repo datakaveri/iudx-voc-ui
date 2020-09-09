@@ -27,8 +27,5 @@ export class DomainsComponent implements OnInit {
       .then((data) => {
         this.domains = data;
       });
-    console.log(this.value);
-    // console.log(domain_name);
   }
-  // getDomainList()
 }
