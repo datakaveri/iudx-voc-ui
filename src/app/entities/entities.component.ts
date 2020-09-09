@@ -13,6 +13,7 @@ export class EntitiesComponent implements OnInit {
   constructor(private backendService: InterceptorService,private router:Router) { }
 
   ngOnInit(): void {
+    this.getEntities();
   }
   displayTypesList(){
     this.router.navigate(['types']);
@@ -22,7 +23,6 @@ export class EntitiesComponent implements OnInit {
   }
   getEntities(): void {
     this.backendService.get_api_headers('relationship?rel=subClassOf&val=IUDXEntity').then((data)=>{
-      console.log(data);
       this.entities = data
     });
   }
