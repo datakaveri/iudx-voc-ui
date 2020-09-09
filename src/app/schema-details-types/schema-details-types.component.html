@@ -1,20 +1,36 @@
-<div class="main-container">
+<div class="main-container" *ngIf="parsed_response">
     <div class="title-div">
         <h1>{{className}}</h1>
         <p>{{parsed_response.description}}</p>
     </div>
     <div id="table-div">
         <table>
-            <tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>
-            <tr class="sub-header-style"><th>Properties of <a>{{className}}</a></th><th></th><th></th></tr>
-            <tr *ngFor="let list of parsed_response.tables.ResourceServer.properties"
-            ><td><a>{{list.property}}</a></td><td><span><a>{{list.expected_types}}</a></span></td><td>{{list.description}}</td></tr>
-            <!-- <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span><span><a>Relationship</a></span></td><td>IRI pointing to the ResourceServer entity for a given Resource or ResourceGroup.</td></tr> -->
-            <tr class="sub-header-style"><th>Properties inherited from <a>IUDXEntity</a></th><th></th><th></th></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr>
-            <!-- <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr>
-            <tr><td><a>resourceServer</a></td><td><span><a>Text</a></span></td><td>Status of a catalouge item. ENUM: [ACTIVE, DEPRECATED].</td></tr> -->
-        </table>
+           <thead>
+               <tr>
+                   <th width="25%">Property</th>
+                   <th width="25%">Expected Types</th>
+                   <th width="50%">Description</th>
+               </tr>
+           </thead>
+       </table>
+       <div *ngFor="let source of parsed_response.breadcrumbs">
+            <p class="separator">Property inherited from {{source}}</p>
+            <table>
+                <tbody>
+                    <tr *ngFor="let property of parsed_response.tables[source]">
+                        <td width="25%">
+                            <a>{{property.property}}</a>
+                        </td>
+                        <td width="25%">
+                            <a class="type_link" *ngFor="let type of property.expected_types; let i=index;">
+                                {{type}}
+                                <span *ngIf="i < (property.expected_types.length - 1)"><br></span>
+                            </a>
+                        </td>
+                        <td width="50%">{{property.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+       </div>
     </div>
 </div>

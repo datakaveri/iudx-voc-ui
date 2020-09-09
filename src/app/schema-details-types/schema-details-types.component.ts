@@ -10,30 +10,28 @@ import { ActivatedRoute } from '@angular/router';
 export class SchemaDetailsTypesComponent implements OnInit {
   className: any;
   parsed_response: any;
+  breadcrumbs: Array<string>;
   constructor( private route: ActivatedRoute,
   private service :InterceptorService) {
     this.parsed_response={};
     this.className = this.route.snapshot.params.class_name;
-    console.log(this.className)
+    this.breadcrumbs = [];
   }
 
   ngOnInit(): void {
     this.showClassDetail();
   }
   showClassDetail(){
-      this.service.get_api_headersLD(this.className).then((data)=>{
-      // console.log(data)
+    this.service.get_api_headersLD(this.className).then((data)=>{
       let response = data['@graph'];
       this.parsed_response = {
-      description: response[0]['rdfs:comment'],
-      breadcrumbs: [response[0]['@id'].split('iudx:')[1], response[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]],
-      tables: {}
-    }
-
-    this.get_sub_class(response,response[0]['rdfs:subClassOf']['@id']);
-    this.get_sub_tables(response);
-    console.log(this.parsed_response);
-  
+        description: response[0]['rdfs:comment'],
+        breadcrumbs: [response[0]['@id'].split('iudx:')[1], response[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]],
+        tables: {}
+      }
+      this.get_sub_class(response,response[0]['rdfs:subClassOf']['@id']);
+      this.get_sub_tables(response);
+      this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
     });
   }
   get_sub_class(arr, str) {
@@ -50,10 +48,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
 
   get_sub_tables(arr) {
     this.parsed_response.breadcrumbs.forEach((b)=>{
-      this.parsed_response.tables[b] = {
-        description: 'Properties inhertied from ' + b,
-        properties: []
-      };
+      this.parsed_response.tables[b] = [];
     });
     for(let i=0;i<arr.length;i++) {
       if(arr[i]['iudx:domainIncludes']) {
@@ -65,7 +60,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
               expected_types: arr[i]['iudx:rangeIncludes'].map(x=>{ return x['@id'].split(':')[1] }),
               description: arr[i]['rdfs:comment']
             }
-            this.parsed_response.tables[this.parsed_response.breadcrumbs[j]].properties.push(obj);
+            this.parsed_response.tables[this.parsed_response.breadcrumbs[j]].push(obj);
             break loop_inner;
           }
         }
