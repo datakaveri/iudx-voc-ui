@@ -1,13 +1,8 @@
 <div class="main-container">
   <div class="title-div">
-    <h1>Route_type</h1>
+    <h1>{{property_details.label}}</h1>
     <p>
-      Number indicating the type of transport- 1 - Subway, Metro. Any
-      underground rail system within a metropolitan area. 2 - Rail. Used for
-      intercity or long-distance travel. 3 - Bus. Used for short- and
-      long-distance bus routes. SameAs: 'route_type' field from GTFS Static
-      Field definitions-routes.txt
-      (https://developers.google.com/transit/gtfs/reference#routestxt)
+      {{property_details.comment}}
     </p>
   </div>
   <div id="table-div">
@@ -16,15 +11,15 @@
         <th>Expected Values</th>
       </tr>
 
-      <tr>
-        <td><a>Text</a></td>
+      <tr *ngFor="let type of property_details.expected_values">
+        <td><a>{{type}}</a></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td><a>Number</a></td>
       </tr>
       <tr>
         <td><a>ValueDescriptor</a></td>
-      </tr>
+      </tr> -->
       <tr class="sub-header-style">
         <th>Used on these Types</th>
       </tr>
