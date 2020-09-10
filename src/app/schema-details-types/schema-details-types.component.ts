@@ -13,6 +13,10 @@ export class SchemaDetailsTypesComponent implements OnInit {
   parsed_response: any;
   breadcrumbs: Array<string>;
   res: any;
+  examples: boolean;
+  label: string;
+  code: any;
+  jsonQuery: string;
   constructor(
     private route: ActivatedRoute,
     private service: InterceptorService
@@ -21,6 +25,8 @@ export class SchemaDetailsTypesComponent implements OnInit {
     this.res = {};
     this.className = this.route.snapshot.params.class_name;
     this.breadcrumbs = [];
+    this.examples = false;
+    this.label = 'Example';
   }
 
   ngOnInit(): void {
@@ -48,6 +54,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
         this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
       }
     });
+    this.showExamples(this.className);
   }
   get_sub_class(arr, str) {
     for (let i = 0; i < arr.length; i++) {
@@ -98,5 +105,32 @@ export class SchemaDetailsTypesComponent implements OnInit {
       if (b['@id'] == 'iudx:' + str) flag = true;
     });
     return flag;
+  }
+  showExamples(val: string) {
+    this.service.get_api_headersLD('examples/'+this.className).then((response :any) => {
+      // console.log(response);
+      if (response == [] || response.length == 0) {
+        this.examples = false;
+      } else {
+        this.examples = true;
+        this.code = response;
+        // console.log(this.code)
+
+      }
+    });
+  }
+  getJson(example: Object) {
+    // console.log(typeof example);
+    this.jsonQuery =
+      'https://json-ld.org/playground/#startTab=tab-expand&json-ld=' +
+      encodeURIComponent(JSON.stringify(example));
+  }
+  copy(json) {
+    const el = document.createElement('textarea');
+    el.value = JSON.stringify(json);
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 }

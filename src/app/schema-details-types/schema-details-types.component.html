@@ -34,4 +34,31 @@
       </table>
     </div>
   </div>
+  <div class="examples-container" *ngIf="examples">
+    <h1>Examples</h1>
+    <div class="tab_div">
+      <ul *ngFor = "let example of code; let i=index">
+          <li >
+            {{ label + (i + 1) }}  
+          </li>
+      </ul>
+    </div>
+    <div class="button-group-container">
+      <div class="button-group">
+        <div *ngFor = "let example of code" class="copy-btn">
+          <a (click)="copy(example)">Copy</a>
+        </div>
+        <div *ngFor="let example of code" class="playground-btn">
+          <a (click)="getJson(example)" href="{{ jsonQuery }}" target="_blank">Open in Playground</a>
+        </div>
+      </div>
+    </div>
+    <div  class="json-container">
+      
+      <h3></h3>
+      <p  *ngFor="let example of code" >{{example | json}}</p>
+                
+    </div>
+  </div>
+  
 </div>

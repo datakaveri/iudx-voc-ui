@@ -14,6 +14,80 @@
             padding-bottom:30px;
         }
     }
+    .examples-container{
+        margin-top:50px;
+        h1{
+            font-size: 16px;
+            padding-bottom:20px;
+            font-weight: 500;
+        }
+    .tab_div {
+        ul {
+            list-style: none;
+            li {
+                cursor: pointer;
+                display: inline-block;
+                width: 150px;
+                padding: 10px 0;
+                text-align: center;
+                color: var(--tertiary);
+                background: var(--off-white);
+                border:1px solid var(--border);
+                
+            }
+            .active {
+                background: var(--border);
+                font-weight: 600;
+                color: var(--primary);
+            }
+        }
+    }
+    .button-group-container{
+        
+        background-color: var(--off-white);
+        width:100%;
+        height:50px;
+     
+        .button-group{
+            display:flex;
+            justify-content:flex-end;
+            align-items:center;
+            padding:8px 10px;
+            
+            .copy-btn{
+                background: var(--highlight);
+                width: 100px;
+                border-radius: 20px;
+                margin-right:20px;
+                text-align:center;
+                padding:5px;
+                a{
+                    color: var(--white);
+                }
+                
+            }
+
+        .playground-btn{
+            // width:150px;
+            height:20px;
+            flex-basis:200px;
+            border-radius: 20px;
+            background: var(--white);
+            border:1px solid var(--highlight);
+            padding:5px;
+            text-align:center;
+        }
+        }
+    }
+    .json-container{
+        width: calc(100% - 2px);
+        height:800px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+        border:1px solid var(--border);
+        background:var(--white)
+    }
+}
 }
 
 .separator {
