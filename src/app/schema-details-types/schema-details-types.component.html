@@ -53,11 +53,10 @@
         </div>
       </div>
     </div>
-    <div  class="json-container">
-      
-      <h3></h3>
-      <p  *ngFor="let example of code" >{{example | json}}</p>
-                
+    <div class="json-container">
+      <div *ngFor="let example of code; let i = index;" >
+        <pre id="json_{{i}}">{{prettify_json(example,i)}}</pre>
+      </div>  
     </div>
   </div>
   

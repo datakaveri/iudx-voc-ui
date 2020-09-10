@@ -133,4 +133,9 @@ export class SchemaDetailsTypesComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(el);
   }
+
+  prettify_json(obj,num) {
+    if(document.getElementById("json_" + num).innerHTML == '') document.getElementById("json_" + num).innerHTML = JSON.stringify(obj, undefined, 4);
+  }
+
 }
