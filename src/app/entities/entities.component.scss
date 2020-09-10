@@ -10,10 +10,7 @@
   .title-div {
     h1 {
       border-bottom: 1px solid var(--border);
-      font-size: 17px;
-      padding-bottom: 15px;
-      color: var(--secondary);
-      font-weight: 500;
+      padding-bottom: 20px;
     }
     p {
       padding: 25px 0px 25px;
@@ -29,9 +26,6 @@
         //   list-style-type: circle;
           a{
             padding-left:10px;
-            font-weight: 500;
-            font-size: 16px;
-            color: var(--highlight);
           }
           
         }
@@ -45,13 +39,14 @@
     margin-top: 25px;
 
     p {
-      font-size: 16px;
+      font-size: 14px;
       color: var(--tertiary);
-      a {
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--highlight);
-      }
+      
     }
   }
+}
+a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--highlight);
 }
