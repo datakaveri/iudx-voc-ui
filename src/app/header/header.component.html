@@ -7,15 +7,15 @@
     <form name="form" action="#" autocomplete="off">
       <div class="searchBox">
         <input
-          list="dropdown"
+          #searchBtn
           aria-label="Search"
-          name="dropdown"
           type="text"
+          name="search"
           placeholder="Search schema..."
           [(ngModel)]="searchTerm"
           autofocus
         />
-        <button>
+        <button (click)="onSearch(searchBtn.value)">
           <img src="assets/search.png" />
         </button>
       </div>

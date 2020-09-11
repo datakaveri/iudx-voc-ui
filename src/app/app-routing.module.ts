@@ -11,6 +11,7 @@ import { DomainsComponent } from './domains/domains.component';
 import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.component';
 import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,15 @@ const routes: Routes = [
   {
     path: 'search/searchTerm',
     component: SearchResultComponent,
+  },
+  {
+    path: '404/not-found',
+    component: PageNotFoundComponent,
+  },
+
+  {
+    path: '**',
+    redirectTo: '404/not-found',
   },
 ];
 

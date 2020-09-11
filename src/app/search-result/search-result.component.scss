@@ -107,3 +107,24 @@
     }
   
   }
+
+  .centered {
+    width: 100%;
+    position: fixed;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    h1 {
+        font-size: 80px;
+    }
+    h4 {
+        font-family: var(--font-heading);
+        font-weight: 900;
+        margin: 25px 0;
+        font-size: 20px;
+    }
+    p {
+        color: var(--grey);
+    }
+}

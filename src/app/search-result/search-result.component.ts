@@ -21,7 +21,7 @@ export class SearchResultComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       // console.log(params);
       this.term = params.q;
-      // console.log(this.term);
+       console.log(this.term);
       this.searchTerm(this.term);
       // this.getUrl(this.term);
     });

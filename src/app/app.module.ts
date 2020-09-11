@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { DomainsComponent } from './domains/domains.component';
 import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.component';
 import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +37,15 @@ import { SearchResultComponent } from './search-result/search-result.component';
     DomainsComponent,
     DataDescriptorsComponent,
     DescriptorDetailsComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
