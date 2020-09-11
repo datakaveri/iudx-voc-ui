@@ -8,9 +8,12 @@
       <div class="searchBox">
         <input
           list="dropdown"
+          aria-label="Search"
           name="dropdown"
           type="text"
           placeholder="Search schema..."
+          [(ngModel)]="searchTerm"
+          autofocus
         />
         <button>
           <img src="assets/search.png" />

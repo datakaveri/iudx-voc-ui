@@ -10,6 +10,7 @@ import { SchemaDetailsTypesComponent } from './schema-details-types/schema-detai
 import { DomainsComponent } from './domains/domains.component';
 import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.component';
 import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
    {
     path: 'data-descriptors/:descriptor_name',
     component: DescriptorDetailsComponent,
+  },
+  {
+    path: 'search/searchTerm',
+    component: SearchResultComponent,
   },
 ];
 

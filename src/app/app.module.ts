@@ -18,6 +18,7 @@ import { SchemaDetailsPropertiesComponent } from './schema-details-properties/sc
 import { DomainsComponent } from './domains/domains.component';
 import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.component';
 import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DescriptorDetailsComponent } from './descriptor-details/descriptor-deta
     SchemaDetailsPropertiesComponent,
     DomainsComponent,
     DataDescriptorsComponent,
-    DescriptorDetailsComponent
+    DescriptorDetailsComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
