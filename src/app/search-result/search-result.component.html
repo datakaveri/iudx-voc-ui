@@ -2,12 +2,12 @@
     <div class="results-div">
         <div  *ngFor="let data of searchDetail" ngHoverClass="hover" id="search-results" class="results-item">
 
-            <li><a [routerLink]="['/', data.label]"><span class="status status-public">{{ _url }}{{ data.label }}</span></a></li>
+            <li><a [routerLink]="['/', data.label]">{{ _url }}{{ data.label }}</a></li>
             <li><a [routerLink]="['/', data.label]"><h3> {{ data.label }} -
                 <span *ngIf="data.type == 'property'">{{ data.type }}</span>
                 <span *ngIf="data.type == 'class'">Type</span></h3></a></li>
             <li><p>{{ data.comment }}</p></li>
-
+            <div class="results-item-shade"></div>
         </div>
     </div>
     <!-- <div class="error-style" *ngIf="error">

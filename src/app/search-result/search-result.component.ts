@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchResultComponent implements OnInit {
   searchDetail: any;
   term: any;
-  _url: string = environment.BASE_URL + '/';
+  _url: string = environment.BASE_URL;
   error: boolean = false;
   results: boolean = true;
   constructor( private route: ActivatedRoute,
@@ -19,11 +19,9 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      // console.log(params);
       this.term = params.q;
        console.log(this.term);
       this.searchTerm(this.term);
-      // this.getUrl(this.term);
     });
   }
   searchTerm(value: string) {
