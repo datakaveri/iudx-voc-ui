@@ -24,11 +24,10 @@ nav {
 
 .navList {
   width: 100%;
-
   li a {
     // display: block;
     font-weight: 500;
-    font-size: 17px;
+    // font-size: 17px;
     line-height: 20px;
     color: var(--highlight);
     padding-right: 50px;
@@ -38,7 +37,7 @@ nav {
   display: flex;
   align-items: center;
   border: 1px solid var(--border);
-  border-radius: 5px;
+  // border-radius: 5px;
   padding: 8px 12px;
   margin: 25px 0;
   width: 600px;
@@ -67,8 +66,8 @@ nav {
   }
 
   img {
-    width: 130%;
-    height: 130%;
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -78,7 +77,7 @@ nav {
 // }
 
 .logo {
-  width: 50px;
+  height: 40px;
 }
 
 .logo__container a {
@@ -86,10 +85,9 @@ nav {
 }
 
 .logo__container h1 {
-  font-size: 18px;
   font-weight: 500;
   color: var(--primary);
-  font-size: 25px;
+  font-size: 20px;
   float: right;
   padding-top: 10px;
   padding-left: 10px;
