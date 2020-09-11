@@ -45,8 +45,9 @@
     .button-group-container{
         
         background-color: var(--off-white);
-        width:100%;
+        width:calc(100% - 2px);
         height:50px;
+        border:1px solid var(--border);
      
         .button-group{
             display:flex;
