@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { InterceptorService } from '../interceptor.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result',
@@ -14,19 +14,19 @@ export class SearchResultComponent implements OnInit {
   _url: string = environment.BASE_URL;
   error: boolean = false;
   results: boolean = true;
-  constructor( private route: ActivatedRoute,
+  constructor( private route: ActivatedRoute,private router:Router,
     private service: InterceptorService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.term = params.q;
-       console.log(this.term);
+      //  console.log(this.term);
       this.searchTerm(this.term);
     });
   }
   searchTerm(value: string) {
     this.service.get_api_headers('fuzzysearch?q='+value).then((resp)=>{
-      console.log(resp);
+      // console.log(resp);
       this.searchDetail =resp;
 
       if (this.searchDetail.length == 0) {
@@ -37,5 +37,13 @@ export class SearchResultComponent implements OnInit {
         this.error = false;
       }
     });
+  }
+  goToLabel(label:string){
+    if (label[0] === label[0].toUpperCase()){
+      this.router.navigate(['/type',label])
+    }
+    else{
+      this.router.navigate(['/properties',label])
+    }
   }
 }
