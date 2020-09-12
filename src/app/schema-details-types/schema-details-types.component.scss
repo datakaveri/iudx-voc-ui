@@ -24,6 +24,7 @@
     .tab_div {
         ul {
             list-style: none;
+            display:inline-block;
             li {
                 cursor: pointer;
                 display: inline-block;
@@ -82,7 +83,8 @@
     }
     .json-container{
         width: calc(100% - 2px);
-        height:800px;
+        max-height:800px;
+        height: auto;
         overflow-y: scroll;
         overflow-x: scroll;
         border:1px solid var(--border);

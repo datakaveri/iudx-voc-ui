@@ -23,7 +23,7 @@
               <a [routerLink]="['/properties', property.property]">{{ property.property }}</a>
             </td>
             <td width="25%">
-              <a [routerLink]="['/type',type]" class="type_link" *ngFor="let type of property.expected_types;let i = index">
+              <a [routerLink]="['/type', type]" class="type_link" *ngFor="let type of property.expected_types;let i = index">
                 {{ type }}
                 <span *ngIf="i < property.expected_types.length - 1"><br/></span>
               </a>
@@ -38,24 +38,24 @@
     <h1>Examples</h1>
     <div class="tab_div">
       <ul *ngFor = "let example of code; let i=index">
-          <li>
+          <li  id="tab_{{i}}" (click)="selectTab(example,i)" [class.active]="example.active">
             {{ label + (i + 1) }}  
           </li>
       </ul>
     </div>
     <div class="button-group-container">
-      <div *ngFor = "let example of code" class="button-group">
+      <div class="button-group">
         <div  class="copy-btn">
-          <a (click)="copy(example)">Copy</a>
+          <a (click)="copy(content)">Copy</a>
         </div>
         <div  class="playground-btn">
-          <a (click)="getJson(example)" href="{{ jsonQuery }}" target="_blank">Open in Playground</a>
+          <a (click)="getJson(content)" href="{{ jsonQuery }}" target="_blank">Open in Playground</a>
         </div>
       </div>
     </div>
-    <div class="json-container">
-      <div *ngFor="let example of code; let i = index;" >
-        <pre id="json_{{i}}">{{prettify_json(example,i)}}</pre>
+    <div class="json-container" *ngIf="tabs">
+      <div>
+        <pre>{{content |json}}</pre>
       </div>  
     </div>
   </div>
