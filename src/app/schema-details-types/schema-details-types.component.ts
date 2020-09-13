@@ -47,6 +47,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
 
       if (this.res.length == 1) {
         this.parsed_response = {
+          label: this.res[0]['rdfs:label'],
           description: this.res[0]['rdfs:comment'],
         };
       } else {

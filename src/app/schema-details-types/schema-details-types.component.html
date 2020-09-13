@@ -1,6 +1,8 @@
 <div class="main-container">
   <div class="title-div">
-    <h1 *ngFor="let class of breadcrumbs, let i=index">{{ class }} <span *ngIf="i < breadcrumbs.length - 1"> =>&nbsp; </span></h1>
+    <!-- <h1 >{{ class }} <span *ngIf="i < breadcrumbs.length - 1"> =>&nbsp; </span></h1> -->
+    <h1 *ngFor="let class of breadcrumbs, let i=index"><a [routerLink]="['/type', class]">{{ class }}</a> <span *ngIf="i < breadcrumbs.length - 1"> =>&nbsp; </span></h1>
+    <h1 *ngIf="res.length ==1">{{ parsed_response.label}}</h1>
     <p>{{ parsed_response.description }}</p>
   </div>
   <div id="table-div" *ngIf="res.length > 1">
@@ -38,7 +40,7 @@
     <h1>Examples</h1>
     <div class="tab_div">
       <ul *ngFor = "let example of code; let i=index">
-          <li  id="tab_{{i}}" (click)="selectTab(example,i)" [class.active]="example.active">
+          <li  id="tab_{{i}}" (click)="selectTab(example,i)" routerLinkActive="active" [class.active]="example.active">
             {{ label + (i + 1) }}  
           </li>
       </ul>
