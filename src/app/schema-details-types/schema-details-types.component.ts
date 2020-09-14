@@ -131,7 +131,6 @@ export class SchemaDetailsTypesComponent implements OnInit {
   }
   showExamples() {
     this.service.get_api_headersLD('examples/' + this.className).then((response :any) => {
-      // console.log(response);
       if (response == [] || response.length == 0) {
         this.examples = false;
       } else {
@@ -143,7 +142,6 @@ export class SchemaDetailsTypesComponent implements OnInit {
     });
   }
   getJson(example: Object) {
-    // console.log(typeof example);
     this.jsonQuery =
       'https://json-ld.org/playground/#startTab=tab-expand&json-ld=' +
       encodeURIComponent(JSON.stringify(example));

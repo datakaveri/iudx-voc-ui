@@ -24,7 +24,7 @@ export class DataModelDomainsComponent implements OnInit {
     this.router.navigate(['/domain',domain_name]);
   }
   showDescriptorList(){
-    this.router.navigate(['/data-descriptors']);
+    this.router.navigate(['/data-descriptors/list']);
   }
 
 }
