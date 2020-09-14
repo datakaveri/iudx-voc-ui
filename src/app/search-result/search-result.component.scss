@@ -47,7 +47,8 @@
 
   span:first-child {
     font-weight: 500;
-    color: var(--highlight);
+    // color: var(--highlight);
+    color: var(--primary);
   }
   &-link {
     border-top: 1px dashed var(--border);
