@@ -40,7 +40,7 @@
     <h1>Examples</h1>
     <div class="tab_div">
       <ul *ngFor = "let example of code; let i=index">
-          <li  id="tab_{{i}}" (click)="selectTab(example,i)" routerLinkActive="active" [class.active]="example.active">
+          <li  id="tab_{{i}}" [ngClass]= "{'active' : selectedTab == i }" (click)="selectTab(example,i)">
             {{ label + (i + 1) }}  
           </li>
       </ul>

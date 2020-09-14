@@ -38,14 +38,15 @@
                 padding: 10px 0;
                 text-align: center;
                 color: var(--tertiary);
-                background: var(--off-white);
+                background-color: var(--white);
                 border:1px solid var(--border);
                 
             }
             .active {
                 background: var(--border);
                 font-weight: 600;
-                color: var(--primary);
+                // color: var(--primary);
+                border:1px solid var(--border);
             }
         }
     }

@@ -21,6 +21,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
   tabs: any;
   content:any;
   num: any;
+  selectedTab: number;
   constructor(
     private route: ActivatedRoute,
     private service: InterceptorService,private router:Router
@@ -32,6 +33,8 @@ export class SchemaDetailsTypesComponent implements OnInit {
     this.examples = false;
     this.label = 'Example';
     this.tabs = false;
+    this.selectedTab = 0;
+    
   }
 
   ngOnInit(): void {
@@ -147,7 +150,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
 
   selectTab(tab: any,num){
   this.content = tab;
-  // tab.active = true;
+  this.selectedTab = num;
   this.tabs = true;
 }
 }
