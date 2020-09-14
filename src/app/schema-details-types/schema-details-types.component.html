@@ -55,8 +55,8 @@
         </div>
       </div>
     </div>
-    <div class="json-container" *ngIf="tabs">
-      <div>
+    <div class="json-container" *ngIf="tabs || examples">
+      <div id="json-view">
         <pre>{{content |json}}</pre>
       </div>  
     </div>

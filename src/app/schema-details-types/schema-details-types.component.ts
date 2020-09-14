@@ -34,7 +34,6 @@ export class SchemaDetailsTypesComponent implements OnInit {
     this.label = 'Example';
     this.tabs = false;
     this.selectedTab = 0;
-    
   }
 
   ngOnInit(): void {
@@ -128,8 +127,8 @@ export class SchemaDetailsTypesComponent implements OnInit {
       } else {
         this.examples = true;
         this.code = response;
-        // console.log(this.code)
-
+        this.content = this.code[0];
+        document.getElementById('json-view').innerText = this.content;
       }
     });
   }
