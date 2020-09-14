@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-schema-details-types',
@@ -38,10 +37,14 @@ export class SchemaDetailsTypesComponent implements OnInit {
     this.label = 'Example';
     this.tabs = false;
     this.selectedTab = 0;
+    this.content = {};
   }
 
   ngOnInit(): void {
     this.showClassDetail();
+  }
+  ngAfterViewInit() {
+    if(this.tabs || this.examples) document.getElementById('json-view').innerText = this.content;
   }
   showClassDetail() {
     this.route.params.subscribe((params)=>{
@@ -136,8 +139,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
       } else {
         this.examples = true;
         this.code = response;
-        this.content = this.code[0];
-        if(this.tabs || this.examples) document.getElementById('json-view').innerText = this.content;
+        this.content = response[0];
       }
     });
   }
