@@ -1,18 +1,35 @@
 <div class="content-container">
-    <div class="results-div">
-        <div  *ngFor="let data of searchDetail" ngHoverClass="hover" id="search-results" class="results-item">
-
-            <li><a [routerLink]="['/', data.label]">{{ _url }}{{ data.label }}</a></li>
-            <li><a (click)="goToLabel(data.label)"><h3> {{ data.label }} -
-                <span *ngIf="data.type == 'property'">{{ data.type }}</span>
-                <span *ngIf="data.type == 'class'">Type</span></h3></a></li>
-            <li><p>{{ data.comment }}</p></li>
-            <div class="results-item-shade"></div>
-        </div>
+  <div class="results-div">
+    <div
+      *ngFor="let data of searchDetail"
+      ngHoverClass="hover"
+      id="search-results"
+      class="results-item"
+    >
+      <li>
+        <a [routerLink]="['/', data.label]">{{ _url }}{{ data.label }}</a>
+      </li>
+      <li>
+        <h3>
+          {{ data.label }} -
+          <span *ngIf="data.type == 'property'">{{ data.type }}</span>
+          <span *ngIf="data.type == 'class'">Type</span>
+        </h3>
+      </li>
+      <li>
+        <p>{{ data.comment }}</p>
+      </li>
+      <div class="results-item-link">
+        <a (click)="goToLabel(data.label)">View Details</a>
+      </div>
     </div>
-      <div class="centered" *ngIf="error">
-        <h1>404</h1>
-        <h4>Page Not Found</h4>
-        <p>We are sorry, the page you requested could not be found. Please go back to the previous page.</p>
-    </div>
+  </div>
+  <div class="centered" *ngIf="error">
+    <h1>404</h1>
+    <h4>Page Not Found</h4>
+    <p>
+      We are sorry, the page you requested could not be found. Please go back to
+      the previous page.
+    </p>
+  </div>
 </div>
