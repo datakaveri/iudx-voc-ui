@@ -7,7 +7,6 @@
     <form name="form" action="#" autocomplete="off">
       <div class="searchBox">
         <input
-          #searchBtn
           aria-label="Search"
           type="text"
           name="search"
@@ -15,7 +14,7 @@
           [(ngModel)]="searchTerm"
           autofocus
         />
-        <button (click)="onSearch(searchBtn.value)">
+        <button (click)="onSearch(searchTerm)">
           <img src="assets/search.png" />
         </button>
       </div>

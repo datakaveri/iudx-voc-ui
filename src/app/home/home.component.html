@@ -19,8 +19,8 @@
            our schemas, data-models & types
         </p>
         <div class="search-div">
-           <input autocomplete="off" placeholder="Search for schemas" type="text">
-           <div class="search-icon">
+           <input #searchBtn aria-label="Search" autocomplete="off" name="search" placeholder="Search for schemas" type="text" [(ngModel)]="searchTerm" autofocus>
+           <div (click)="onSearch(searchBtn.value)" class="search-icon">
               <img src="assets/search.png" alt="search" >
            </div>
         </div>

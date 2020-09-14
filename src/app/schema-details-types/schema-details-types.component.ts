@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
   templateUrl: './schema-details-types.component.html',
   styleUrls: ['./schema-details-types.component.scss'],
 })
-export class SchemaDetailsTypesComponent implements OnInit {
+export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
   className: any;
   value: any;
   parsed_response: any;

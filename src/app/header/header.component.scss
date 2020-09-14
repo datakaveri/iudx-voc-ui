@@ -17,8 +17,6 @@
 }
 
 nav {
-  // display: flex;
-  // width: 250px;
   position: relative;
 }
 
@@ -27,7 +25,7 @@ nav {
   li a {
     // display: block;
     font-weight: 500;
-    // font-size: 17px;
+    font-size: 16px;
     line-height: 20px;
     color: var(--highlight);
     padding-right: 50px;
