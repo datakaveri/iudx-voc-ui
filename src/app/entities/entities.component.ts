@@ -16,10 +16,10 @@ export class EntitiesComponent implements OnInit {
     this.getEntities();
   }
   displayTypesList(){
-    this.router.navigate(['types']);
+    this.router.navigate(['types/list']);
   }
   displayPropertyList(){
-    this.router.navigate(['properties']);
+    this.router.navigate(['properties/list']);
   }
   getEntities(): void {
     this.backendService.get_api_headers('relationship?rel=subClassOf&val=IUDXEntity').then((data)=>{

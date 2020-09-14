@@ -64,12 +64,18 @@ export class SchemaDetailsTypesComponent implements OnInit {
             ],
             tables: {}
           };
-          if(this.res[0]['rdfs:subClassOf']) this.parsed_response.breadcrumbs.push(this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]);
-          if(this.res[0]['rdfs:subClassOf']) this.get_sub_class(this.res, this.res[0]['rdfs:subClassOf']['@id']);
+          if(this.res[0]['rdfs:subClassOf']){ 
+           this.parsed_response.breadcrumbs.push(this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]);
+           this.get_sub_class(this.res, this.res[0]['rdfs:subClassOf']['@id']);
+          }
           this.get_sub_tables(this.res);
           this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
           this.showExamples();
         }
+      },
+      (error)=>{
+        if(error.status == 404)
+        this.router.navigate(['/404/not-found']);
       });
     });
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InterceptorService } from '../interceptor.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { InterceptorService } from '../interceptor.service';
 export class SchemaDetailsPropertiesComponent implements OnInit {
   property_details :any;
   pr_name: '';
-  constructor(private route:ActivatedRoute,private service:InterceptorService) {
+  constructor(private route:ActivatedRoute,private router:Router,private service:InterceptorService) {
     this.property_details = {};
     this.pr_name = this.route.snapshot.params.property_name;
    }
@@ -20,7 +20,6 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
   }
   showPropertyDetail(){
     this.service.get_api_headersLD(this.pr_name).then((data)=>{
-      // console.log(data['@graph']);
       let response = data['@graph'][0];
       this.property_details = {
         label: response['rdfs:label'],
@@ -34,6 +33,10 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
       for (let domain of response['iudx:domainIncludes']) {
         this.property_details.domains.push(domain['@id'].split(':')[1]);
       }
+    },
+    (error)=>{
+      if(error.status == 404)
+      this.router.navigate(['/404/not-found']);
     })
   }
 }

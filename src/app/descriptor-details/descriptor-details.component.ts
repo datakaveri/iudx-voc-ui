@@ -66,7 +66,7 @@ export class DescriptorDetailsComponent implements OnInit {
               value: obj[a],
               level: 1
             }
-        } else {
+        } else if(typeof obj[a] == 'object') {
           data = {
             key: a,
             value: this.convert_obj_array_of_objs(obj[a]),

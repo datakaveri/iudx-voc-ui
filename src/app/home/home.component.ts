@@ -13,9 +13,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   goToDataModels(){
-    this.router.navigate(['/data-models'])
+    this.router.navigate(['/data-models/list'])
   }
   goToEntities(){
-    this.router.navigate(['/entities'])
+    this.router.navigate(['/entities/list'])
   }
 }
