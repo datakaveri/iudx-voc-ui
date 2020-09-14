@@ -5,7 +5,7 @@
    <div *ngIf="res.length != 1">
       <h1  *ngFor="let class of breadcrumbs, let i=index">
       <a [routerLink]="['/type', class]">{{ class }}</a> 
-      <span *ngIf="i < breadcrumbs.length - 1"> =>&nbsp; </span>
+      <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;>&nbsp; </span>
       </h1>
     </div>
     <br>
@@ -25,8 +25,8 @@
       </thead>
     </table>
       <div *ngFor="let source of parsed_response.breadcrumbs.reverse(); let num = index;">
-        <p class="separator" *ngIf="parsed_response.tables[source].length > 0 && num == 0">Property of {{source}}</p>
-        <p class="separator" *ngIf="parsed_response.tables[source].length > 0 && num > 0">Property inherited from {{source}}</p>
+        <p class="separator" *ngIf="parsed_response.tables[source] && parsed_response.tables[source].length > 0 && num == 0">Property of {{source}}</p>
+        <p class="separator" *ngIf="parsed_response.tables[source] && parsed_response.tables[source].length > 0 && num > 0">Property inherited from {{source}}</p>
       <table>
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">

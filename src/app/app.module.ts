@@ -21,6 +21,7 @@ import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.co
 import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RoutingComponent } from './routing/routing.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     DataDescriptorsComponent,
     DescriptorDetailsComponent,
     SearchResultComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RoutingComponent
   ],
   imports: [
     BrowserModule,

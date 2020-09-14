@@ -4,14 +4,14 @@
     .title-div{
         h1{
             display:inline-block;
-            font-size: 18px;
             padding-bottom:10px;
             color: var(--secondary);
             font-weight:500;
             a{
-                font-weight:500;
-                color: var(--secondary);
-                font-size: 18px;
+                font-weight: 500;
+                color: var(--highlight);
+                text-decoration: underline;
+                text-underline-position: under;
             }
         }
         p{
@@ -43,9 +43,9 @@
                 
             }
             .active {
-                background: var(--border);
-                font-weight: 600;
-                // color: var(--primary);
+                background: var(--off-white);
+                // font-weight: 600;
+                color: var(--primary);
                 border:1px solid var(--border);
             }
         }

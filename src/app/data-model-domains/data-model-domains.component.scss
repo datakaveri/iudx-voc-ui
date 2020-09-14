@@ -27,14 +27,14 @@
                 margin-right: 5%;
             }
             h1{
-                font-size:18px;
+                font-size:16px;
                 font-weight:500;
                 color: var(--secondary);
             }
             p{
                 border-bottom: 2px dashed var(--border);
                 padding-bottom:20px;
-                font-size:16px;
+                // font-size:16px;
                 color:var(--tertiary);
             }
             a{
@@ -45,18 +45,13 @@
                 font-size:16px;
             }
         }
-     
-        
     }
     .para-div{
         margin-top:25px;
-      
         p{
-            font-size:15px;  
             color:var(--tertiary);
-            a{
+            a {
                 font-weight: 500;
-                font-size:15px;
                 color:var(--highlight);
                 
             }

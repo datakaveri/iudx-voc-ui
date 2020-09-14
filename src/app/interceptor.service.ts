@@ -11,7 +11,7 @@ export class InterceptorService {
   headers = new HttpHeaders();
   headersLD = new HttpHeaders();
   constructor(private http: HttpClient,
-    private router: Router,) { 
+    private router: Router) { 
       this.api_url = environment.BASE_URL;
       this.headers = this.headers.set(
         'Content-Type',
@@ -39,7 +39,7 @@ export class InterceptorService {
           },
           (err) => {
             console.log(err)
-          reject(err);
+            reject(err);
           }
         )
       })
@@ -52,7 +52,7 @@ export class InterceptorService {
           },
           (err) => {
             console.log(err)
-          reject(err);
+            reject(err);
           }
         )
       })

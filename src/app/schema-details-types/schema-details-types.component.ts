@@ -26,9 +26,13 @@ export class SchemaDetailsTypesComponent implements OnInit {
     private route: ActivatedRoute,
     private service: InterceptorService,private router:Router
   ) {
-    this.parsed_response = {};
+    this.parsed_response = {
+      label: '',
+      description: '',
+      breadcrumbs: [],
+      tables: {}
+    };
     this.res = {};
-    // this.className = this.route.snapshot.params.class_name;
     this.breadcrumbs = [];
     this.examples = false;
     this.label = 'Example';
@@ -42,33 +46,33 @@ export class SchemaDetailsTypesComponent implements OnInit {
   showClassDetail() {
     this.route.params.subscribe((params)=>{
       this.className = params['class_name'];
-    
-    this.service.get_api_headersLD(this.className).then((data) => {
-      // console.log(data);
-      this.res = data['@graph'];
-
-      if (this.res.length == 1) {
-        this.parsed_response = {
-          label: this.res[0]['rdfs:label'],
-          description: this.res[0]['rdfs:comment'],
-        };
-      } else {
-        this.parsed_response = {
-          description: this.res[0]['rdfs:comment'],
-          breadcrumbs: [
-            this.res[0]['@id'].split('iudx:')[1],
-            this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1],
-          ],
-          tables: {},
-        };
-        this.get_sub_class(this.res, this.res[0]['rdfs:subClassOf']['@id']);
-        this.get_sub_tables(this.res);
-        this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
-      }
+      this.service.get_api_headersLD(this.className).then((data) => {
+        this.res = data['@graph'];
+        if (this.res.length == 1) {
+          this.parsed_response = {
+            label: this.res[0]['rdfs:label'],
+            description: this.res[0]['rdfs:comment'],
+            breadcrumbs: [],
+            tables: {}
+          };
+        } else {
+          this.parsed_response = {
+            label: '',
+            description: this.res[0]['rdfs:comment'],
+            breadcrumbs: [
+              this.res[0]['@id'].split('iudx:')[1]
+            ],
+            tables: {}
+          };
+          if(this.res[0]['rdfs:subClassOf']) this.parsed_response.breadcrumbs.push(this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]);
+          if(this.res[0]['rdfs:subClassOf']) this.get_sub_class(this.res, this.res[0]['rdfs:subClassOf']['@id']);
+          this.get_sub_tables(this.res);
+          this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
+          this.showExamples();
+        }
+      });
     });
-    this.showExamples(this.className);
-  });
-}
+  }
   get_sub_class(arr, str) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i]['@id'] == str) {
@@ -119,8 +123,8 @@ export class SchemaDetailsTypesComponent implements OnInit {
     });
     return flag;
   }
-  showExamples(val: string) {
-    this.service.get_api_headersLD('examples/'+this.className).then((response :any) => {
+  showExamples() {
+    this.service.get_api_headersLD('examples/' + this.className).then((response :any) => {
       // console.log(response);
       if (response == [] || response.length == 0) {
         this.examples = false;
@@ -128,7 +132,7 @@ export class SchemaDetailsTypesComponent implements OnInit {
         this.examples = true;
         this.code = response;
         this.content = this.code[0];
-        document.getElementById('json-view').innerText = this.content;
+        if(this.tabs || this.examples) document.getElementById('json-view').innerText = this.content;
       }
     });
   }

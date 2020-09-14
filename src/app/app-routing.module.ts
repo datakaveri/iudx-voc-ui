@@ -12,6 +12,7 @@ import { DataDescriptorsComponent } from './data-descriptors/data-descriptors.co
 import { DescriptorDetailsComponent } from './descriptor-details/descriptor-details.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RoutingComponent } from './routing/routing.component';
 
 const routes: Routes = [
   {
@@ -19,54 +20,57 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'data-models',
-    component: DataModelDomainsComponent,
+    path: ':id',
+    component: RoutingComponent
+  },
+  {
+    path: 'data-models/list',
+    component: DataModelDomainsComponent
   },
   {
     path: 'domain/:domain_name',
-    component: DomainsComponent,
+    component: DomainsComponent
   },
   {
-    path: 'entities',
-    component: EntitiesComponent,
+    path: 'entities/list',
+    component: EntitiesComponent
   },
   {
-    path: 'types',
-    component: ClassesComponent,
+    path: 'types/list',
+    component: ClassesComponent
   },
   {
     path: 'type/:class_name',
-    component: SchemaDetailsTypesComponent,
+    component: SchemaDetailsTypesComponent
   },
   {
-    path: 'properties',
-    component: PropertiesComponent,
+    path: 'properties/list',
+    component: PropertiesComponent
   },
   {
     path: 'properties/:property_name',
-    component: SchemaDetailsPropertiesComponent,
+    component: SchemaDetailsPropertiesComponent
   },
   {
-    path: 'data-descriptors',
-    component: DataDescriptorsComponent,
+    path: 'data-descriptors/list',
+    component: DataDescriptorsComponent
   },
-   {
+  {
     path: 'data-descriptors/:descriptor_name',
-    component: DescriptorDetailsComponent,
+    component: DescriptorDetailsComponent
   },
   {
     path: 'search/searchTerm',
-    component: SearchResultComponent,
+    component: SearchResultComponent
   },
   {
     path: '404/not-found',
-    component: PageNotFoundComponent,
+    component: PageNotFoundComponent
   },
-
   {
     path: '**',
-    redirectTo: '404/not-found',
-  },
+    redirectTo: '404/not-found'
+  }
 ];
 
 @NgModule({
