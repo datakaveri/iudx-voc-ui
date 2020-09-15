@@ -10,6 +10,7 @@
           aria-label="Search"
           type="text"
           name="search"
+          (input)="filterItems(searchTerm)"
           placeholder="Search schema..."
           [(ngModel)]="searchTerm"
           autofocus
@@ -17,6 +18,16 @@
         <button (click)="onSearch(searchTerm)">
           <img src="assets/search.png" />
         </button>
+        <div *ngIf="searchTerm != ''" class="searchBox-dropdown">
+          <ul *ngIf="filteredTerm.length != 0">
+            <li *ngFor="let res of filteredTerm" [value]="res.label">
+               <p><a routerLink="{{ res.label }}">
+                  {{ res.label }}
+                </a>
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
     </form>
   </div>

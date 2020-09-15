@@ -8,8 +8,9 @@ import { InterceptorService } from '../interceptor.service';
 })
 export class HeaderComponent implements OnInit {
   model: string;
-  // searchRes:any;
-  // control = new FormControl();
+  filteredTerm: any = [];
+  results: any;
+  
   private _searchTerm: string;
  
   get searchTerm(): string {
@@ -25,10 +26,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   onSearch(text: string) {
-    // console.log(text);
-    // console.log(this._searchTerm);
     this.router.navigate(['/search/searchTerm'], {
       queryParams: { q: this._searchTerm },
     });
+  }
+  filterItems(value) {
+    this.service.get_api_headers('fuzzysearch?q='+value).then((resp)=>{
+      console.log(resp);
+     this.results = resp;
+     let str = value.toLowerCase();
+     console.log(str);
+     console.log(this.filteredTerm)
+     this.filteredTerm = this.results.filter((e) => {
+       return e.label.toLowerCase().includes(str);
+     });
+   });
   }
 }
