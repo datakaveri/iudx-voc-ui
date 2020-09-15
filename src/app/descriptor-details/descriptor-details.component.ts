@@ -27,8 +27,6 @@ export class DescriptorDetailsComponent implements OnInit {
       this.manipulate_data_descriptor(res);
     })
   }
-
-
   manipulate_data_descriptor(obj) {
     let arr = [];
     let keys = Object.keys(obj);

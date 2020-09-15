@@ -22,6 +22,7 @@ import { DescriptorDetailsComponent } from './descriptor-details/descriptor-deta
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingComponent } from './routing/routing.component';
+import { ToasterComponent } from './toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RoutingComponent } from './routing/routing.component';
     DescriptorDetailsComponent,
     SearchResultComponent,
     PageNotFoundComponent,
-    RoutingComponent
+    RoutingComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,

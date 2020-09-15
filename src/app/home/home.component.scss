@@ -91,6 +91,7 @@
 		width: 90%;
 		display: flex;
 		margin-top: 40px;
+		position:relative;
 		input {
 			width: 100%;
 			max-width: 500px;
@@ -108,6 +109,45 @@
 				height: 20px;
 			}
 		}
+		.searchBox-dropdown {
+			box-sizing: border-box;
+			max-height: 200px;
+			border: 1px solid var(--border);
+			border-top: 0;
+			background-color: var(--white);
+			// z-index: 100;
+			position: absolute;
+			top: 100%;
+			overflow-y: auto;
+			// width: calc(100% - 70px);
+			width:530px;
+			max-width: 530px;
+			
+			text-align: left;
+	
+			.no_data {
+			  padding: 0 15px;
+			}
+	
+			ul {
+			  list-style: none;
+			  li {
+				cursor: pointer;
+				p {
+				  padding: 15px;
+				  color: var(--primary);
+				  a{
+					font-weight: 600;
+				  }
+				  
+				}
+	
+				&:hover{
+				  background-color: var(--off-white);
+				}
+			  }
+			}
+		  }
 	}
 }
 
