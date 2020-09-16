@@ -94,11 +94,11 @@
 		position:relative;
 		input {
 			width: 100%;
-			max-width: 500px;
+			box-sizing: border-box;
+			// max-width: 500px;
 			outline: none;
 			border: none;
 			padding: 10px 15px;
-			// border-radius: 5px;
 			background-color: var(--off-white);
 		}
 		.search-icon {
@@ -120,7 +120,7 @@
 			top: 100%;
 			overflow-y: auto;
 			// width: calc(100% - 70px);
-			width:530px;
+			width:100%;
 			max-width: 626px;
 			
 			text-align: left;
