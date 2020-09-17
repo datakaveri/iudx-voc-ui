@@ -5,9 +5,7 @@
 	.left-container {
 		width: 45%;
 		.navbar {
-			padding-top: 25px;
-			padding-left: 80px;
-			padding-right: 30px;
+			padding:25px 30px 0px 80px;
 			background-color: var(--white);
 			display: flex;
 		}
@@ -30,7 +28,7 @@
 			a {
 				color: var(--highlight);
 				font-weight: 500;
-				// font-size: 16px;
+				font-size: 16px;
 			}
 		}
 	}
@@ -45,7 +43,7 @@
 			padding: 25px 30px 20px 60px;
 		}
 		p {
-			font-size: 12px;
+			font-size: 14px;
 			padding-bottom: 20px;
 			padding-left: 60px;
 			padding-right: 60px;
@@ -57,7 +55,7 @@
 		}
 		li {
 			color: var(--tertiary);
-			font-size: 12px;
+			font-size: 14px;
 			padding: 0px 60px 20px 60px;
 			img {
 				padding-right: 10px;
@@ -136,9 +134,7 @@
 				p {
 				  padding: 15px;
 				  color: var(--primary);
-				  a{
-					font-weight: 600;
-				  }
+				  font-weight: 600;
 				  
 				}
 	
