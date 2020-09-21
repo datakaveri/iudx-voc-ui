@@ -72,7 +72,9 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
            this.get_sub_class(this.res, this.res[0]['rdfs:subClassOf']['@id']);
           }
           this.get_sub_tables(this.res);
-          this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
+          setTimeout(()=>{
+            this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
+          }, 0);
           this.showExamples();
         }
       },
