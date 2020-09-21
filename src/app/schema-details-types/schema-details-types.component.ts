@@ -158,6 +158,7 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
   }
 
   selectTab(tab: any,num){
+    console.log(tab);
   this.content = tab;
   this.selectedTab = num;
   this.tabs = true;

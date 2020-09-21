@@ -20,10 +20,9 @@
         </button>
         <div *ngIf="searchTerm != ''" class="searchBox-dropdown">
           <ul *ngIf="filteredTerm.length != 0">
-            <li *ngFor="let res of filteredTerm" [value]="res.label">
-               <p><a routerLink="{{ res.label }}">
+            <li *ngFor="let res of filteredTerm" [value]="res.label" routerLink="{{ res.label }}">
+               <p>
                   {{ res.label }}
-                </a>
               </p>
             </li>
           </ul>
