@@ -23,7 +23,6 @@ export class DescriptorDetailsComponent implements OnInit {
   }
   getDescriptors(){
     this.service.get_api_headersLD('descriptor/'+this.descriptor_name).then((res)=>{
-      // console.log(res);
       this.manipulate_data_descriptor(res);
     })
   }
@@ -31,9 +30,9 @@ export class DescriptorDetailsComponent implements OnInit {
     let arr = [];
     let keys = Object.keys(obj);
     keys.forEach((a,i)=>{
-      if(a != '@context' && a != 'type'&& a != 'id' &&a != 'name'&& a != 'description'){
-      let o = { key: a, ...obj[a] };
-      arr.push(o);
+      if(typeof obj[a] == 'object'){
+        let o = { key: a, ...obj[a] };
+        arr.push(o);
       }
     });
     this.data_descriptor = arr;
@@ -42,7 +41,7 @@ export class DescriptorDetailsComponent implements OnInit {
       this.data_descriptor[i] = this.convert_obj_array_of_objs(a);
       this.flags[i] = false;
     });
-  
+    // console.log(JSON.stringify(this.data_descriptor));
   }
 
   convert_obj_array_of_objs(obj) {
@@ -54,27 +53,29 @@ export class DescriptorDetailsComponent implements OnInit {
         if(typeof obj[a] == 'string') {
           data = {
             key: a,
-            value: obj[a].includes(':') ? obj[a].split(':')[1] : obj[a],
-            level: 1
+            value: obj[a].includes(':') ? obj[a].split(':')[1] : obj[a]
           }
         }
-          else if(typeof obj[a] == 'number') {
-            data = {
-              key: a,
-              value: obj[a],
-              level: 1
-            }
+        else if(typeof obj[a] == 'number') {
+          data = {
+            key: a,
+            value: obj[a],
+            level: 1
+          }
         } else if(typeof obj[a] == 'object') {
           data = {
             key: a,
-            value: this.convert_obj_array_of_objs(obj[a]),
-            level: 2
+            value: this.convert_obj_array_of_objs(obj[a])
           }
         }
         arr.push(data);
       }
     });
     return arr;
+  }
+
+  typeOf(value) {
+    return typeof value;
   }
 
   toggle(i) {
