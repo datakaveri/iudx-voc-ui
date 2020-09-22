@@ -1,30 +1,42 @@
+section {
+  height: 100vh;
+}
+
 .home-container {
   width: 100%;
   display: flex;
   height: 100%;
+
   .left-container {
-    width: 45%;
+    position: relative;
+    width: 50%;
+
     .navbar {
       padding: 25px 30px 0px 80px;
       background-color: var(--white);
       display: flex;
     }
+
     .logo {
       width: 10%;
       padding-top: 5px;
+
       img {
         width: 80%;
       }
     }
+
     .nav-group {
       display: flex;
       width: 90%;
       justify-content: flex-end;
       padding-right: 35px;
       padding-top: 25px;
+
       .type-div {
         margin-left: 30px;
       }
+
       a {
         color: var(--highlight);
         font-weight: 500;
@@ -32,36 +44,17 @@
       }
     }
   }
+
   .right-container {
-    padding-top: 25px;
-    padding-right: 30px;
-    width: 55%;
-    background-color: var(--off-white);
-    h1 {
-      font-size: 16px;
-      font-weight: 500;
-      padding: 25px 30px 20px 60px;
-    }
-    p {
-      font-size: 14px;
-      padding-bottom: 20px;
-      padding-left: 60px;
-      padding-right: 60px;
-      color: var(--tertiary);
-      align-self: flex-end;
-    }
-    ul {
-      margin-left: 10px;
-    }
-    li {
-      color: var(--tertiary);
-      font-size: 14px;
-      padding: 0px 60px 20px 60px;
-      img {
-        padding-right: 10px;
-      }
-    }
+    width: 50%;
   }
+}
+
+.cover-img {
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+
 }
 
 .type-div {
@@ -71,52 +64,63 @@
 }
 
 .center-content {
+  width: 75%;
   position: absolute;
-  width: 35%;
-  top: 45%;
-  padding-left: 80px;
-  transform: translateY(-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   h1 {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 36px;
+    color: var(--highlight);
+    font-weight: 700;
   }
+
   p {
-    padding-top: 40px;
+    margin-top: 30px;
     // font-size: 18px;
     color: var(--tertiary);
   }
+
   .search-div {
     width: 90%;
     display: flex;
-    margin-top: 40px;
+    margin-top: 30px;
     position: relative;
+
     input {
       width: 100%;
       box-sizing: border-box;
       // max-width: 500px;
+      border-radius: 10px;
       outline: none;
       border: none;
-      padding: 10px 15px;
+      padding: 10px 45px 10px 25px;
+      height: 50px;
       background-color: var(--off-white);
     }
+
     .search-icon {
       display: flex;
-      margin-left: -25px;
+      margin-left: -40px;
       align-items: center;
       padding-top: 5px;
+
       img {
         height: 15px;
       }
+
       cursor: pointer;
+
       button {
         background-color: transparent;
         border: none;
       }
     }
+
     .searchBox-dropdown {
       box-sizing: border-box;
       max-height: 200px;
-      border: 1px solid var(--border);
       border-top: 0;
       background-color: var(--white);
       // z-index: 100;
@@ -135,8 +139,10 @@
 
       ul {
         list-style: none;
+
         li {
           cursor: pointer;
+
           p {
             padding: 15px;
             color: var(--primary);
@@ -154,4 +160,69 @@
 
 ::placeholder {
   font-size: 16px;
+}
+
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  color: var(--tertiary);
+  font-weight: 500;
+
+  span {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+
+    img {
+      height: 20px;
+    }
+  }
+}
+
+#about {
+  .left-container,
+  .right-container {
+    width: 50%;
+  }
+
+  .right-container {
+    position: relative;
+  }
+}
+
+
+.text-content {
+  padding: 100px 80px;
+
+  h2 {
+    font-size: 18px;
+    color: var(--highlight);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    position: relative;
+
+    li {
+      padding-left: 1.5em;
+      &::before {
+        position: absolute;
+        content: "•";
+        font-size: 30px;
+        color: var(--highlight);
+        left: 0;
+      }
+    }
+  }
+
+  li, p {
+    color: var(--tertiary);
+    margin-bottom: 15px;
+    word-spacing: 2px;
+    font-weight: 500;
+    line-height: 150%;
+  }
 }
