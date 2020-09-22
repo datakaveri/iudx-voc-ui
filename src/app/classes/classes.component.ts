@@ -22,6 +22,6 @@ export class ClassesComponent implements OnInit {
     });
   }
   showClassDetail(clsName :string){
-    this.router.navigate(['/type/' + clsName]);
+    this.router.navigate(['/' + clsName]);
   }
 }

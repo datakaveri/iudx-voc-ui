@@ -39,18 +39,18 @@ const routes: Routes = [
     path: 'types/list',
     component: ClassesComponent
   },
-  {
-    path: 'type/:class_name',
-    component: SchemaDetailsTypesComponent
-  },
+  // {
+  //   path: 'type/:class_name',
+  //   component: SchemaDetailsTypesComponent
+  // },
   {
     path: 'properties/list',
     component: PropertiesComponent
   },
-  {
-    path: 'properties/:property_name',
-    component: SchemaDetailsPropertiesComponent
-  },
+  // {
+  //   path: 'properties/:property_name',
+  //   component: SchemaDetailsPropertiesComponent
+  // },
   {
     path: 'data-descriptors/list',
     component: DataDescriptorsComponent

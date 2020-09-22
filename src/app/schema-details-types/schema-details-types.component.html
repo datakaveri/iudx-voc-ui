@@ -4,7 +4,7 @@
    
    <div *ngIf="res.length != 1">
       <h1  *ngFor="let class of breadcrumbs; let i=index">
-      <a [routerLink]="['/type', class]">{{ class }}</a> 
+      <a [routerLink]="['/', class]">{{ class }}</a> 
       <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;>&nbsp; </span>
       </h1>
     </div>
@@ -31,10 +31,10 @@
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">
             <td width="25%">
-              <a [routerLink]="['/properties', property.property]">{{ property.property }}</a>
+              <a [routerLink]="['/', property.property]">{{ property.property }}</a>
             </td>
             <td width="25%">
-              <a [routerLink]="['/type', type]" class="type_link" *ngFor="let type of property.expected_types;let i = index">
+              <a [routerLink]="['/', type]" class="type_link" *ngFor="let type of property.expected_types;let i = index">
                 {{ type }}
                 <span *ngIf="i < property.expected_types.length - 1"><br/></span>
               </a>

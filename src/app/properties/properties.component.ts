@@ -22,6 +22,6 @@ export class PropertiesComponent implements OnInit {
     })
   }
   showPropertyDetail(property_name :string){
-    this.router.navigate(['/properties', property_name]);
+    this.router.navigate(['/', property_name]);
   }
 }

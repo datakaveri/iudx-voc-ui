@@ -27,6 +27,6 @@ export class EntitiesComponent implements OnInit {
     });
   }
   goToEntity(entity_name:string){
-    this.router.navigate(['/type',entity_name]);
+    this.router.navigate(['/',entity_name]);
   }
 }

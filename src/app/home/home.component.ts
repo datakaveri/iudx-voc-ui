@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private service: InterceptorService) {
     this.pageHeight = window.innerHeight;
+    this.searchTerm = '';
   }
 
   ngOnInit(): void {

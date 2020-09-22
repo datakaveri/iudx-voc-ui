@@ -11,7 +11,7 @@
       </tr>
       <tr *ngFor="let domain of domains">
         <td>
-          <a [routerLink]="['/type', domain.label]" class="title">{{
+          <a [routerLink]="['/', domain.label]" class="title">{{
             domain.label
           }}</a>
         </td>

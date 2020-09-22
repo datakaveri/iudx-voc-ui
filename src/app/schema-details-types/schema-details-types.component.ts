@@ -48,7 +48,7 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
   }
   showClassDetail() {
     this.route.params.subscribe((params)=>{
-      this.className = params['class_name'];
+      this.className = params['id'];
       this.service.get_api_headersLD(this.className).then((data) => {
         this.res = data['@graph'];
         if (this.res.length == 1) {

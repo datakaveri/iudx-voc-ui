@@ -12,7 +12,7 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
   pr_name: '';
   constructor(private route:ActivatedRoute,private router:Router,private service:InterceptorService) {
     this.property_details = {};
-    this.pr_name = this.route.snapshot.params.property_name;
+    this.pr_name = this.route.snapshot.params.id;
    }
 
   ngOnInit(): void {
