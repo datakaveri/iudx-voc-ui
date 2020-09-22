@@ -1,61 +1,60 @@
-.data-models-container{
-    margin : 35px; 
-    padding-top:60px;
-    .title-div{
-        h1{
-            border-bottom: 1px solid var(--border); 
-            font-size: 18px;
-            padding-bottom:20px;
-            color: var(--secondary);
-            font-weight:500;
-        }
+.data-models-container {
+  margin: 35px;
+  padding-top: 60px;
+  .title-div {
+    h1 {
+      border-bottom: 1px solid var(--border);
+      font-size: 18px;
+      padding-bottom: 20px;
+      color: var(--secondary);
+      font-weight: 500;
     }
-    .content-div{
-       width:100%;
-        .cards-div{
-            display: inline-block;
-            box-sizing: border-box;
-            background-color:var(--off-white);
-            width: 30%;
-            height:200px;
-            padding: 20px 25px 15px 25px;
-            margin-top:30px;
-            // border-radius:10px;
+  }
+  .content-div {
+    width: 100%;
+    .cards-div {
+      display: inline-block;
+      box-sizing: border-box;
+      background-color: var(--off-white);
+      width: 30%;
+      height: 185px;
+      padding: 20px 25px 15px 25px;
+      margin-top: 30px;
+      // border-radius:10px;
 
-            &:nth-child(3n+2){
-                margin-left: 5%;
-                margin-right: 5%;
-            }
-            h1{
-                font-size:16px;
-                font-weight:500;
-                color: var(--secondary);
-            }
-            p{
-                border-bottom: 2px dashed var(--border);
-                padding-bottom:20px;
-                // font-size:16px;
-                color:var(--tertiary);
-            }
-            a{
-               display:block;
-                text-align: center;
-                color:var(--highlight);
-                font-weight: 500;
-                font-size:16px;
-            }
-        }
+      &:nth-child(3n + 2) {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      h1 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--secondary);
+      }
+      p {
+        border-bottom: 2px dashed var(--border);
+        padding-bottom: 30px;
+        // font-size:16px;
+        color: var(--tertiary);
+      }
+      a {
+        padding-top: 20px;
+        display: block;
+        text-align: center;
+        color: var(--highlight);
+        font-weight: 500;
+        font-size: 16px;
+      }
     }
-    .para-div{
-        margin-top:25px;
-        p{
-            color:var(--tertiary);
-            a {
-                font-weight: 500;
-                color:var(--highlight);
-                
-            }
-        }
+  }
+  .para-div {
+    margin-top: 25px;
+    p {
+      color: var(--tertiary);
+      a {
+        font-weight: 500;
+        color: var(--highlight);
+      }
     }
-
+  }
 }

@@ -1,18 +1,21 @@
 <div class="data-models-container">
-<div class="title-div">
+  <div class="title-div">
     <h1>Data-Model Domains</h1>
-</div>
-<div class="content-div">
-    <div *ngFor = "let domains of dataModels" class="cards-div">
-        <h1>{{domains.label}}</h1>
-        <br>
-        <p>{{domains.comment}}</p>
-        <br>
-        <a (click)= "getDataModelsList(domains.label)">View Details</a>
+  </div>
+  <div class="content-div">
+    <div *ngFor="let domains of dataModels" class="cards-div">
+      <h1>{{ domains.label }}</h1>
+      <br />
+      <p>{{ domains.comment }}</p>
+      <div class="view-details">
+        <a (click)="getDataModelsList(domains.label)">View Details</a>
+      </div>
     </div>
-   
-</div>
-<div class="para-div">
-    <p>* All the user contributed data-model descriptors can be found <a (click)="showDescriptorList()">Here.</a> </p>
-</div>
+  </div>
+  <div class="para-div">
+    <p>
+      * All the user contributed data-model descriptors can be found
+      <a (click)="showDescriptorList()">Here.</a>
+    </p>
+  </div>
 </div>

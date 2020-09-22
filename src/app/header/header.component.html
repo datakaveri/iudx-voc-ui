@@ -15,14 +15,18 @@
           [(ngModel)]="searchTerm"
           autofocus
         />
-        <button (click)="onSearch(searchTerm)">
+        <button [disabled]="!searchTerm" (click)="onSearch(searchTerm)">
           <img src="assets/search.png" />
         </button>
         <div *ngIf="searchTerm != ''" class="searchBox-dropdown">
           <ul *ngIf="filteredTerm.length != 0">
-            <li *ngFor="let res of filteredTerm" [value]="res.label" routerLink="{{ res.label }}">
-               <p>
-                  {{ res.label }}
+            <li
+              *ngFor="let res of filteredTerm"
+              [value]="res.label"
+              routerLink="{{ res.label }}"
+            >
+              <p>
+                {{ res.label }}
               </p>
             </li>
           </ul>
@@ -33,10 +37,10 @@
   <nav>
     <ul class="navList">
       <li>
-        <a routerLink ="/data-models/list" class="navLink">Data-Models</a>
+        <a routerLink="/data-models/list" class="navLink">Data-Models</a>
       </li>
       <li>
-        <a routerLink = "/entities/list" class="navLink">Types</a>
+        <a routerLink="/entities/list" class="navLink">Types</a>
       </li>
     </ul>
   </nav>

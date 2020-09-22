@@ -37,6 +37,7 @@ nav {
   border: 1px solid var(--border);
   // border-radius: 5px;
   // padding: 8px 12px;
+  padding-right: 5px;
   margin: 25px 0;
   width: 600px;
   background-color: var(--white);
@@ -79,9 +80,9 @@ nav {
     top: 71%;
     overflow-y: auto;
     // width: calc(100% - 70px);
-    width:100%;
+    width: 100%;
     // max-width: 530px;
-    
+
     text-align: left;
 
     .no_data {
@@ -91,19 +92,19 @@ nav {
     ul {
       list-style: none;
       li {
-      cursor: pointer;
-      p {
-        padding: 15px;
-        color: var(--primary);
-        font-weight: 600;
-      }
+        cursor: pointer;
+        p {
+          padding: 15px;
+          color: var(--primary);
+          font-weight: 600;
+        }
 
-      &:hover{
-        background-color: var(--off-white);
-      }
+        &:hover {
+          background-color: var(--off-white);
+        }
       }
     }
-    }
+  }
 }
 
 // .search {
