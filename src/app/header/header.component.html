@@ -7,23 +7,23 @@
     <form name="form" action="#" autocomplete="off">
       <div class="searchBox">
         <input
-          aria-label="Search"
           type="text"
           name="search"
-          (input)="filterItems(searchTerm)"
+          (ngModelChange)="filterItems(search_text)"
           placeholder="Search schema..."
-          [(ngModel)]="searchTerm"
+          [(ngModel)]="search_text"
           autofocus
         />
-        <button [disabled]="!searchTerm" (click)="onSearch(searchTerm)">
+        <button [disabled]="!search_text" (click)="onSearch(search_text)">
           <img src="assets/search.png" />
         </button>
-        <div *ngIf="searchTerm != ''" class="searchBox-dropdown">
+        <div *ngIf="search_text != ''" class="searchBox-dropdown">
           <ul *ngIf="filteredTerm.length != 0">
             <li
               *ngFor="let res of filteredTerm"
               [value]="res.label"
               routerLink="{{ res.label }}"
+              (click)="close_div()"
             >
               <p>
                 {{ res.label }}

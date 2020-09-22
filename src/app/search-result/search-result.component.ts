@@ -20,7 +20,6 @@ export class SearchResultComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.term = params.q;
-      //  console.log(this.term);
       this.searchTerm(this.term);
     });
   }
