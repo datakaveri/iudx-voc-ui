@@ -1,4 +1,4 @@
-<div id="class-section"class="main-container">
+<div id="class-section" class="main-container">
   <div class="title-div">
     <h1>List of Types</h1>
     <p>The table here shows the list of classes available with description</p>
@@ -9,12 +9,14 @@
         <th>Classes</th>
         <th class="description">Description</th>
       </tr>
-      <tr *ngFor = "let class of classes">
+      <tr *ngFor="let class of classes">
         <td>
-          <a (click)="showClassDetail(class.label)" class="title">{{class.label}}</a>
+          <a (click)="showClassDetail(class.label)" class="title">{{
+            class.label
+          }}</a>
         </td>
         <td class="description">
-          {{class.comment}}
+          {{ class.comment }}
         </td>
       </tr>
     </table>

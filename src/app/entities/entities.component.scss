@@ -1,7 +1,6 @@
 .main-container {
   margin: 35px;
   padding-top: 60px;
-
   p {
     span {
       font-weight: 500;
@@ -23,25 +22,22 @@
         padding-left: 25px;
         li {
           padding-bottom: 10px;
-        //   list-style-type: circle;
-          a{
-            padding-left:10px;
+          //   list-style-type: circle;
+          a {
+            padding-left: 10px;
           }
-          
         }
-        li::before{
-            content: url('/assets/bullet.png');
+        li::before {
+          content: url("/assets/bullet.png");
         }
       }
     }
   }
   .para-div {
     margin-top: 25px;
-
     p {
       font-size: 14px;
       color: var(--tertiary);
-      
     }
   }
 }

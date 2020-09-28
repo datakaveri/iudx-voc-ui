@@ -1,4 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  AfterViewInit,
+} from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
@@ -7,7 +13,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
   templateUrl: './schema-details-types.component.html',
   styleUrls: ['./schema-details-types.component.scss'],
 })
-export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
+export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
   className: any;
   value: any;
   parsed_response: any;
@@ -18,18 +24,19 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
   code: any;
   jsonQuery: string;
   tabs: any;
-  content:any;
+  content: any;
   num: any;
   selectedTab: number;
   constructor(
     private route: ActivatedRoute,
-    private service: InterceptorService,private router:Router
+    private service: InterceptorService,
+    private router: Router
   ) {
     this.parsed_response = {
       label: '',
       description: '',
       breadcrumbs: [],
-      tables: {}
+      tables: {},
     };
     this.res = {};
     this.breadcrumbs = [];
@@ -44,44 +51,49 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
     this.showClassDetail();
   }
   ngAfterViewInit() {
-    if(this.tabs || this.examples) document.getElementById('json-view').innerText = this.content;
+    if (this.tabs || this.examples)
+      document.getElementById('json-view').innerText = this.content;
   }
   showClassDetail() {
-    this.route.params.subscribe((params)=>{
+    this.route.params.subscribe((params) => {
       this.className = params['id'];
-      this.service.get_api_headersLD(this.className).then((data) => {
-        this.res = data['@graph'];
-        if (this.res.length == 1) {
-          this.parsed_response = {
-            label: this.res[0]['rdfs:label'],
-            description: this.res[0]['rdfs:comment'],
-            breadcrumbs: [],
-            tables: {}
-          };
-        } else {
-          this.parsed_response = {
-            label: '',
-            description: this.res[0]['rdfs:comment'],
-            breadcrumbs: [
-              this.res[0]['@id'].split('iudx:')[1]
-            ],
-            tables: {}
-          };
-          if(this.res[0]['rdfs:subClassOf']){ 
-           this.parsed_response.breadcrumbs.push(this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]);
-           this.get_sub_class(this.res, this.res[0]['rdfs:subClassOf']['@id']);
+      this.service.get_api_headersLD(this.className).then(
+        (data) => {
+          this.res = data['@graph'];
+          if (this.res.length == 1) {
+            this.parsed_response = {
+              label: this.res[0]['rdfs:label'],
+              description: this.res[0]['rdfs:comment'],
+              breadcrumbs: [],
+              tables: {},
+            };
+          } else {
+            this.parsed_response = {
+              label: '',
+              description: this.res[0]['rdfs:comment'],
+              breadcrumbs: [this.res[0]['@id'].split('iudx:')[1]],
+              tables: {},
+            };
+            if (this.res[0]['rdfs:subClassOf']) {
+              this.parsed_response.breadcrumbs.push(
+                this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]
+              );
+              this.get_sub_class(
+                this.res,
+                this.res[0]['rdfs:subClassOf']['@id']
+              );
+            }
+            this.get_sub_tables(this.res);
+            setTimeout(() => {
+              this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
+            }, 0);
+            this.showExamples();
           }
-          this.get_sub_tables(this.res);
-          setTimeout(()=>{
-            this.breadcrumbs = this.parsed_response.breadcrumbs.reverse();
-          }, 0);
-          this.showExamples();
+        },
+        (error) => {
+          if (error.status == 404) this.router.navigate(['/404/not-found']);
         }
-      },
-      (error)=>{
-        if(error.status == 404)
-        this.router.navigate(['/404/not-found']);
-      });
+      );
     });
   }
   get_sub_class(arr, str) {
@@ -135,15 +147,17 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
     return flag;
   }
   showExamples() {
-    this.service.get_api_headersLD('examples/' + this.className).then((response :any) => {
-      if (response == [] || response.length == 0) {
-        this.examples = false;
-      } else {
-        this.examples = true;
-        this.code = response;
-        this.content = response[0];
-      }
-    });
+    this.service
+      .get_api_headersLD('examples/' + this.className)
+      .then((response: any) => {
+        if (response == [] || response.length == 0) {
+          this.examples = false;
+        } else {
+          this.examples = true;
+          this.code = response;
+          this.content = response[0];
+        }
+      });
   }
   getJson(example: Object) {
     this.jsonQuery =
@@ -159,10 +173,9 @@ export class SchemaDetailsTypesComponent implements OnInit,AfterViewInit  {
     document.body.removeChild(el);
   }
 
-  selectTab(tab: any,num){
-    console.log(tab);
-  this.content = tab;
-  this.selectedTab = num;
-  this.tabs = true;
-}
+  selectTab(tab: any, num) {
+    this.content = tab;
+    this.selectedTab = num;
+    this.tabs = true;
+  }
 }

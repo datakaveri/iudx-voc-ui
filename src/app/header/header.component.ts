@@ -10,15 +10,13 @@ export class HeaderComponent implements OnInit {
   filteredTerm: any = [];
   results: any;
   search_text: string;
-  constructor(private router: Router,private service:InterceptorService) {}
+  constructor(private router: Router, private service: InterceptorService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   close_div() {
     this.search_text = '';
   }
-  
   onSearch(text: string) {
     this.router.navigate(['/search/searchTerm'], {
       queryParams: { q: this.search_text },
@@ -27,12 +25,12 @@ export class HeaderComponent implements OnInit {
   }
 
   filterItems(value) {
-    this.service.get_api_headers('fuzzysearch?q='+value).then((resp)=>{
-     this.results = resp;
-     let str = value.toLowerCase();
-     this.filteredTerm = this.results.filter((e) => {
-       return e.label.toLowerCase().includes(str);
-     });
-   });
+    this.service.get_api_headers('fuzzysearch?q=' + value).then((resp) => {
+      this.results = resp;
+      let str = value.toLowerCase();
+      this.filteredTerm = this.results.filter((e) => {
+        return e.label.toLowerCase().includes(str);
+      });
+    });
   }
 }

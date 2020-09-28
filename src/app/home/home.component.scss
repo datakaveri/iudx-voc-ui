@@ -129,7 +129,7 @@ section {
       // width: calc(100% - 70px);
       border: 1px solid var(--border);
       width: 100%;
-      max-width: 626px;
+      max-width: 656px;
 
       text-align: left;
 
@@ -192,7 +192,6 @@ section {
   }
 }
 
-
 .text-content {
   padding: 100px 80px;
 
@@ -218,7 +217,8 @@ section {
     }
   }
 
-  li, p {
+  li,
+  p {
     color: var(--tertiary);
     margin-bottom: 15px;
     word-spacing: 2px;

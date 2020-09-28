@@ -21,23 +21,23 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: RoutingComponent
+    component: RoutingComponent,
   },
   {
     path: 'data-models/list',
-    component: DataModelDomainsComponent
+    component: DataModelDomainsComponent,
   },
   {
     path: 'domain/:domain_name',
-    component: DomainsComponent
+    component: DomainsComponent,
   },
   {
     path: 'entities/list',
-    component: EntitiesComponent
+    component: EntitiesComponent,
   },
   {
     path: 'types/list',
-    component: ClassesComponent
+    component: ClassesComponent,
   },
   // {
   //   path: 'type/:class_name',
@@ -45,7 +45,7 @@ const routes: Routes = [
   // },
   {
     path: 'properties/list',
-    component: PropertiesComponent
+    component: PropertiesComponent,
   },
   // {
   //   path: 'properties/:property_name',
@@ -53,24 +53,24 @@ const routes: Routes = [
   // },
   {
     path: 'data-descriptors/list',
-    component: DataDescriptorsComponent
+    component: DataDescriptorsComponent,
   },
   {
     path: 'data-descriptors/:descriptor_name',
-    component: DescriptorDetailsComponent
+    component: DescriptorDetailsComponent,
   },
   {
     path: 'search/searchTerm',
-    component: SearchResultComponent
+    component: SearchResultComponent,
   },
   {
     path: '404/not-found',
-    component: PageNotFoundComponent
+    component: PageNotFoundComponent,
   },
   {
     path: '**',
-    redirectTo: '404/not-found'
-  }
+    redirectTo: '404/not-found',
+  },
 ];
 
 @NgModule({

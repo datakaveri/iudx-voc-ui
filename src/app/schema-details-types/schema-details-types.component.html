@@ -1,16 +1,16 @@
 <div class="main-container">
   <div class="title-div">
     <!-- <h1 >{{ class }} <span *ngIf="i < breadcrumbs.length - 1"> =>&nbsp; </span></h1> -->
-   
-   <div *ngIf="res.length != 1">
-      <h1  *ngFor="let class of breadcrumbs; let i=index">
-      <a [routerLink]="['/', class]">{{ class }}</a> 
-      <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;>&nbsp; </span>
+
+    <div *ngIf="res.length != 1">
+      <h1 *ngFor="let class of breadcrumbs; let i = index">
+        <a [routerLink]="['/', class]">{{ class }}</a>
+        <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;>&nbsp; </span>
       </h1>
     </div>
-    <br>
-    <div *ngIf="res.length ==1">
-      <h1>{{ parsed_response.label}}</h1>
+    <br />
+    <div *ngIf="res.length == 1">
+      <h1>{{ parsed_response.label }}</h1>
     </div>
     <p>{{ parsed_response.description }}</p>
   </div>
@@ -24,19 +24,50 @@
         </tr>
       </thead>
     </table>
-      <div *ngFor="let source of parsed_response.breadcrumbs.reverse(); let num = index;">
-        <p class="separator" *ngIf="parsed_response.tables[source] && parsed_response.tables[source].length > 0 && num == 0">Property of {{source}}</p>
-        <p class="separator" *ngIf="parsed_response.tables[source] && parsed_response.tables[source].length > 0 && num > 0">Property inherited from {{source}}</p>
+    <div
+      *ngFor="
+        let source of parsed_response.breadcrumbs.reverse();
+        let num = index
+      "
+    >
+      <p
+        class="separator"
+        *ngIf="
+          parsed_response.tables[source] &&
+          parsed_response.tables[source].length > 0 &&
+          num == 0
+        "
+      >
+        Property of {{ source }}
+      </p>
+      <p
+        class="separator"
+        *ngIf="
+          parsed_response.tables[source] &&
+          parsed_response.tables[source].length > 0 &&
+          num > 0
+        "
+      >
+        Property inherited from {{ source }}
+      </p>
       <table>
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">
             <td width="25%">
-              <a [routerLink]="['/', property.property]">{{ property.property }}</a>
+              <a [routerLink]="['/', property.property]">{{
+                property.property
+              }}</a>
             </td>
             <td width="25%">
-              <a [routerLink]="['/', type]" class="type_link" *ngFor="let type of property.expected_types;let i = index">
+              <a
+                [routerLink]="['/', type]"
+                class="type_link"
+                *ngFor="let type of property.expected_types; let i = index"
+              >
                 {{ type }}
-                <span *ngIf="i < property.expected_types.length - 1"><br/></span>
+                <span *ngIf="i < property.expected_types.length - 1"
+                  ><br
+                /></span>
               </a>
             </td>
             <td width="50%">{{ property.description }}</td>
@@ -48,27 +79,32 @@
   <div class="examples-container" *ngIf="examples">
     <h1>Examples</h1>
     <div class="tab_div">
-      <ul *ngFor = "let example of code; let i=index">
-          <li  id="tab_{{i}}" [ngClass]= "{'active' : selectedTab == i }" (click)="selectTab(example,i)">
-            {{ label + (i + 1) }}  
-          </li>
+      <ul *ngFor="let example of code; let i = index">
+        <li
+          id="tab_{{ i }}"
+          [ngClass]="{ active: selectedTab == i }"
+          (click)="selectTab(example, i)"
+        >
+          {{ label + (i + 1) }}
+        </li>
       </ul>
     </div>
     <div class="button-group-container">
       <div class="button-group">
-        <div  class="copy-btn">
+        <div class="copy-btn">
           <a (click)="copy(content)">Copy</a>
         </div>
-        <div  class="playground-btn">
-          <a (click)="getJson(content)" href="{{ jsonQuery }}" target="_blank">Open in Playground</a>
+        <div class="playground-btn">
+          <a (click)="getJson(content)" href="{{ jsonQuery }}" target="_blank"
+            >Open in Playground</a
+          >
         </div>
       </div>
     </div>
     <div class="json-container" *ngIf="tabs || examples">
       <div id="json-view">
-        <pre>{{content |json}}</pre>
-      </div>  
+        <pre>{{ content | json }}</pre>
+      </div>
     </div>
   </div>
-  
 </div>

@@ -5,28 +5,32 @@ import { InterceptorService } from '../interceptor.service';
 @Component({
   selector: 'app-entities',
   templateUrl: './entities.component.html',
-  styleUrls: ['./entities.component.scss']
+  styleUrls: ['./entities.component.scss'],
 })
 export class EntitiesComponent implements OnInit {
   entities: any;
 
-  constructor(private backendService: InterceptorService,private router:Router) { }
-
+  constructor(
+    private backendService: InterceptorService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.getEntities();
   }
-  displayTypesList(){
+  displayTypesList() {
     this.router.navigate(['types/list']);
   }
-  displayPropertyList(){
+  displayPropertyList() {
     this.router.navigate(['properties/list']);
   }
   getEntities(): void {
-    this.backendService.get_api_headers('relationship?rel=subClassOf&val=IUDXEntity').then((data)=>{
-      this.entities = data
-    });
+    this.backendService
+      .get_api_headers('relationship?rel=subClassOf&val=IUDXEntity')
+      .then((data) => {
+        this.entities = data;
+      });
   }
-  goToEntity(entity_name:string){
-    this.router.navigate(['/',entity_name]);
+  goToEntity(entity_name: string) {
+    this.router.navigate(['/', entity_name]);
   }
 }

@@ -1,8 +1,8 @@
 <div class="main-container">
   <div class="title-div">
-    <h1>{{property_details.label}}</h1>
+    <h1>{{ property_details.label }}</h1>
     <p>
-      {{property_details.comment}}
+      {{ property_details.comment }}
     </p>
   </div>
   <div id="table-div">
@@ -11,13 +11,17 @@
         <th>Expected Values</th>
       </tr>
       <tr *ngFor="let type of property_details.types">
-        <td><a [routerLink]="['/',type]" class="type_link">{{type}}</a></td>
+        <td>
+          <a [routerLink]="['/', type]" class="type_link">{{ type }}</a>
+        </td>
       </tr>
       <tr>
         <th>Used on these Types</th>
       </tr>
-      <tr *ngFor="let domain of property_details.domains"class="classes">
-        <td><a [routerLink]="['/',domain]">{{domain}}</a></td>
+      <tr *ngFor="let domain of property_details.domains" class="classes">
+        <td>
+          <a [routerLink]="['/', domain]">{{ domain }}</a>
+        </td>
       </tr>
     </table>
   </div>

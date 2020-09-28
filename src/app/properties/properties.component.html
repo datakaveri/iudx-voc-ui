@@ -1,23 +1,26 @@
 <div class="main-container">
-    <div class="title-div">
-      <h1>List of Properties</h1>
-      <p>The table here shows the list of properties available with description</p>
-    </div>
-    <div id="table-div">
-      <table>
-        <tr>
-          <th>Property</th>
-          <th class="description">Description</th>
-        </tr>
-        <tr *ngFor="let property of properties">
-          <td>
-            <a (click)="showPropertyDetail(property.label)" class="title">{{property.label}}</a>
-          </td>
-          <td class="description">
-            {{property.comment}}
-          </td>
-        </tr>
-      </table>
-    </div>
+  <div class="title-div">
+    <h1>List of Properties</h1>
+    <p>
+      The table here shows the list of properties available with description
+    </p>
   </div>
-  
+  <div id="table-div">
+    <table>
+      <tr>
+        <th>Property</th>
+        <th class="description">Description</th>
+      </tr>
+      <tr *ngFor="let property of properties">
+        <td>
+          <a (click)="showPropertyDetail(property.label)" class="title">{{
+            property.label
+          }}</a>
+        </td>
+        <td class="description">
+          {{ property.comment }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {InterceptorService} from '../interceptor.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InterceptorService } from '../interceptor.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   model: string;
@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
     this.searchTerm = '';
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   goToDataModels() {
     this.router.navigate(['/data-models/list']);
@@ -33,17 +31,14 @@ export class HomeComponent implements OnInit {
 
   onSearch(text: string) {
     this.router.navigate(['/search/searchTerm'], {
-      queryParams: {q: this.searchTerm},
+      queryParams: { q: this.searchTerm },
     });
   }
 
   filterItems(value) {
     this.service.get_api_headers('fuzzysearch?q=' + value).then((resp) => {
-      console.log(resp);
       this.results = resp;
       let str = value.toLowerCase();
-      console.log(str);
-      console.log(this.filteredTerm)
       this.filteredTerm = this.results.filter((e) => {
         return e.label.toLowerCase().includes(str);
       });
@@ -55,10 +50,10 @@ export class HomeComponent implements OnInit {
   }
 
   scrollToConsist() {
-    window.scrollBy( 0, this.pageHeight * 2);
+    window.scrollBy(0, this.pageHeight * 2);
   }
 
-  scrollToTop(){
+  scrollToTop() {
     window.scrollTo(0, 0);
   }
 }
