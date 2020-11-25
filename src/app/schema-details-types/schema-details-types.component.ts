@@ -127,6 +127,7 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
               expected_types: arr[i]['iudx:rangeIncludes'].map((x) => {
                 return x['@id'].split(':')[1];
               }),
+              rdfs_type:arr[i]['@type'][0].split(':')[1],
               description: arr[i]['rdfs:comment'],
             };
             this.parsed_response.tables[
