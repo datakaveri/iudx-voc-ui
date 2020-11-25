@@ -85,6 +85,19 @@
       </table>
     </div>
   </div>
+  <br>
+  <div id="table1-div" *ngIf="subclass_list.length != 0">
+    <table>
+      <tr>
+        <th>Subclasses of {{className}}</th>
+      </tr>
+      <tr *ngFor="let list of subclass_list">
+        <td>
+          <a [routerLink]="['/', list.label]" class="type_link">{{ list.label }}</a>
+        </td>
+      </tr>
+    </table>
+  </div>
   <div class="examples-container" *ngIf="examples">
     <h1>Examples</h1>
     <div class="tab_div">
