@@ -4,6 +4,10 @@
     <p>
       {{ property_details.comment }}
     </p>
+    <h2>
+     rdfs:type: <a [routerLink]="['/', property_details.rdfs_type]" class="type">{{property_details.rdfs_type}}</a>
+    </h2>
+
   </div>
   <div id="table-div">
     <table>

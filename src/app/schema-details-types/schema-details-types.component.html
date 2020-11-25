@@ -18,9 +18,10 @@
     <table>
       <thead>
         <tr>
-          <th width="25%">Property</th>
-          <th width="25%">Expected Types</th>
-          <th width="50%">Description</th>
+          <th width="20%">Property</th>
+          <th width="20%">RDFS Type</th>
+          <th width="20%">Expected Types</th>
+          <th width="40%">Description</th>
         </tr>
       </thead>
     </table>
@@ -53,12 +54,20 @@
       <table>
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">
-            <td width="25%">
+            <td width="20%">
               <a [routerLink]="['/', property.property]">{{
                 property.property
               }}</a>
             </td>
-            <td width="25%">
+            <td width="20%">
+              <a
+                [routerLink]="['/', property.rdfs_type]"
+                class="type_link"
+              >
+                {{ property.rdfs_type }}
+              </a>
+            </td>
+            <td width="20%">
               <a
                 [routerLink]="['/', type]"
                 class="type_link"
@@ -70,11 +79,24 @@
                 /></span>
               </a>
             </td>
-            <td width="50%">{{ property.description }}</td>
+            <td width="40%">{{ property.description }}</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+  <br>
+  <div id="table1-div" *ngIf="subclass_list.length != 0">
+    <table>
+      <tr>
+        <th>Subclasses of {{className}}</th>
+      </tr>
+      <tr *ngFor="let list of subclass_list">
+        <td>
+          <a [routerLink]="['/', list.label]" class="type_link">{{ list.label }}</a>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="examples-container" *ngIf="examples">
     <h1>Examples</h1>

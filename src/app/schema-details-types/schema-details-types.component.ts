@@ -27,6 +27,7 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
   content: any;
   num: any;
   selectedTab: number;
+  subclass_list: any;
   constructor(
     private route: ActivatedRoute,
     private service: InterceptorService,
@@ -45,10 +46,12 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
     this.tabs = false;
     this.selectedTab = 0;
     this.content = {};
+    this.subclass_list = [];
   }
 
   ngOnInit(): void {
     this.showClassDetail();
+    this.getSublcassesList(this.className);
   }
   ngAfterViewInit() {
     if (this.tabs || this.examples)
@@ -57,6 +60,7 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
   showClassDetail() {
     this.route.params.subscribe((params) => {
       this.className = params['id'];
+      this.getSublcassesList(this.className);
       this.service.get_api_headersLD(this.className).then(
         (data) => {
           this.res = data['@graph'];
@@ -127,6 +131,7 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
               expected_types: arr[i]['iudx:rangeIncludes'].map((x) => {
                 return x['@id'].split(':')[1];
               }),
+              rdfs_type:arr[i]['@type'][0].split(':')[1],
               description: arr[i]['rdfs:comment'],
             };
             this.parsed_response.tables[
@@ -145,6 +150,14 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
       if (b['@id'] == 'iudx:' + str) flag = true;
     });
     return flag;
+  }
+
+  getSublcassesList(value){
+    // console.log(value)
+    this.service.get_api_headers('relationship?rel=subClassOf&val='+value).then(
+      (data) => {
+        this.subclass_list = data;
+      });
   }
   showExamples() {
     this.service
