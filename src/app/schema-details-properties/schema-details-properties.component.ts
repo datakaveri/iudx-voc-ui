@@ -29,6 +29,7 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
         this.property_details = {
           label: response['rdfs:label'],
           comment: response['rdfs:comment'],
+          rdfs_type : response['@type'][0].split(':')[1],
           types: [],
           domains: [],
         };
