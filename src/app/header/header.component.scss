@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: calc(100vw - 50px);
+  width: calc(100vw - 46px);
   z-index: 2;
   padding: 10px 25px;
   background-color: #f4f4f4;
@@ -23,7 +23,6 @@ nav {
 .navList {
   width: 100%;
   li a {
-    // display: block;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
@@ -35,8 +34,6 @@ nav {
   display: flex;
   align-items: center;
   border: 1px solid var(--border);
-  // border-radius: 5px;
-  // padding: 8px 12px;
   padding-right: 5px;
   margin: 25px 0;
   width: 600px;
@@ -108,9 +105,9 @@ nav {
 }
 
 .logo {
-  padding-top: 10px;
-  height: 80px;
-  width: 160px;
+  padding-top: 5px;
+  // height: 70px;
+  width: 135px;
 }
 
 .logo__container a {
