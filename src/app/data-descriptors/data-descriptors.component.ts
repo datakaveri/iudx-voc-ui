@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
-import { ThrowStmt } from '@angular/compiler';
+// import { ThrowStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
 
 @Component({
