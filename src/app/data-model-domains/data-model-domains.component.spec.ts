@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DataModelDomainsComponent } from './data-model-domains.component';
 
@@ -6,7 +6,7 @@ describe('DataModelDomainsComponent', () => {
   let component: DataModelDomainsComponent;
   let fixture: ComponentFixture<DataModelDomainsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DataModelDomainsComponent ]
     })
