@@ -23,6 +23,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingComponent } from './routing/routing.component';
 import { ToasterComponent } from './toaster/toaster.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ToasterComponent } from './toaster/toaster.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     
   ],
   providers: [],
