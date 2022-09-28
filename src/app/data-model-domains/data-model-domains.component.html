@@ -1,8 +1,29 @@
+
 <div class="data-models-container">
   <div class="title-div">
-    <h1>Data-Model Domains</h1>
+    <h1 class="text-center">Data-Model Domains</h1>
   </div>
-  <div class="content-div">
+  <div class="container px-5">
+  <div class="row gx-5">
+  <div class="card col-3 m-lg-3 px-lg-3" *ngFor="let domains of dataModels" style="min-width: calc(25% - 30px)!important;
+  width: calc(25% - 30px) !important;">
+    <div class="w-100 icon">
+      <img alt="{{domains.label | lowercase}}" class="img-container w-25 mw-25 py-lg-3" 
+      [ngStyle]="{'mask-image': '(./../../assets/'+lowerCaseConversion(domains.label)+'.svg)',
+				'-webkit-mask-image': 'url(./../../assets/'+lowerCaseConversion(domains.label)+'.svg)'}"
+      >
+    </div>
+    <div>
+      <h3 class="mt-lg-3 domains-label">{{ domains.label }}</h3>
+      <p class="domains-content text-justify">{{ domains.comment }}</p>
+      <a (click)="getDataModelsList(domains.label)" class="view-datasets">View Datasets
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- <div class="content-div">
     <div *ngFor="let domains of dataModels" class="cards-div">
       <h1>{{ domains.label }}</h1>
       <br />
@@ -18,4 +39,4 @@
       <a (click)="showDescriptorList()">Here.</a>
     </p>
   </div>
-</div>
+</div> -->

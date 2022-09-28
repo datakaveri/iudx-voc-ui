@@ -12,7 +12,7 @@
 }
 
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-weight: 400;
   outline: 0;
   margin: 0;
@@ -88,14 +88,15 @@ table {
     border-right: 1px solid var(--off-white);
   }
   a {
-    color: var(--highlight);
+    color: #042f5b;
     text-transform: none;
-    text-decoration: underline;
+    text-decoration: none;
     text-underline-position: under;
     font-weight: 500;
   }
 }
 .main-container {
+  position: relative;
   padding-top: 60px;
   margin: 35px;
   .title-div {

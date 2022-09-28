@@ -2,10 +2,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: calc(100vw - 46px);
+  width: 100%;
   z-index: 2;
   padding: 10px 25px;
-  background-color: #f4f4f4;
+  background-color: #042f5b;
 }
 
 .header,
@@ -13,21 +13,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 52px;
+  height: 9%;
 }
 
 nav {
   position: relative;
+  width: 18%;
 }
 
 .navList {
   width: 100%;
+  margin: 0 !important;
   li a {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 19px;
     line-height: 20px;
-    color: var(--highlight);
+    color: #fff;
     padding-right: 50px;
+    text-decoration: none;
   }
 }
 .searchBox {
@@ -105,7 +108,7 @@ nav {
 }
 
 .logo {
-  padding-top: 5px;
+  // padding-top: 5px;
   // height: 70px;
   width: 135px;
 }

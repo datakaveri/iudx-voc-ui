@@ -1,50 +1,26 @@
 <header class="header">
   <div class="logo__container">
-    <a href="/"
+    <a href="https://catalogue.iudx.org.in/"
       ><img
-        src="https://iudx-catalogue-assets.s3.ap-south-1.amazonaws.com/iudx.png"
+        src="https://iudx.org.in/wp-content/uploads/2021/12/IUDX_logo_white.png"
         class="logo" /></a
     >&nbsp;
-    <!-- <h1>IUDX Vocabulary</h1> -->
   </div>
   <div class="searchBox-container">
     <form name="form" action="#" autocomplete="off">
-      <div class="searchBox">
-        <input
-          type="text"
-          name="search"
-          (ngModelChange)="filterItems(search_text)"
-          placeholder="Search schema..."
-          [(ngModel)]="search_text"
-          autofocus
-        />
-        <button [disabled]="!search_text" (click)="onSearch(search_text)">
-          <img src="assets/search.png" />
-        </button>
-        <div *ngIf="search_text != ''" class="searchBox-dropdown">
-          <ul *ngIf="filteredTerm.length != 0">
-            <li
-              *ngFor="let res of filteredTerm"
-              [value]="res.label"
-              routerLink="{{ res.label }}"
-              (click)="close_div()"
-            >
-              <p>
-                {{ res.label }}
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
+      
     </form>
   </div>
-  <nav>
+  <nav class="w-25">
     <ul class="navList">
       <li>
-        <a routerLink="/data-models/list" class="navLink">Data-Models</a>
+        <a routerLink="/" class="navLink p-lg-3">Home</a>
       </li>
       <li>
-        <a routerLink="/entities/list" class="navLink">Types</a>
+        <a routerLink="/data-models/list" class="navLink p-lg-3">Data-Models</a>
+      </li>
+      <li>
+        <a routerLink="/entities/list" class="navLink p-lg-3">Types</a>
       </li>
     </ul>
   </nav>

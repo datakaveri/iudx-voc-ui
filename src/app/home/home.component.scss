@@ -9,7 +9,7 @@ section {
 
   .left-container {
     position: relative;
-    width: 50%;
+    width: 100%;
 
     .navbar {
       padding: 25px 30px 0px 80px;
@@ -37,9 +37,9 @@ section {
       }
 
       a {
-        color: var(--highlight);
+        color: #042f5b;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 17px;
       }
     }
   }
@@ -71,7 +71,7 @@ section {
 
   h1 {
     font-size: 32px;
-    color: var(--highlight);
+    color: #042f5b;
     font-weight: 700;
   }
 
@@ -82,9 +82,9 @@ section {
   }
 
   .search-div {
-    width: 90%;
+    width: 50%;
     display: flex;
-    margin-top: 30px;
+    margin: 30px 26% 0 26%;
     position: relative;
 
     input {
@@ -196,7 +196,7 @@ section {
 
   h2 {
     font-size: 18px;
-    color: var(--highlight);
+    color:#042f5b;
     font-weight: 700;
     margin-bottom: 20px;
   }
@@ -222,6 +222,6 @@ section {
     margin-bottom: 15px;
     word-spacing: 2px;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 3;
   }
 }

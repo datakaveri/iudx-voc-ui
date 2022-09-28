@@ -28,4 +28,27 @@ export class DataModelDomainsComponent implements OnInit {
   showDescriptorList() {
     this.router.navigate(['/data-descriptors/list']);
   }
+  lowerCaseConversion(domain: any) {
+		let domainName = '';
+		switch (domain) {
+			case 'Urban Mobility':
+				domainName = 'urban';
+				break;
+			case 'Waste Management':
+				domainName = 'waste';
+				break;
+			case 'Street Light':
+				domainName = 'street';
+				break;
+			case 'Video Systems':
+				domainName = 'video-systems';
+				break;
+			case 'Work Place':
+				domainName = 'work';
+				break;
+			default:
+				domainName = domain.toLowerCase();
+		}
+		return domainName;
+	}
 }

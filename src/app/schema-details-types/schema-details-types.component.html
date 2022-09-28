@@ -4,8 +4,11 @@
 
     <div *ngIf="res.length != 1">
       <h1 *ngFor="let class of breadcrumbs; let i = index">
-        <a [routerLink]="['/', class]">{{ class }}</a>
-        <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;>&nbsp; </span>
+        <span *ngIf="i < breadcrumbs.length-1;">
+            <a [routerLink]="['/', class]">{{ class }}</a>
+        </span>
+        <a [routerLink]="['/', class]" *ngIf="i == breadcrumbs.length - 1;" style="cursor: default;">{{ class }}</a>
+        <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;/&nbsp; </span>
       </h1>
     </div>
     <br />
