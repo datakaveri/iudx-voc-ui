@@ -26,11 +26,15 @@ nav {
   margin: 0 !important;
   li a {
     font-weight: 500;
-    font-size: 19px;
+    font-size: 17px;
     line-height: 20px;
     color: #fff;
     padding-right: 50px;
     text-decoration: none;
+    &:hover{
+      background-color: #fff;
+      color: #042f5b !important;
+    }
   }
 }
 .searchBox {

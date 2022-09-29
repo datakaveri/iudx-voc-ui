@@ -7,7 +7,7 @@
         <span *ngIf="i < breadcrumbs.length-1;">
             <a [routerLink]="['/', class]">{{ class }}</a>
         </span>
-        <a [routerLink]="['/', class]" *ngIf="i == breadcrumbs.length - 1;" style="cursor: default;">{{ class }}</a>
+        <a [routerLink]="['/', class]" *ngIf="i == breadcrumbs.length - 1;" style="cursor: default; color: gray;">{{ class }}</a>
         <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;/&nbsp; </span>
       </h1>
     </div>

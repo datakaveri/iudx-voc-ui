@@ -1,6 +1,5 @@
 .data-models-container {
   
-  margin: 35px;
   padding-top: 60px;
   .card:hover{
     box-shadow: 0 0 20px rgb(0 0 0 / 15%);
@@ -117,5 +116,11 @@
         color: var(--highlight);
       }
     }
+  }
+}
+
+@media (max-width:991px) {
+  .card{
+    width: 100% !important;
   }
 }
