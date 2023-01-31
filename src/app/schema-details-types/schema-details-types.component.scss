@@ -1,37 +1,49 @@
 .main-container {
   padding-top: 60px;
   margin: 35px;
+
   .title-div {
     h1 {
       display: inline-block;
       padding-bottom: 10px;
       color: var(--secondary);
       font-weight: 500;
+
       a {
         font-weight: 500;
         font-size: 16px;
         color: #042f5b;
         text-decoration: none;
         text-underline-position: none;
+
+        &.adex {
+          color: #0a9;
+        }
       }
+
     }
+
     p {
       font-size: 16px;
       color: var(--tertiary);
       padding-bottom: 30px;
     }
   }
+
   .examples-container {
     margin-top: 50px;
+
     h1 {
       font-size: 16px;
       padding-bottom: 20px;
       font-weight: 500;
     }
+
     .tab_div {
       ul {
         list-style: none;
         display: inline-block;
+
         li {
           cursor: pointer;
           display: inline-block;
@@ -42,6 +54,7 @@
           background-color: var(--white);
           border: 1px solid var(--border);
         }
+
         .active {
           background: var(--off-white);
           // font-weight: 600;
@@ -50,6 +63,7 @@
         }
       }
     }
+
     .button-group-container {
       background-color: var(--off-white);
       width: calc(100% - 2px);
@@ -69,6 +83,7 @@
           margin-right: 20px;
           text-align: center;
           padding: 5px;
+
           a {
             color: var(--white);
           }
@@ -83,13 +98,15 @@
           border: 1px solid var(--highlight);
           padding: 4px;
           text-align: center;
-          a{
+
+          a {
             text-decoration: none;
             color: black;
           }
         }
       }
     }
+
     .json-container {
       width: calc(100% - 2px);
       max-height: 800px;

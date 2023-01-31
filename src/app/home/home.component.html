@@ -1,8 +1,8 @@
 <section class="home-container" id="home">
   <div class="left-container">
     <div class="center-content">
-      <h1 class="text-center">
-        Welcome To IUDX Vocabulary
+      <h1 class="text-center" [ngClass] = "theme == 'adex' ? 'adex': ''">
+        Welcome To {{ theme | titlecase}} Vocabulary
       </h1>
       <p class="text-center">
         Please feel free to browse through our schemas, data-models & types
@@ -41,14 +41,14 @@
         </div>
       </form>
     </div>
-    <a class="scroll-down" (click)="scrollToAbout()">
+    <a class="scroll-down" (click)="scrollToAbout()" [ngClass]="theme == 'adex' ? 'd-none' : ''">
       Scroll for more details
       <span><img src="./assets/collapsed.png" alt="scroll-down"></span>
     </a>
   </div>
 </section>
 
-<section class="home-container" id="about">
+<section class="home-container" id="about" [ngClass]="theme == 'adex' ? 'd-none' : ''">
   <div class="left-container w-50">
     <img class="cover-img" src="./assets/cover.jpg" alt="backimage1">
   </div>
@@ -79,7 +79,7 @@
   </div>
 </section>
 
-<section class="home-container" id="consist">
+<section class="home-container" id="consist" [ngClass]="theme == 'adex' ? 'd-none' : ''">
   <div class="left-container">
     <div class="text-content">
       <h2>

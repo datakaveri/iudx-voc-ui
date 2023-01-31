@@ -5,7 +5,8 @@
       {{ property_details.comment }}
     </p>
     <h2>
-     rdfs:type: <a [routerLink]="['/', property_details.rdfs_type]" class="type">{{property_details.rdfs_type}}</a>
+     rdfs:type: <a [routerLink]="['/', property_details.rdfs_type]" class="type"
+     [ngClass]="theme == 'adex' ? 'adex' : ''">{{property_details.rdfs_type}}</a>
     </h2>
 
   </div>
@@ -24,7 +25,7 @@
       </tr>
       <tr *ngFor="let domain of property_details.domains" class="classes">
         <td>
-          <a [routerLink]="['/', domain]">{{ domain }}</a>
+          <a [routerLink]="['/', domain]" [ngClass]="theme == 'adex' ? 'adex' : ''">{{ domain }}</a>
         </td>
       </tr>
     </table>

@@ -10,7 +10,10 @@ export class HeaderComponent implements OnInit {
   filteredTerm: any = [];
   results: any;
   search_text: string;
-  constructor(private router: Router, private service: InterceptorService) {}
+  theme: string;
+  constructor(private router: Router, private service: InterceptorService) {
+    this.theme = localStorage.getItem('theme');
+  }
 
   ngOnInit(): void {}
 

@@ -10,7 +10,10 @@ import { Router } from '@angular/router';
 export class DataModelDomainsComponent implements OnInit {
   dataModels: any;
   descriptors: any;
-  constructor(private service: InterceptorService, private router: Router) {}
+  theme: string;
+  constructor(private service: InterceptorService, private router: Router) {
+    this.theme = localStorage.getItem('theme');
+  }
 
   ngOnInit(): void {
     this.getAllDomains();
@@ -29,26 +32,26 @@ export class DataModelDomainsComponent implements OnInit {
     this.router.navigate(['/data-descriptors/list']);
   }
   lowerCaseConversion(domain: any) {
-		let domainName = '';
-		switch (domain) {
-			case 'Urban Mobility':
-				domainName = 'urban';
-				break;
-			case 'Waste Management':
-				domainName = 'waste';
-				break;
-			case 'Street Light':
-				domainName = 'street';
-				break;
-			case 'Video Systems':
-				domainName = 'video-systems';
-				break;
-			case 'Work Place':
-				domainName = 'work';
-				break;
-			default:
-				domainName = domain.toLowerCase();
-		}
-		return domainName;
-	}
+    let domainName = '';
+    switch (domain) {
+      case 'Urban Mobility':
+        domainName = 'urban';
+        break;
+      case 'Waste Management':
+        domainName = 'waste';
+        break;
+      case 'Street Light':
+        domainName = 'street';
+        break;
+      case 'Video Systems':
+        domainName = 'video-systems';
+        break;
+      case 'Work Place':
+        domainName = 'work';
+        break;
+      default:
+        domainName = domain.toLowerCase();
+    }
+    return domainName;
+  }
 }

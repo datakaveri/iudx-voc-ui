@@ -10,11 +10,13 @@ import { InterceptorService } from '../interceptor.service';
 export class SchemaDetailsPropertiesComponent implements OnInit {
   property_details: any;
   pr_name: '';
+  theme: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private service: InterceptorService
   ) {
+    this.theme = localStorage.getItem('theme');
     this.property_details = {};
     this.pr_name = this.route.snapshot.params.id;
   }
@@ -29,7 +31,7 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
         this.property_details = {
           label: response['rdfs:label'],
           comment: response['rdfs:comment'],
-          rdfs_type : response['@type'][0].split(':')[1],
+          rdfs_type: response['@type'][0].split(':')[1],
           types: [],
           domains: [],
         };

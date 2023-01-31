@@ -20,6 +20,7 @@ section {
     .logo {
       width: 150px;
       padding-top: 5px;
+
       img {
         width: 100%;
       }
@@ -73,6 +74,10 @@ section {
     font-size: 32px;
     color: #042f5b;
     font-weight: 700;
+
+    &.adex {
+      color: #0a9;
+    }
   }
 
   p {
@@ -181,6 +186,7 @@ section {
 }
 
 #about {
+
   .left-container,
   .right-container {
     width: 50%;
@@ -196,7 +202,7 @@ section {
 
   h2 {
     font-size: 18px;
-    color:#042f5b;
+    color: #042f5b;
     font-weight: 700;
     margin-bottom: 20px;
   }
@@ -206,11 +212,12 @@ section {
 
     li {
       padding-left: 1.5em;
+
       &::before {
         position: absolute;
         content: "•";
         font-size: 30px;
-        color: var(--highlight);
+        color: #042f5b;
         left: 0;
       }
     }

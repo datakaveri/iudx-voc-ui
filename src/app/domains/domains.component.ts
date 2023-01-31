@@ -10,10 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 export class DomainsComponent implements OnInit {
   domains: any;
   value: string;
+  theme: string;
   constructor(
     private service: InterceptorService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.theme = localStorage.getItem('theme');
+  }
 
   ngOnInit(): void {
     this.getDomain();

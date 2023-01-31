@@ -13,10 +13,12 @@ export class HomeComponent implements OnInit {
   filteredTerm: any = [];
   results: any;
   pageHeight: any;
+  theme: string;
 
   constructor(private router: Router, private service: InterceptorService) {
     this.pageHeight = window.innerHeight;
     this.searchTerm = '';
+    this.theme = localStorage.getItem('theme');
   }
 
   ngOnInit(): void {}

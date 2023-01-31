@@ -28,11 +28,13 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
   num: any;
   selectedTab: number;
   subclass_list: any;
+  theme: string;
   constructor(
     private route: ActivatedRoute,
     private service: InterceptorService,
     private router: Router
   ) {
+    this.theme = localStorage.getItem('theme');
     this.parsed_response = {
       label: '',
       description: '',
