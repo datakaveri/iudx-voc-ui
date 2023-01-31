@@ -2,7 +2,9 @@
   <div class="left-container">
     <div class="center-content">
       <h1 class="text-center" [ngClass] = "theme == 'adex' ? 'adex': ''">
-        Welcome To {{ theme | titlecase}} Vocabulary
+        Welcome to
+        <span [ngClass]="theme == 'adex' ? 'd-none' : ''">Urban</span>
+        <span [ngClass]="theme == 'adex' ? '' : 'd-none'">ADeX</span> Vocabulary
       </h1>
       <p class="text-center">
         Please feel free to browse through our schemas, data-models & types

@@ -75,8 +75,20 @@ section {
     color: #042f5b;
     font-weight: 700;
 
+    span {
+      font-size: 32px;
+      color: #042f5b;
+      font-weight: 700;
+    }
+
     &.adex {
       color: #0a9;
+
+      span {
+        font-size: 32px;
+        color: #0a9;
+        font-weight: 700;
+      }
     }
   }
 
