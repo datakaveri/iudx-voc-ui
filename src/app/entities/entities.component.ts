@@ -9,11 +9,14 @@ import { InterceptorService } from '../interceptor.service';
 })
 export class EntitiesComponent implements OnInit {
   entities: any;
+  theme: string;
 
   constructor(
     private backendService: InterceptorService,
     private router: Router
-  ) {}
+  ) {
+    this.theme = localStorage.getItem('theme');
+  }
   ngOnInit(): void {
     this.getEntities();
   }
@@ -24,11 +27,19 @@ export class EntitiesComponent implements OnInit {
     this.router.navigate(['properties/list']);
   }
   getEntities(): void {
-    this.backendService
-      .get_api_headers('relationship?rel=subClassOf&val=IUDXEntity')
-      .then((data) => {
-        this.entities = data;
-      });
+    if (localStorage.getItem('theme') !== 'adex') {
+      this.backendService
+        .get_api_headers('relationship?rel=subClassOf&val=IUDXEntity')
+        .then((data) => {
+          this.entities = data;
+        });
+    } else {
+      this.backendService
+        .get_api_headers('relationship?rel=subClassOf&val=ADEXEntity')
+        .then((data) => {
+          this.entities = data;
+        });
+    }
   }
   goToEntity(entity_name: string) {
     this.router.navigate(['/', entity_name]);

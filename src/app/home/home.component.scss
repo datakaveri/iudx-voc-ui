@@ -48,6 +48,12 @@ section {
   .right-container {
     width: 50%;
   }
+
+  &.adex {
+    h2 {
+      color: #0a9 !important;
+    }
+  }
 }
 
 .cover-img {
@@ -180,20 +186,25 @@ section {
 
 .scroll-down {
   position: absolute;
-  left: 50%;
+  right: 0%;
   transform: translateX(-50%);
-  bottom: 40px;
+  bottom: 3%;
   color: var(--tertiary);
   font-weight: 500;
+  padding: 0;
+  border: 1px solid #DDDDDD;
+  background: #DDDDDD;
+
+  img {
+    height: 30px;
+  }
 
   span {
     display: block;
     width: fit-content;
     margin: 0 auto;
 
-    img {
-      height: 20px;
-    }
+
   }
 }
 
@@ -210,13 +221,18 @@ section {
 }
 
 .text-content {
-  padding: 100px 80px;
+  padding: 10px 80px;
+  text-align: justify;
 
   h2 {
     font-size: 18px;
     color: #042f5b;
     font-weight: 700;
     margin-bottom: 20px;
+
+    &.adex {
+      color: #0a9
+    }
   }
 
   ul {
@@ -241,6 +257,6 @@ section {
     margin-bottom: 15px;
     word-spacing: 2px;
     font-weight: 500;
-    line-height: 2;
+    line-height: 1.6;
   }
 }

@@ -1,6 +1,11 @@
 <div class="main-container">
   <div class="title-div">
-    <h1>List of DataModels belonging to the {{ value }} Domain</h1>
+    <h1 [ngClass]="theme === 'adex' ? 'd-none' : ''">
+      List of DataModels belonging to the {{ value }} Domain
+    </h1>
+    <h1 [ngClass]="theme === 'adex' ? '' : 'd-none'">
+      List of DataModels belonging to the {{ value }} Concepts
+    </h1>
     <br />
   </div>
   <div id="table-div">
@@ -11,9 +16,12 @@
       </tr>
       <tr *ngFor="let domain of domains">
         <td>
-          <a [routerLink]="['/', domain.label]" class="title" [ngClass]="theme == 'adex' ? 'adex' : '' ">{{
-            domain.label
-          }}</a>
+          <a
+            [routerLink]="['/', domain.label]"
+            class="title"
+            [ngClass]="theme == 'adex' ? 'adex' : ''"
+            >{{ domain.label }}</a
+          >
         </td>
         <td class="description">
           {{ domain.comment }}

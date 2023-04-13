@@ -1,13 +1,21 @@
 <div class="main-container">
   <div class="title-div">
     <!-- <h1 >{{ class }} <span *ngIf="i < breadcrumbs.length - 1"> =>&nbsp; </span></h1> -->
-
     <div *ngIf="res.length != 1">
       <h1 *ngFor="let class of breadcrumbs; let i = index">
-        <span *ngIf="i < breadcrumbs.length-1;">
-            <a [routerLink]="['/', class]" [ngClass]="theme == 'adex' ? 'adex' : ''">{{ class }}</a>
+        <span *ngIf="i < breadcrumbs.length - 1">
+          <a
+            [routerLink]="['/', class]"
+            [ngClass]="theme == 'adex' ? 'adex' : ''"
+            >{{ class }}</a
+          >
         </span>
-        <a [routerLink]="['/', class]" *ngIf="i == breadcrumbs.length - 1;" style="cursor: default; color: gray;">{{ class }}</a>
+        <a
+          [routerLink]="['/', class]"
+          *ngIf="i == breadcrumbs.length - 1"
+          style="cursor: default; color: gray"
+          >{{ class }}</a
+        >
         <span *ngIf="i < breadcrumbs.length - 1"> &nbsp;/&nbsp; </span>
       </h1>
     </div>
@@ -58,15 +66,14 @@
         <tbody>
           <tr *ngFor="let property of parsed_response.tables[source]">
             <td width="20%">
-              <a [routerLink]="['/', property.property]" [ngClass] = "theme == 'adex' ? 'adex' : ''">{{
-                property.property
-              }}</a>
+              <a
+                [routerLink]="['/', property.property]"
+                [ngClass]="theme == 'adex' ? 'adex' : ''"
+                >{{ property.property }}</a
+              >
             </td>
             <td width="20%">
-              <a
-                [routerLink]="['/', property.rdfs_type]"
-                class="type_link"
-              >
+              <a [routerLink]="['/', property.rdfs_type]" class="type_link">
                 {{ property.rdfs_type }}
               </a>
             </td>
@@ -88,29 +95,52 @@
       </table>
     </div>
   </div>
-  <br>
+  <br />
   <div id="table1-div" *ngIf="subclass_list.length != 0">
     <table>
       <tr>
-        <th>Subclasses of {{className}}</th>
+        <th>Subclasses of {{ className }}</th>
       </tr>
       <tr *ngFor="let list of subclass_list">
         <td>
-          <a [routerLink]="['/', list.label]" class="type_link">{{ list.label }}</a>
+          <a [routerLink]="['/', list.label]" class="type_link">{{
+            list.label
+          }}</a>
         </td>
       </tr>
     </table>
   </div>
   <div class="examples-container" *ngIf="examples">
-    <h1>Examples</h1>
     <div class="tab_div">
-      <ul *ngFor="let example of code; let i = index">
+      <ul *ngFor="let example of code; let i = index" class="p-0">
+        <li
+          id="tab_{{ i }}"
+          class="adex"
+          [ngClass]="{ active: selectedTab == i }"
+          (click)="selectTab(example, i)"
+          *ngIf="theme === 'adex' && example.type[1] === 'adex:Resource'"
+        >
+          Data Payload
+          <!-- {{ example.type[1] }} -->
+        </li>
+        <li
+          id="tab_{{ i }}"
+          class="adex"
+          [ngClass]="{ active: selectedTab == i }"
+          (click)="selectTab(example, i)"
+          *ngIf="theme === 'adex' && example.type[1] === 'adex:Schema'"
+        >
+          Data Schema
+          <!-- {{ example.type[1] }} -->
+        </li>
         <li
           id="tab_{{ i }}"
           [ngClass]="{ active: selectedTab == i }"
           (click)="selectTab(example, i)"
+          *ngIf="theme !== 'adex'"
         >
           {{ label + (i + 1) }}
+          <!-- {{ example.type[1] }} -->
         </li>
       </ul>
     </div>

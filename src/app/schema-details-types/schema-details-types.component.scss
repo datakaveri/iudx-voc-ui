@@ -60,6 +60,11 @@
           // font-weight: 600;
           color: var(--primary);
           border: 1px solid var(--border);
+
+          &.adex {
+            background-color: #0a9;
+            color: #fff;
+          }
         }
       }
     }

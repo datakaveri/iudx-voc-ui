@@ -4,10 +4,16 @@
     associated with a set of properties.
   </p>
   <br />
-  <p>Some important Types in IUDX Vocabulary:</p>
+  <p [ngClass]="theme === 'adex' ? 'd-none' : ''">
+    Some important Types in IUDX Vocabulary:
+  </p>
+  <p [ngClass]="theme === 'adex' ? '' : 'd-none'">
+    Some important Types in ADeX Vocabulary:
+  </p>
   <br />
   <div class="title-div">
-    <h1>IUDX Entities</h1>
+    <h1 [ngClass]="theme === 'adex' ? 'd-none' : ''">IUDX Entities</h1>
+    <h1 [ngClass]="theme === 'adex' ? '' : 'd-none'">ADeX Entities</h1>
     <p>
       These are used to describe JSON objects that are values of certain
       properties. These are the types for catalogue items.
@@ -15,17 +21,19 @@
   </div>
   <div class="content-div">
     <div class="list-div">
-      <ul  *ngFor="let entity of entities">
-        <li><a (click)= "goToEntity(entity.label)">{{entity.label}}</a></li>
+      <ul *ngFor="let entity of entities">
+        <li>
+          <a (click)="goToEntity(entity.label)">{{ entity.label }}</a>
+        </li>
       </ul>
     </div>
   </div>
   <div class="para-div">
     <p>
-      * You can also &nbsp;<a (click)=displayTypesList()>
+      * You can also &nbsp;<a (click)="displayTypesList()">
         Browse All Types &nbsp;</a
       >
-      and <a (click)=displayPropertyList()>&nbsp; Browse All Properties </a>
+      and <a (click)="displayPropertyList()">&nbsp; Browse All Properties </a>
     </p>
   </div>
 </div>

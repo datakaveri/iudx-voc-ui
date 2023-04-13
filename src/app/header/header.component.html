@@ -1,25 +1,54 @@
 <header class="header" [ngClass]="theme == 'adex' ? 'adex' : ''">
   <div class="logo__container">
     <a href="/">
-      <img [ngClass]="theme == 'adex' ? 'd-none' : ''" src="https://iudx.org.in/wp-content/uploads/2021/12/IUDX_logo_white.png" class="logo" />
-      <img [ngClass]="theme == 'adex' ? '' : 'd-none'" src="https://adex.org.in/wp-content/uploads/2022/12/adex-logo.png" class="logo" />
-    </a>&nbsp;
+      <img
+        [ngClass]="theme == 'adex' ? 'd-none' : ''"
+        src="https://iudx.org.in/wp-content/uploads/2021/12/IUDX_logo_white.png"
+        class="logo"
+      />
+      <img
+        [ngClass]="theme == 'adex' ? '' : 'd-none'"
+        src="https://adex.org.in/wp-content/uploads/2022/12/adex-logo.png"
+        class="logo"
+      /> </a
+    >&nbsp;
   </div>
   <div class="searchBox-container">
-    <form name="form" action="#" autocomplete="off">
-
-    </form>
+    <form name="form" action="#" autocomplete="off"></form>
   </div>
   <nav class="w-25">
     <ul class="navList">
       <li>
-        <a routerLink="/" class="navLink p-lg-3" [ngClass]="theme == 'adex' ? 'adex' : ''">Home</a>
+        <a
+          routerLink="/"
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'adex' : ''"
+          >Home</a
+        >
       </li>
       <li>
-        <a routerLink="/data-models/list" class="navLink p-lg-3" [ngClass]="theme == 'adex' ? 'adex' : ''">Data-Models</a>
+        <a
+          routerLink="/data-models/list"
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'd-none' : ''"
+        >
+          Data-Models
+        </a>
+        <a
+          routerLink="/data-models/list"
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'adex' : 'd-none'"
+        >
+          Concepts
+        </a>
       </li>
       <li>
-        <a routerLink="/entities/list" class="navLink p-lg-3" [ngClass]="theme == 'adex' ? 'adex' : ''">Types</a>
+        <a
+          routerLink="/entities/list"
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'adex' : ''"
+          >Types</a
+        >
       </li>
     </ul>
   </nav>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment, environmentAgri } from 'src/environments/environment';
 import { InterceptorService } from '../interceptor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,7 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchResultComponent implements OnInit {
   searchDetail: any;
   term: any;
-  _url: string = environment.BASE_URL;
+  _url: string = (localStorage.getItem('theme') === 'adex'
+    ? environmentAgri
+    : environment
+  ).BASE_URL;
   error: boolean = false;
   results: boolean = true;
   constructor(

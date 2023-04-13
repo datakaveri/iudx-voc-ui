@@ -77,12 +77,17 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
             this.parsed_response = {
               label: '',
               description: this.res[0]['rdfs:comment'],
-              breadcrumbs: [this.res[0]['@id'].split('iudx:')[1]],
+              breadcrumbs:
+                localStorage.getItem('theme') === 'adex'
+                  ? [this.res[0]['@id'].split('adex:')[1]]
+                  : [this.res[0]['@id'].split('iudx:')[1]],
               tables: {},
             };
             if (this.res[0]['rdfs:subClassOf']) {
               this.parsed_response.breadcrumbs.push(
-                this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]
+                localStorage.getItem('theme') === 'adex'
+                  ? this.res[0]['rdfs:subClassOf']['@id'].split('adex:')[1]
+                  : this.res[0]['rdfs:subClassOf']['@id'].split('iudx:')[1]
               );
               this.get_sub_class(
                 this.res,
@@ -107,7 +112,9 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
       if (arr[i]['@id'] == str) {
         if (arr[i]['rdfs:subClassOf']) {
           this.parsed_response.breadcrumbs.push(
-            arr[i]['rdfs:subClassOf']['@id'].split('iudx:')[1]
+            localStorage.getItem('theme') === 'adex'
+              ? arr[i]['rdfs:subClassOf']['@id'].split('adex:')[1]
+              : arr[i]['rdfs:subClassOf']['@id'].split('iudx:')[1]
           );
           this.get_sub_class(arr, arr[i]['rdfs:subClassOf']['@id']);
         }
@@ -133,7 +140,7 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
               expected_types: arr[i]['iudx:rangeIncludes'].map((x) => {
                 return x['@id'].split(':')[1];
               }),
-              rdfs_type:arr[i]['@type'][0].split(':')[1],
+              rdfs_type: arr[i]['@type'][0].split(':')[1],
               description: arr[i]['rdfs:comment'],
             };
             this.parsed_response.tables[
@@ -154,10 +161,11 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
     return flag;
   }
 
-  getSublcassesList(value){
+  getSublcassesList(value) {
     // console.log(value)
-    this.service.get_api_headers('relationship?rel=subClassOf&val='+value).then(
-      (data) => {
+    this.service
+      .get_api_headers('relationship?rel=subClassOf&val=' + value)
+      .then((data) => {
         this.subclass_list = data;
       });
   }
