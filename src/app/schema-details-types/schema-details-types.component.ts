@@ -128,25 +128,51 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
       this.parsed_response.tables[b] = [];
     });
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i]['iudx:domainIncludes']) {
-        loop_inner: for (
-          let j = 0;
-          j < this.parsed_response.breadcrumbs.length;
-          j++
-        ) {
-          if (this.is_includes(arr[i], this.parsed_response.breadcrumbs[j])) {
-            let obj = {
-              property: arr[i]['rdfs:label'],
-              expected_types: arr[i]['iudx:rangeIncludes'].map((x) => {
-                return x['@id'].split(':')[1];
-              }),
-              rdfs_type: arr[i]['@type'][0].split(':')[1],
-              description: arr[i]['rdfs:comment'],
-            };
-            this.parsed_response.tables[
-              this.parsed_response.breadcrumbs[j]
-            ].push(obj);
-            break loop_inner;
+      if (localStorage.getItem('theme') !== 'adex') {
+        if (arr[i]['iudx:domainIncludes']) {
+          loop_inner: for (
+            let j = 0;
+            j < this.parsed_response.breadcrumbs.length;
+            j++
+          ) {
+            if (this.is_includes(arr[i], this.parsed_response.breadcrumbs[j])) {
+              let obj = {
+                property: arr[i]['rdfs:label'],
+                expected_types: arr[i]['iudx:rangeIncludes'].map((x) => {
+                  return x['@id'].split(':')[1];
+                }),
+                rdfs_type: arr[i]['@type'][0].split(':')[1],
+                description: arr[i]['rdfs:comment'],
+              };
+              this.parsed_response.tables[
+                this.parsed_response.breadcrumbs[j]
+              ].push(obj);
+              break loop_inner;
+            }
+          }
+        }
+      }
+      if (localStorage.getItem('theme') === 'adex') {
+        if (arr[i]['adex:domainIncludes']) {
+          loop_inner: for (
+            let j = 0;
+            j < this.parsed_response.breadcrumbs.length;
+            j++
+          ) {
+            if (this.is_includes(arr[i], this.parsed_response.breadcrumbs[j])) {
+              let obj = {
+                property: arr[i]['rdfs:label'],
+                expected_types: arr[i]['adex:rangeIncludes'].map((x) => {
+                  return x['@id'].split(':')[1];
+                }),
+                rdfs_type: arr[i]['@type'][0].split(':')[1],
+                description: arr[i]['rdfs:comment'],
+              };
+              this.parsed_response.tables[
+                this.parsed_response.breadcrumbs[j]
+              ].push(obj);
+              break loop_inner;
+            }
           }
         }
       }
@@ -155,10 +181,18 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
 
   is_includes(obj, str) {
     let flag = false;
-    obj['iudx:domainIncludes'].forEach((b) => {
-      if (b['@id'] == 'iudx:' + str) flag = true;
-    });
-    return flag;
+    if (localStorage.getItem('theme') !== 'adex') {
+      obj['iudx:domainIncludes'].forEach((b) => {
+        if (b['@id'] == 'iudx:' + str) flag = true;
+      });
+      return flag;
+    }
+    if (localStorage.getItem('theme') === 'adex') {
+      obj['adex:domainIncludes'].forEach((b) => {
+        if (b['@id'] == 'adex:' + str) flag = true;
+      });
+      return flag;
+    }
   }
 
   getSublcassesList(value) {

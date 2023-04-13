@@ -20,11 +20,21 @@ export class DataDescriptorsComponent implements OnInit {
     this.service.get_api_headers('list/descriptors').then((data: any) => {
       this.descriptors = [];
       data.forEach((a) => {
-        if (a.type != 'iudx:DataDescriptor') {
-          this.descriptors.push({
-            type: a.type.split('iudx:')[1],
-            documents: a.documents,
-          });
+        if (localStorage.getItem('theme') !== 'adex') {
+          if (a.type != 'iudx:DataDescriptor') {
+            this.descriptors.push({
+              type: a.type.split('iudx:')[1],
+              documents: a.documents,
+            });
+          }
+        }
+        if (localStorage.getItem('theme') === 'adex') {
+          if (a.type != 'adex:DataDescriptor') {
+            this.descriptors.push({
+              type: a.type.split('adex:')[1],
+              documents: a.documents,
+            });
+          }
         }
       });
     });

@@ -35,10 +35,14 @@ export class SchemaDetailsPropertiesComponent implements OnInit {
           types: [],
           domains: [],
         };
-        for (let range of response['iudx:rangeIncludes']) {
+        for (let range of localStorage.getItem('theme') === 'adex'
+          ? response['adex:rangeIncludes']
+          : response['iudx:rangeIncludes']) {
           this.property_details.types.push(range['@id'].split(':')[1]);
         }
-        for (let domain of response['iudx:domainIncludes']) {
+        for (let domain of localStorage.getItem('theme') === 'adex'
+          ? response['adex:domainIncludes']
+          : response['iudx:domainIncludes']) {
           this.property_details.domains.push(domain['@id'].split(':')[1]);
         }
       },
