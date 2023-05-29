@@ -96,7 +96,7 @@
     </div>
   </div>
   <br />
-  <div id="table1-div" *ngIf="subclass_list.length != 0">
+  <div id="table1-div" *ngIf="subclass_list.length !== 0">
     <table>
       <tr>
         <th>Subclasses of {{ className }}</th>
@@ -110,32 +110,30 @@
       </tr>
     </table>
   </div>
-  <div class="examples-container" *ngIf="examples">
+  <div class="examples-container">
     <div class="tab_div">
       <ul *ngFor="let example of code; let i = index" class="p-0">
         <li
           id="tab_{{ i }}"
           class="adex"
-          [ngClass]="{ active: selectedTab == i }"
+          [ngClass]="{ active: selectedTab === i }"
           (click)="selectTab(example, i)"
           *ngIf="theme === 'adex' && example.type[1] === 'adex:Resource'"
         >
           Data Payload
-          <!-- {{ example.type[1] }} -->
         </li>
         <li
           id="tab_{{ i }}"
           class="adex"
-          [ngClass]="{ active: selectedTab == i }"
+          [ngClass]="{ active: selectedTab === i }"
           (click)="selectTab(example, i)"
           *ngIf="theme === 'adex' && example.type[1] === 'adex:Schema'"
         >
           Data Schema
-          <!-- {{ example.type[1] }} -->
         </li>
         <li
           id="tab_{{ i }}"
-          [ngClass]="{ active: selectedTab == i }"
+          [ngClass]="{ active: selectedTab === i }"
           (click)="selectTab(example, i)"
           *ngIf="theme !== 'adex'"
         >
@@ -144,18 +142,47 @@
         </li>
       </ul>
     </div>
-    <div class="button-group-container">
-      <div class="button-group">
-        <div class="copy-btn">
-          <a (click)="copy(content)">Copy</a>
-        </div>
-        <div class="playground-btn">
-          <a (click)="getJson(content)" href="{{ jsonQuery }}" target="_blank"
-            >Open in Playground</a
+    <div *ngFor="let example of code; let i = index">
+      <div
+        class="button-group-container"
+        *ngIf="
+          (example.type[1] === 'adex:Resource' && selectedTab === 0) ||
+          (example.type[1] === 'adex:Schema' && selectedTab === 1)
+        "
+      >
+        <div class="button-group">
+          <div
+            class="copy-btn"
+            *ngIf="example.type[1] === 'adex:Resource' && selectedTab === 0"
           >
+            <a (click)="copy(content)">Copy</a>
+          </div>
+          <div
+            class="copy-btn"
+            *ngIf="example.type[1] === 'adex:Schema' && selectedTab === 1"
+          >
+            <a (click)="copy(content)">Copy</a>
+          </div>
+          <div
+            class="playground-btn me-3"
+            *ngIf="example.type[1] === 'adex:Resource' && selectedTab === 0"
+          >
+            <a (click)="getJson(content)" href="{{ jsonQuery }}" target="_blank"
+              >Open in Playground</a
+            >
+          </div>
+          <div
+            class="playground-btn"
+            *ngIf="example.type[1] === 'adex:Schema' && selectedTab === 1"
+          >
+            <a (click)="openJsonSchemaModel(jsonDataToVisualize)"
+              >Visualize JSON Schema</a
+            >
+          </div>
         </div>
       </div>
     </div>
+
     <div class="json-container" *ngIf="tabs || examples">
       <div id="json-view">
         <pre>{{ content | json }}</pre>
