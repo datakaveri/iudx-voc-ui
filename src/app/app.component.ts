@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { SubscriberService } from './subscriber.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,10 @@ import { Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'dk-voc-ui';
   showHeader: boolean = false;
+  popup_status: any;
+  popup_type: any;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private subscriber: SubscriberService) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/') {
@@ -19,6 +22,14 @@ export class AppComponent {
           this.showHeader = true;
         }
       }
+    });
+
+    this.popup_status = false;
+    this.popup_type = '';
+
+    this.subscriber.get_popup().subscribe((data) => {
+      this.popup_status = data.flag;
+      this.popup_type = data.type;
     });
   }
 }

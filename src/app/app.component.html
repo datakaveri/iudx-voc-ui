@@ -1,2 +1,5 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
+<app-json-visualizer-modal
+  *ngIf="popup_status && popup_type === 'json-visualizer-modal'"
+></app-json-visualizer-modal>

@@ -10,7 +10,7 @@ if (environment.production) {
 
 location.origin.includes('.adex.')
   ? localStorage.setItem('theme', 'adex')
-  : localStorage.setItem('theme', 'urban');
+  : localStorage.setItem('theme', 'adex');
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)

@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { InterceptorService } from '../interceptor.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { SubscriberService } from '../subscriber.service';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-schema-details-types',
@@ -29,10 +31,13 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
   selectedTab: number;
   subclass_list: any;
   theme: string;
+  jsonDataToVisualize: any;
   constructor(
     private route: ActivatedRoute,
     private service: InterceptorService,
-    private router: Router
+    private router: Router,
+    private subscriber: SubscriberService,
+    private global: GlobalService
   ) {
     this.theme = localStorage.getItem('theme');
     this.parsed_response = {
@@ -196,7 +201,6 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
   }
 
   getSublcassesList(value) {
-    // console.log(value)
     this.service
       .get_api_headers('relationship?rel=subClassOf&val=' + value)
       .then((data) => {
@@ -207,12 +211,19 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
     this.service
       .get_api_headersLD('examples/' + this.className)
       .then((response: any) => {
-        if (response == [] || response.length == 0) {
+        if (response.length == 0) {
           this.examples = false;
         } else {
           this.examples = true;
-          this.code = response;
+          // Out of order API response handling
+          if (response[0].type[1] === 'adex:Schema') {
+            this.code = [response[1], response[0]];
+          } else {
+            this.code = response;
+          }
           this.content = response[0];
+          const jsonDataToVisualize = this.code[1].schema;
+          this.global.set_temp_data(jsonDataToVisualize);
         }
       });
   }
@@ -234,5 +245,9 @@ export class SchemaDetailsTypesComponent implements OnInit, AfterViewInit {
     this.content = tab;
     this.selectedTab = num;
     this.tabs = true;
+  }
+
+  openJsonSchemaModel(jsonData: string) {
+    this.subscriber.set_popup(true, 'json-visualizer-modal', false);
   }
 }
