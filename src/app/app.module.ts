@@ -24,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RoutingComponent } from './routing/routing.component';
 import { ToasterComponent } from './toaster/toaster.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JsonVisualizerModalComponent } from './json-visualizer-modal/json-visualizer-modal.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SearchResultComponent,
     PageNotFoundComponent,
     RoutingComponent,
-    ToasterComponent
+    ToasterComponent,
+    JsonVisualizerModalComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
