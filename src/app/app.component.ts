@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
@@ -7,10 +8,12 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'dk-voc-ui';
   showHeader: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private title: Title, private router: Router) {
+    if (localStorage.getItem('theme') === 'adex') {
+      this.title.setTitle('ADEX | Vocubalry');
+    }
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/') {
