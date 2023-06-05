@@ -19,7 +19,7 @@ export class AppComponent {
     private subscriber: SubscriberService
   ) {
     if (localStorage.getItem('theme') === 'adex') {
-      this.title.setTitle('ADEX | Vocubalry');
+      this.title.setTitle('ADEX | Vocabulary');
     }
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
