@@ -30,14 +30,14 @@ export class EntitiesComponent implements OnInit {
     if (localStorage.getItem('theme') !== 'adex') {
       this.backendService
         .get_api_headers('relationship?rel=subClassOf&val=IUDXEntity')
-        .then((data) => {
-          this.entities = data;
+        .then((data:any) => {
+          this.entities =  data.sort((a,b)=>a.label>b.label? 1:-1);
         });
     } else {
       this.backendService
         .get_api_headers('relationship?rel=subClassOf&val=ADEXEntity')
-        .then((data) => {
-          this.entities = data;
+        .then((data :any) => {
+          this.entities =  data.sort((a,b)=>a.label>b.label? 1:-1);
         });
     }
   }

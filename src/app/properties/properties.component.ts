@@ -16,8 +16,8 @@ export class PropertiesComponent implements OnInit {
 
   ngOnInit(): void {}
   getPropertyList() {
-    this.service.get_api_headers('properties').then((data) => {
-      this.properties = data;
+    this.service.get_api_headers('properties').then((data:any) => {
+      this.properties =  data.sort((a,b)=>a.label>b.label? 1:-1);
     });
   }
   showPropertyDetail(property_name: string) {

@@ -21,8 +21,8 @@ export class DataModelDomainsComponent implements OnInit {
   getAllDomains() {
     this.service
       .get_api_headers('relationship?rel=subClassOf&val=DataModel')
-      .then((data) => {
-        this.dataModels = data;
+      .then((data :any) => {
+        this.dataModels = data.sort((a,b)=>a.label>b.label? 1:-1);
       });
   }
   getDataModelsList(domain_name) {

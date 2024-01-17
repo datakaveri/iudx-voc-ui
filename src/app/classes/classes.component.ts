@@ -15,8 +15,8 @@ export class ClassesComponent implements OnInit {
 
   ngOnInit(): void {}
   getClassesList() {
-    this.service.get_api_headers('classes').then((data) => {
-      this.classes = data;
+    this.service.get_api_headers('classes').then((data :any) => {
+      this.classes =  data.sort((a,b)=>a.label>b.label? 1:-1);
     });
   }
   showClassDetail(clsName: string) {
