@@ -8,7 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-location.origin.includes('.adex.')
+location.origin.includes('agri')
   ? localStorage.setItem('theme', 'adex')
   : localStorage.setItem('theme', 'adex');
 
