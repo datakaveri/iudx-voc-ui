@@ -1,30 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InterceptorService } from '../interceptor.service';
+
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-agri-home',
+  templateUrl: './agri-home.component.html',
+  styleUrls: ['./agri-home.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class AgriHomeComponent implements OnInit {
+  model: string;
+  searchTerm: string;
   filteredTerm: any = [];
   results: any;
-  search_text: string;
+  pageHeight: any;
   theme: string;
+
   constructor(private router: Router, private service: InterceptorService) {
+    this.pageHeight = window.innerHeight;
+    this.searchTerm = '';
     this.theme = localStorage.getItem('theme');
   }
 
   ngOnInit(): void {}
-
-  close_div() {
-    this.search_text = '';
+  goToDataModels() {
+    this.router.navigate(['/data-models/list']);
   }
+
+  goToEntities() {
+    this.router.navigate(['/entities/list']);
+  }
+
   onSearch(text: string) {
     this.router.navigate(['/search/searchTerm'], {
-      queryParams: { q: this.search_text },
+      queryParams: { q: this.searchTerm },
     });
-    this.close_div();
   }
 
   filterItems(value) {
@@ -37,7 +46,15 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ScrollTo() {
-    window.scrollTo(300, 1000);
+  scrollToAbout() {
+    window.scrollBy(0, this.pageHeight);
+  }
+
+  scrollToConsist() {
+    window.scrollBy(0, this.pageHeight * 2);
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 }

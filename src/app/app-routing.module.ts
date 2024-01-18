@@ -13,11 +13,14 @@ import { DescriptorDetailsComponent } from './descriptor-details/descriptor-deta
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingComponent } from './routing/routing.component';
+import { AgriHomeComponent } from './agri-home/agri-home.component';
+const theme =
+  localStorage.getItem('theme') === 'adex' ? AgriHomeComponent : HomeComponent;
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: theme,
   },
   {
     path: ':id',

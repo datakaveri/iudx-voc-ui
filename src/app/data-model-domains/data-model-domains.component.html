@@ -14,30 +14,32 @@
         *ngFor="let domains of dataModels"
         style="min-width: calc(25% - 30px) !important; width: calc(25% - 30px)"
       >
-        <div class="w-100 icon">
-          <img
-            alt="{{ domains.label | lowercase }}"
-            class="img-container w-25 mw-25 py-lg-0"
-            [ngClass]="theme == 'adex' ? 'adex' : ''"
-            [ngStyle]="{
-              'mask-image':
-                '(./../../assets/' +
-                lowerCaseConversion(domains.label) +
-                '.svg)',
-              '-webkit-mask-image':
-                'url(./../../assets/' +
-                lowerCaseConversion(domains.label) +
-                '.svg)'
-            }"
-          />
-        </div>
         <div>
           <a
             (click)="getDataModelsList(domains.label)"
             class="view-datasets"
             [ngClass]="theme == 'adex' ? 'adex' : ''"
           >
-            <h3 class="mt-lg-0 domains-label">{{ domains.label }}</h3>
+            <div class="w-100 icon">
+              <img
+                alt="{{ domains.label | lowercase }}"
+                class="img-container w-25 mw-25 py-lg-0"
+                [ngClass]="theme == 'adex' ? 'adex' : ''"
+                [ngStyle]="{
+                  'mask-image':
+                    '(./../../assets/' +
+                    lowerCaseConversion(domains.label) +
+                    '.svg)',
+                  '-webkit-mask-image':
+                    'url(./../../assets/' +
+                    lowerCaseConversion(domains.label) +
+                    '.svg)'
+                }"
+              />
+              <h3 class="mt-lg-0 domains-label ps-lg-4 pt-lg-3">
+                {{ domains.label }}
+              </h3>
+            </div>
             <p class="domains-content text-justify mb-lg-3">
               {{ domains.comment }}
             </p>

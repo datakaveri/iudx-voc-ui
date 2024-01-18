@@ -8,8 +8,9 @@
       />
       <img
         [ngClass]="theme == 'adex' ? '' : 'd-none'"
-        src="https://adex.org.in/wp-content/uploads/2022/12/adex-logo.png"
+        src="./../../assets/agrijson.png"
         class="logo"
+        style="width: 210px"
       /> </a
     >&nbsp;
   </div>
@@ -24,6 +25,14 @@
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'adex' : ''"
           >Home</a
+        >
+      </li>
+      <li>
+        <a
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'adex' : ''"
+          (click)="ScrollTo()"
+          >About</a
         >
       </li>
       <li>
@@ -48,6 +57,11 @@
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'adex' : ''"
           >Types</a
+        >
+      </li>
+      <li>
+        <a class="navLink p-lg-3" [ngClass]="theme == 'adex' ? 'adex' : ''"
+          >Developers</a
         >
       </li>
     </ul>

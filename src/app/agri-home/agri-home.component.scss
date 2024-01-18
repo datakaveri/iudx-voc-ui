@@ -1,0 +1,110 @@
+.banner-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    background: #0a9;
+    width: 6%;
+    top: 9%;
+    right: 9px;
+    border-radius: 10px;
+}
+
+.why-agrijson {
+    padding: 50px 0 0 0;
+}
+
+h2 {
+    font-weight: 500 !important;
+    color: #0a9;
+}
+
+.banner-text {
+    position: absolute;
+    top: 14%;
+    right: 24.5%;
+    color: #fff;
+    /* background: white; */
+    font-size: 40px;
+    font-weight: 600 !important;
+}
+
+span {
+    color: blue;
+    font-size: 16px;
+}
+
+.search-div {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: white; */
+    width: 40%;
+}
+
+li {
+    line-height: 30px;
+    font-size: 16px;
+    text-align: justify;
+
+    &.bullet {
+        list-style: circle;
+
+        &::marker {
+            font-size: 20px;
+        }
+    }
+}
+
+input {
+    padding: 1.5% 2% 1.5% 2%;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.searchBox-dropdown {
+    box-sizing: border-box;
+    max-height: 200px;
+    border-top: 0;
+    background-color: var(--white);
+    border-radius: 10px;
+    position: absolute;
+    top: 71%;
+    overflow-y: auto;
+    // width: calc(100% - 70px);
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 656px;
+
+    text-align: left;
+
+    .no_data {
+        padding: 0 15px;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0 !important;
+
+        li {
+            cursor: pointer;
+
+            p {
+                padding: 15px;
+                color: var(--primary);
+                font-weight: 500 !important;
+                font-size: 16px !important;
+            }
+
+            &:hover {
+                background-color: #0a9;
+
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

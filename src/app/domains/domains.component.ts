@@ -27,8 +27,8 @@ export class DomainsComponent implements OnInit {
     });
     this.service
       .get_api_headers('relationship?rel=subClassOf&val=' + this.value)
-      .then((data) => {
-        this.domains = data;
+      .then((data: any) => {
+        this.domains = data.sort((a, b) => (a.label > b.label ? 1 : -1));
       });
   }
 }
