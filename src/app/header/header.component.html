@@ -10,7 +10,7 @@
         [ngClass]="theme == 'adex' ? '' : 'd-none'"
         src="./../../assets/agrijson.png"
         class="logo"
-        style="width: 210px"
+        style="width: 30%"
       /> </a
     >&nbsp;
   </div>
@@ -21,6 +21,8 @@
     <ul class="navList">
       <li>
         <a
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
           routerLink="/"
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'adex' : ''"
@@ -29,14 +31,16 @@
       </li>
       <li>
         <a
+          [routerLinkActive]="['active']"
+          routerLink="/about"
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'adex' : ''"
-          (click)="ScrollTo()"
           >About</a
         >
       </li>
       <li>
         <a
+          [routerLinkActive]="['active']"
           routerLink="/data-models/list"
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'd-none' : ''"
@@ -44,6 +48,7 @@
           Data-Models
         </a>
         <a
+          [routerLinkActive]="['active']"
           routerLink="/data-models/list"
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'adex' : 'd-none'"
@@ -53,6 +58,7 @@
       </li>
       <li>
         <a
+          [routerLinkActive]="['active']"
           routerLink="/entities/list"
           class="navLink p-lg-3"
           [ngClass]="theme == 'adex' ? 'adex' : ''"
@@ -60,8 +66,12 @@
         >
       </li>
       <li>
-        <a class="navLink p-lg-3" [ngClass]="theme == 'adex' ? 'adex' : ''"
-          >Developers</a
+        <a
+          [routerLinkActive]="['active']"
+          routerLink="/developers"
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'adex' : ''"
+          >Developer</a
         >
       </li>
     </ul>

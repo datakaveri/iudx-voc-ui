@@ -10,7 +10,7 @@ if (environment.production) {
 
 location.origin.includes('agri')
   ? localStorage.setItem('theme', 'adex')
-  : localStorage.setItem('theme', 'adex');
+  : localStorage.setItem('theme', 'urban');
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)

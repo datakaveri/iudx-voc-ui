@@ -26,6 +26,8 @@ import { ToasterComponent } from './toaster/toaster.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JsonVisualizerModalComponent } from './json-visualizer-modal/json-visualizer-modal.component';
 import { AgriHomeComponent } from './agri-home/agri-home.component';
+import { DevelopersComponent } from './developers/developers.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { AgriHomeComponent } from './agri-home/agri-home.component';
     RoutingComponent,
     ToasterComponent,
     JsonVisualizerModalComponent,
-    AgriHomeComponent
+    AgriHomeComponent,
+    DevelopersComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

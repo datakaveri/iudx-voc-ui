@@ -37,13 +37,20 @@ nav {
     padding-right: 50px;
     text-decoration: none;
 
+    &.active {
+      border-bottom: 2px solid #fff;
+      color: #fff;
+    }
+
     &:hover {
-      background-color: #fff;
+      border-bottom: 2px solid #fff;
       color: #042f5b !important;
     }
 
+
     &.adex:hover {
-      color: #0a9 !important;
+      border-bottom: 2px solid #fff;
+      color: #fff !important;
     }
   }
 }

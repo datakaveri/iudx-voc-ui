@@ -37,13 +37,14 @@ span {
 
 .search-div {
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* background: white; */
     width: 40%;
 }
 
+p,
 li {
     line-height: 30px;
     font-size: 16px;
@@ -62,6 +63,11 @@ input {
     padding: 1.5% 2% 1.5% 2%;
     font-size: 20px;
     border-radius: 10px;
+}
+
+strong {
+    font-weight: 800 !important;
+    font-size: 16px;
 }
 
 .searchBox-dropdown {

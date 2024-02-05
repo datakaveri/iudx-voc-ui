@@ -1,0 +1,22 @@
+h2 {
+    color: #0a9;
+}
+
+li {
+    line-height: 30px;
+    font-size: 16px;
+    text-align: justify;
+
+    &.bullet {
+        list-style: circle;
+
+        &::marker {
+            font-size: 20px;
+        }
+    }
+}
+
+img {
+    border-top-right-radius: 146px;
+    border-bottom-left-radius: 135px;
+}

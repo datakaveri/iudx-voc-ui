@@ -42,65 +42,116 @@
     </div>
   </form>
   <div class="container">
-    <h2 class="mt-lg-5">Why AgriJSON?</h2>
-    <ul>
-      <li class="pt-lg-3 text-align-justify">
-        The global community faces the huge problems of hunger and malnutrition,
-        with an estimated 800 million empty plates in 2021 and 3.1 billion
-        undernourished persons in 2021. Digital Agriculture can transform the
-        production, productivity, quality and distribution of food. Digital
-        transformation requires data – right data to the right people/ systems
-        in the right time. This is possible only of we can break the data silos
-        and enable seamless interoperability of food systems. AgriJSON resolves
-        the ‘data challenges’ through semantic interoperability.
-      </li>
-    </ul>
-
-    <h2 id="aboutAgriJson">About AgriJSON Vocabulary</h2>
-    <ul>
-      <li class="pt-lg-3 text-align-justify">
-        AgriJSON is a schema for representation of a wide range of agricultural
-        data. <span>agrijson.org</span> is a shared vocabulary that details
-        schemas for structured agricultural data exchange via data exchange(DX)
-        APIs. The creation and maintenance of agrijson.org schemas is intended
-        to be a collaborative activity. A shared vocabulary along with a data
-        exchange standard has the potential to enable data interoperability,
-        functional extensibility and information exchange across silos
-        (application verticals, departments etc.). Further, shared vocabulary
-        allows intelligent applications and data consumers to understand the
-        semantic meaning of attributes and entities entailing the ADeX
-        specification. The schema used to specify agrijson.org is derived from
-        the Resource Description Framework (RDF) schema. Apart from standard
-        properties from RDFS, additional properties have been defined to specify
-        vocabulary components. For example, similar to schema.org, additional
-        properties like ‘domainIncludes’ and ‘rangeIncludes’ have been used to
-        allow associating a property with multiple domains and ranges.
-      </li>
-    </ul>
-    <div class="ps-lg-4">
-      <h3>What does it consist of?</h3>
-      <ul>
-        <li class="pt-lg-2 text-align-justify bullet">
-          Set of ‘types’ (or ‘classes’) representing structured data objects.
-          These ‘types’ are organized into single inheritance hierarchies using
-          the ‘rdfs:subclassOf’ property from RDF Schema
+    <div class="row mt-lg-4">
+      <h2>AgriJSON</h2>
+      <ul class="ps-lg-5">
+        <li>
+          AgriJSON is a schema that provides a standard method of defining the
+          semantics and for representation of agricultural data and enables a
+          seamless exchange across the ecosystem of digital agriculture.
         </li>
-        <li class="pt-lg-4 text-align-justify bullet">
-          Set of ‘properties’ where each property may have one or more types as
-          its domain which implies that this property may be present in the
-          instances belonging to any of the domain types. Further, each property
-          may have one or more types as its range which implies that the value
-          objects for this property should be an instance of at least one of the
-          range types. Additional properties like ‘exactMatch’ may be used to
-          provide additional linkings to already known properties from other
-          vocabularies.
+        <li>
+          The concept of AgriJSON was developed by Mr Satyanarayana Jeedigunta,
+          Chief Advisor, C4IR India. The version 1.0 of AgriJSON schema has been
+          developed by a team of IISc, Bengaluru.
         </li>
-
-        <li class="pt-lg-4 text-align-justify">
-          For example, a data model can be represented as a ‘type’ and is
-          associated with all the properties that include this data model type
-          in its domain. agrijson.org uses JSON-LD to represent vocabulary
-          objects.
+        <li>
+          Currently, AgriJSON is developed on a 3-level taxonomy - Concepts,
+          Categories and Types. The five concepts of AgriJSON are: Entity,
+          naturalResource, Process, Service and Calssification. They consist of
+          36 data models, each consisting of 10 to 25 attributes and
+          representing a usable dataObject. Some of the technical details are
+          given below:
+        </li>
+        <li class="bullet">
+          AgriJSON Schema can be accessed at https://agrijson.org
+        </li>
+        <li class="bullet">
+          AgriJSON has been developed using JSON-LD standard.
+        </li>
+        <li class="bullet">
+          The schema is useful to developers for designing interoperable systems
+          in digital agriculture It is proposed that the AgriJSON Schema can be
+          expanded in a phased manner to consist of about 100 dataObjects that
+          across the entire spectrum of digital agriculture.
+        </li>
+      </ul>
+    </div>
+    <div class="row mt-lg-4">
+      <h2>Agricultural Data: Critical for Sectoral Transformation</h2>
+      <p class="ps-lg-5">
+        According to an estimate of NASSCOM, the annual economic potential of
+        agricultural data is US$ 65 billion in India. The global projection may
+        be much larger. The potential can be realized through multiple methods –
+        like digital services, analytics, AI-based predections, innovation and
+        research. The economic potential of data lies along the entire value
+        chain spanning across crop planning, crop management, logistics and
+        marketing. The variety of agricultural data is wide as it deals with
+        several complex aspects like land, soil, seed, crop, pest, disease,
+        weather, market, machinery, devices, chemicals, quality, traceability
+        and exports. Most often the data is required to be near real-time to be
+        fit for purpose
+      </p>
+      <p class="ps-lg-5">
+        Agriculture sector produces immense data. The emerging practices like
+        smart farming, precision farming and climate smart agriculture are
+        pushing up the volumes of data produced and consumed. IDC has assessed
+        that currently in US, an average farm with a size of over 400 hectares,
+        produces 0.5 million data points every day. This number is estimated to
+        grow to 4 million by 2036. However, data can deliver on its promise of
+        economic transformation only if it is of the right quality,
+        standards-based, structured, and interoperable. Otherwise, data can
+        become a burden instead of being an asset.
+      </p>
+    </div>
+    <div class="row mt-lg-4">
+      <h2>The Challenge</h2>
+      <p class="ps-lg-5">
+        While the value of data is well recognized, the data ecosystem faces
+        several challenges. The data is sioled. We do not have a data standard
+        for agriculture like for healthcare which has FHIR (HL7) standard. This
+        has led to the the challenge in exchange of the data. As a result, the
+        potential of data lies untapped with its owners, while the innovators,
+        researchers, and service providers grope or struggle for that data.
+        Besides the difficulties in exchange of data, the non-standard
+        representation of agricultural data makes It unsuitable for
+        machine-to-machine interchange, readability, and interpretability. This
+        is a huge barrier to designing, developing, and delivering efficient
+        digital services to the stakeholers.
+      </p>
+    </div>
+    <div class="row mt-lg-3">
+      <h2>The Opportunity</h2>
+      <ul class="ps-lg-5">
+        <li>
+          An open standard for defining and representing agricultural data can
+          unleash a huge potential currently latent in agricultural data at
+          rest. The opportunity can be realized by pursuing multiple efforts of
+          standardization along the data life cycle. These includes
+          standardizing the vocabulary (already accomplished by the AGROVOC
+          initiative of FAO), defining the semantics of agricultural data,
+          developing
+          <strong
+            >a standard method for representation or serializtion of
+            data,</strong
+          >
+          and the protocol for exchanging data. Significant opportunities lie in
+          pursuing latter three ideas. Seamless interchange of agricultural data
+          opens the following opportunities.
+        </li>
+        <li class="bullet">
+          Mere digitization would enhance efficiencies of the agri value chain.
+        </li>
+        <li class="bullet">
+          Emerging technologies enable data-driven, prediction-based farm
+          decisions
+        </li>
+        <li class="bullet">
+          Combinatorial power of data opens huge landscape of innovation
+        </li>
+        <li class="bullet">
+          Smallholding farmers can get empowered through simple mobile
+          interfaces
         </li>
       </ul>
     </div>

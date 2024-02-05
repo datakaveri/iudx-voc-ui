@@ -37,7 +37,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ScrollTo() {
-    window.scrollTo(300, 1000);
+  scrollToDiv(target: HTMLElement) {
+    // Scroll to the target element smoothly
+    target.scrollIntoView();
   }
 }

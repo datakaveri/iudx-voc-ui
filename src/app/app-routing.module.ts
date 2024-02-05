@@ -14,6 +14,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingComponent } from './routing/routing.component';
 import { AgriHomeComponent } from './agri-home/agri-home.component';
+import { DevelopersComponent } from './developers/developers.component';
+import { AboutComponent } from './about/about.component';
 const theme =
   localStorage.getItem('theme') === 'adex' ? AgriHomeComponent : HomeComponent;
 
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: '',
     component: theme,
+  },
+  {
+    path: 'developers',
+    component: DevelopersComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: ':id',
