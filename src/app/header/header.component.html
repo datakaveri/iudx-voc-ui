@@ -31,6 +31,14 @@
       </li>
       <li>
         <a
+          href="https://dataexplorer.ts.adex.org.in/"
+          class="navLink p-lg-3"
+          [ngClass]="theme == 'adex' ? 'adex' : ''"
+          >Data Explorer</a
+        >
+      </li>
+      <li>
+        <a
           [routerLinkActive]="['active']"
           routerLink="/about"
           class="navLink p-lg-3"
